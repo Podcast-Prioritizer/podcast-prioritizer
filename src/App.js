@@ -19,8 +19,11 @@ class App extends Component {
       params: {
         key: "uMDO6BJLrXNNrJI5BZ7A0tFS6AojdBjn",
         from: "Toronto",
+        // Current location
         to: "Ottawa",
+        // End location
         routeType: "fastest",
+        // Route types will have to be "pedestrian" and "bicycle"
       },
     }).then((data) => {
       this.setState({
