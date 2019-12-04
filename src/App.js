@@ -26,6 +26,7 @@ class App extends Component {
         // Route types will have to be "pedestrian" and "bicycle"
       },
     }).then((data) => {
+      console.log(data);
       this.setState({
         directionInfo: data.data.route
       });
