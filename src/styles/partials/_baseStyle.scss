@@ -1,0 +1,39 @@
+
+// REMOVE DEFAULTS =============================
+
+
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+// SET STANDARD STYLES ============================
+
+h1, h2, h3 {
+    font-family: 'Nova Flat';
+    line-height: 6rem;
+    margin: 2rem 0; 
+    color: #232323; 
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 5rem;
+}
+
+h3 {
+    font-size: 3.5rem;
+}
+
+p, a, ::placeholder {
+    font-family: 'Lato';
+}
+
+
