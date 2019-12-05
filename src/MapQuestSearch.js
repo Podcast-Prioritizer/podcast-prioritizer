@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 
-class UserDestination extends Component {
+class MapQuestSearch extends Component {
     getMapInfo = event => {
         event.preventDefault();
 
@@ -59,14 +59,18 @@ class UserDestination extends Component {
     return (
       <div>
         <form onSubmit={this.getMapInfo}>
-          <label htmlFor="userStart">Enter Your Location</label>
+          <label htmlFor="userStart" className="visuallyHidden">
+            Enter Your Location
+          </label>
           <input
             type="text"
             placeholder="lmao"
             id="userStart"
             ref="userStart"
           />
-          <label htmlFor="userDestination">Enter Your Destination</label>
+          <label htmlFor="userDestination" className="visuallyHidden">
+            Enter Your Destination
+          </label>
           <input
             type="text"
             placeholder="lmao"
@@ -80,4 +84,4 @@ class UserDestination extends Component {
   }
 };
 
-export default UserDestination;
+export default MapQuestSearch;

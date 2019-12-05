@@ -1,0 +1,21 @@
+// IMPORT ALL PARTIALS HERE ============================
+// SETUP
+@import "partials/setup";
+// VARIABLES
+@import "./partials/variables";
+// GLOBAL STYLES
+@import "partials/globalFormat";
+// BASE STYLES
+@import "partials/baseStyle";
+// MIXINS
+@import "partials/mixins";
+
+
+// INDIVIDUAL COMPONENT STYLES ============================
+
+
+
+
+// MEDIA QUERIES (KEEP LAST) ========================================
+@import "partials/mediaQueries";
+
