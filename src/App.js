@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import Axios from 'axios';
+import Podcast from './Podcast'
+import Episode from './Episode'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 class App extends Component {
   constructor(){
@@ -45,13 +48,16 @@ class App extends Component {
 
   render(){
     return(
-      <div>
-          <form onSubmit={this.getMapInfo}>
-            <input type="text" placeholder="lmao" />
-            <button type="submit">Search</button>
-          </form>
-      </div>
-
+      <Router>
+          <div>
+            <form onSubmit={this.getMapInfo}>
+              <input type="text" placeholder="lmao" />
+              <button type="submit">Search</button>
+            </form>
+            <Podcast/>
+            <Route path="/:id" component={Episode} />
+        </div>
+      </Router>
     );
   };
 };
