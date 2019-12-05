@@ -6,13 +6,15 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
+      startLocation: "",
       endLocation: "",
       travelTime: {},
     };
   };
 
-  locationAndTime = (userDestination, calculatedTravelTime) => {
+  locationAndTime = (userStart, userDestination, calculatedTravelTime) => {
     this.setState({
+      startLocation: userStart,
       endLocation: userDestination,
       travelTime: calculatedTravelTime,
     })
