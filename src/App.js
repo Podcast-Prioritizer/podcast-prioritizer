@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import './styles/App.scss';
 import Axios from 'axios';
+import { BrowserRouter as Router, Route, Link, Navlink } from 'react-router-dom';
+
+import MapQuestSearch from './MapQuestSearch'
+import Header from './Header'
 
 class App extends Component {
   constructor(){
@@ -44,16 +48,18 @@ class App extends Component {
   };
 
   render(){
-    return(
+    return (
+      <Router>
+        <Route path="/" component={Header}/>
+        <Route path="/mapquestsearch" component={MapQuestSearch}/>
+        
+        <form onSubmit={this.getMapInfo}>
+          <input type="text" placeholder="lmao" />
 
-      <form onSubmit={this.getMapInfo}>
+          <button type="submit">Search</button>
+        </form>
 
-        <input type="text" placeholder="lmao" />
-
-        <button type="submit">Search</button>
-
-      </form>
-
+      </Router>
     );
   };
 };
