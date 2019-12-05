@@ -45,14 +45,12 @@ class App extends Component {
 
   render(){
     return(
-
-      <form onSubmit={this.getMapInfo}>
-
-        <input type="text" placeholder="lmao" />
-
-        <button type="submit">Search</button>
-
-      </form>
+      <div>
+          <form onSubmit={this.getMapInfo}>
+            <input type="text" placeholder="lmao" />
+            <button type="submit">Search</button>
+          </form>
+      </div>
 
     );
   };
