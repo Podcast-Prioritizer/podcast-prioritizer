@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './styles/App.scss';
 import Axios from 'axios';
 import { BrowserRouter as Router, Route, Link, Navlink } from 'react-router-dom';
 
