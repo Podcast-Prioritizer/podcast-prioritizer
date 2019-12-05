@@ -6,24 +6,36 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      startLocation: "",
-      endLocation: "",
-      travelTime: {},
+      startAndEndLocations: {},
+      bikingTime: "",
+      walkingTime: "",
     };
   };
 
-  locationAndTime = (userStart, userDestination, calculatedTravelTime) => {
+  setBikeTime = (returnedBikingTime) => {
     this.setState({
-      startLocation: userStart,
-      endLocation: userDestination,
-      travelTime: calculatedTravelTime,
+      bikingTime: returnedBikingTime,
+    })
+  }
+
+  setWalkTime = (returnedWalkingTime) => {
+    this.setState({
+      walkingTime: returnedWalkingTime,
+    });
+  }
+
+  setLocations = (locationObject) => {
+    this.setState({
+      startAndEndLocations: locationObject,
     })
   }
 
   render(){
     return(
       <UserDestination 
-        locationAndTimeProp={this.locationAndTime}
+        setLocationsProp={this.setLocations}
+        setBikeTimeProp={this.setBikeTime}
+        setWalkTimeProp={this.setWalkTime}
         stateProp={this.state}
       />
     );
