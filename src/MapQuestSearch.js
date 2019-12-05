@@ -1,81 +1,87 @@
 import React, { Component } from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route, Link, NavLink } from "react-router-dom";
+import Axios from 'axios';
 
 class MapQuestSearch extends Component {
-    constructor() {
-        super();
-        this.setState = {
-            userDirectionInput: '',
-            userStartingPoint: '',
-            userEndPoint: ''
+    getMapInfo = event => {
+        event.preventDefault();
+
+    Axios.all(
+    [this.makeAxiosCallBike(this.refs.userStart.value,
+      this.refs.userDestination.value), 
+      this.makeAxiosCallWalk(this.refs.userStart.value,
+      this.refs.userDestination.value)]
+    ).then((responseArray) => {
+        const returnLocationInfo = responseArray[0].data.route.locations;
+
+        let locationObject = {
+          startAddress: returnLocationInfo[0].street,
+          startCity: returnLocationInfo[0].adminArea5,
+          endAddress: returnLocationInfo[1].street,
+          endCity: returnLocationInfo[1].adminArea5,
         };
-    }
-// FUNCTION ====================================
-//WATCH FORM FOR CHANGE WHEN USER ENTERS SOMETHING
-//PASS TO PARENT COMPONENT FOR AXIOS CALL
-   
-    render() {
 
-        const startingPointFunction = (event) =>
-        this.props.getUserStartingPointProp(event, this.state.userStartingPoint)
+        this.props.setLocationsProp(locationObject);
+        this.props.setBikeTimeProp(responseArray[0].data.route.formattedTime);
+        this.props.setWalkTimeProp(responseArray[1].data.route.formattedTime);
+        console.log(this.props.stateProp);
+    });
+  };
 
-        const endPointFunction = (event) => this.props.getUserEndPointProp(event, this.state.userEndPoint)
+  makeAxiosCallBike = (userStart, userDestination) => {
+    return Axios({
+      url: "https://www.mapquestapi.com/directions/v2/route",
+      method: "GET",
+      dataType: "json",
+      params: {
+        key: "uMDO6BJLrXNNrJI5BZ7A0tFS6AojdBjn",
+        from: userStart,
+        to: userDestination,
+        routeType: "bicycle",
+      }
+    });
+  };
 
-//RETURN ========================================== 
-// CREATE FORM FOR USER TO INPUT ADDRESSES
+    makeAxiosCallWalk = (userStart, userDestination) => {
+    return Axios({
+      url: "https://www.mapquestapi.com/directions/v2/route",
+      method: "GET",
+      dataType: "json",
+      params: {
+        key: "uMDO6BJLrXNNrJI5BZ7A0tFS6AojdBjn",
+        from: userStart,
+        to: userDestination,
+        routeType: "pedestrian",
+      }
+    });
+  };
 
-        return (
-          <div className="MapQuest__container">
-            <div className="wrapper">
-              <h2 className="MapQuest__mainHeading">
-                Input your starting point and desired destination
-              </h2>
-              <div className="MapQuest__infoArea">
-                <form action="" className="MapQuest__form">
-                  <label
-                    className="visuallyHidden"
-                    htmlFor="MapQuest__startingPoint"
-                  >
-                    Starting Point
-                  </label>
-                  <input
-                    className="MapQuest__startingPoint"
-                    id="MapQuest__startingPoint"
-                    type="text"
-                    autoFocus={true}
-                    placeholder="Enter address"
-                  />
+  render() {
+    return (
+      <div>
+        <form onSubmit={this.getMapInfo}>
+          <label htmlFor="userStart" className="visuallyHidden">
+            Enter Your Location
+          </label>
+          <input
+            type="text"
+            placeholder="lmao"
+            id="userStart"
+            ref="userStart"
+          />
+          <label htmlFor="userDestination" className="visuallyHidden">
+            Enter Your Destination
+          </label>
+          <input
+            type="text"
+            placeholder="lmao"
+            id="userDestination"
+            ref="userDestination"
+          />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    );
+  }
+};
 
-                  <label
-                    className="visuallyHidden"
-                    htmlFor="MapQuest__endPoint"
-                  >
-                    Destination
-                  </label>
-                  <input
-                    className="MapQuest__endPoint"
-                    id="MapQuest__endPoint"
-                    type="text"
-                    autoFocus={true}
-                    placeholder="Enter address"
-                    /> 
-                
-                  <button type="submit" className="MapQuest__submitBtn" 
-                  onClick={event => {
-                          this.props.mapQuestSearchRequest(event, this.state.userDirectionInput);
-                          console.log("yay! you clicked!");
-                      }} 
-                    >Submit
-                  </button>
-                </form>
-                 
-              </div>
-            </div>
-          </div>
-        );
-    }
-}
-
-// EXPORT =====================================
 export default MapQuestSearch;
