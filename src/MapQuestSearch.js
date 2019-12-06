@@ -2,14 +2,18 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 
 class MapQuestSearch extends Component {
+    // On form submit, take both user inputs and make axios call to retrieve travel time (walking and biking)
     getMapInfo = event => {
         event.preventDefault();
 
-    Axios.all(
-    [this.makeAxiosCallBike(this.refs.userStart.value,
-      this.refs.userDestination.value), 
-      this.makeAxiosCallWalk(this.refs.userStart.value,
-      this.refs.userDestination.value)]
+      Axios.all(
+      [
+        this.makeAxiosCallBike(this.refs.userStart.value,
+        this.refs.userDestination.value), 
+        this.makeAxiosCallWalk(this.refs.userStart.value,
+        this.refs.userDestination.value)
+      ]
+      // When axios data is returned, set locations and formatted time to state
     ).then((responseArray) => {
         const returnLocationInfo = responseArray[0].data.route.locations;
 
@@ -24,6 +28,9 @@ class MapQuestSearch extends Component {
         this.props.setBikeTimeProp(responseArray[0].data.route.formattedTime);
         this.props.setWalkTimeProp(responseArray[1].data.route.formattedTime);
         console.log(this.props.stateProp);
+        // Very simple (and flawed) catch if either call fails
+    }).catch(() => {
+      console.log(`Don't go to ${this.refs.userDestination.value}`);
     });
   };
 
@@ -33,11 +40,11 @@ class MapQuestSearch extends Component {
       method: "GET",
       dataType: "json",
       params: {
-        key: "uMDO6BJLrXNNrJI5BZ7A0tFS6AojdBjn",
+        key: this.props.apiKey,
         from: userStart,
         to: userDestination,
         routeType: "bicycle",
-      }
+      },
     });
   };
 
@@ -47,15 +54,36 @@ class MapQuestSearch extends Component {
       method: "GET",
       dataType: "json",
       params: {
-        key: "uMDO6BJLrXNNrJI5BZ7A0tFS6AojdBjn",
+        key: this.props.apiKey,
         from: userStart,
         to: userDestination,
         routeType: "pedestrian",
-      }
+      },
+    });
+  };
+
+  // Autocomplete axios call on input keydown (US only 😫)
+  autoCompleteDestination = () => {
+    return Axios({
+      url: "http://www.mapquestapi.com/search/v3/prediction",
+      method: "GET",
+      dataType: "json",
+      params: {
+        key: this.props.apiKey,
+        q: this.refs.userDestination.value,
+        collection: "address",
+      },
+    }).then((data) => {
+      let slicedSuggestionArray = data.data.results.slice(0, 3);
+
+      {slicedSuggestionArray.map((suggestion) => {
+        console.log(suggestion.displayString);
+      })};
     });
   };
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <form onSubmit={this.getMapInfo}>
@@ -64,7 +92,7 @@ class MapQuestSearch extends Component {
           </label>
           <input
             type="text"
-            placeholder="lmao"
+            placeholder="Ur location"
             id="userStart"
             ref="userStart"
           />
@@ -73,15 +101,16 @@ class MapQuestSearch extends Component {
           </label>
           <input
             type="text"
-            placeholder="lmao"
+            placeholder="Ur destination"
             id="userDestination"
             ref="userDestination"
+            onKeyDown={this.autoCompleteDestination}
           />
           <button type="submit">Search</button>
         </form>
       </div>
     );
-  }
+  };
 };
 
 export default MapQuestSearch;
