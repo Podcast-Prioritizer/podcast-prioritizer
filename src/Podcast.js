@@ -1,6 +1,10 @@
 import React, {Component} from 'react'
 import axios from 'axios'
 import './App.css';
+// SWEET ALERTS
+import Swal from "sweetalert2";
+
+
 
 class Podcast extends Component{
     constructor(){
@@ -27,10 +31,21 @@ class Podcast extends Component{
         }).then((data)=>{
             // console.log("podcast results", data.data.results)
             this.setState({
-                podcastList: data.data.results
-            })
-        })
-    }
+              podcastList: data.data.results
+            })  
+            
+            if (this.state.podcastList.length === 0) {
+              Swal.fire({
+                title: "Uh-oh!",
+                text:
+                  "Looks like we don't have any podcasts that match your criteria (you must be super picky!).  Please try again",
+                icon: "error",
+                timer: 4000,
+                button: false
+              });
+            }
+        })  
+    }  
 
     handleChange = (event) =>{
         this.setState({
@@ -56,9 +71,8 @@ class Podcast extends Component{
 
                 this.setState({
                     episodeList: newEpisodes
-                });
-                }
-            
+                })
+                } 
             });
 
             this.props.setPodcastTime(this.state.episodeList[0]["audio_length_sec"]);

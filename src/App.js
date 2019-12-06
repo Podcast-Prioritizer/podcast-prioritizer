@@ -6,7 +6,6 @@ import Podcast from "./Podcast";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './styles/App.scss';
 
-
 class App extends Component {
   constructor(){
     super();
