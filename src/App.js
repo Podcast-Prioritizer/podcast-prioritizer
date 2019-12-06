@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header'
 import MapQuestSearch from './MapQuestSearch';
+import Podcast from "./Podcast";
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './styles/App.scss';
@@ -51,6 +52,13 @@ class App extends Component {
             );
           }}
         />
+        
+        <form onSubmit={this.getMapInfo}>
+          <input type="text" placeholder="lmao" />
+          <button type="submit">Search</button>
+        </form>
+
+        <Podcast/>
       </Router>
     );
   };
