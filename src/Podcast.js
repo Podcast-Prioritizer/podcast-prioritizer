@@ -12,10 +12,6 @@ class Podcast extends Component{
         }
     }
 
-    componentDidMount(){
-
-    }
-
     handleSubmit = (event) => {
         event.preventDefault();
         
