@@ -101,7 +101,7 @@ class Podcast extends Component{
 
                     {this.state.episodeList.length ? 
 
-                        <button className="PodcastResults__button--back" onClick={this.closeEpisodeList}>Back</button>
+                        <button className="PodcastResults__button--back" onClick={this.closeEpisodeList}><i class="fas fa-arrow-left" title="Go back"></i></button>
                         
                         : null
                     }

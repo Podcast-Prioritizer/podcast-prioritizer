@@ -15,7 +15,7 @@ a {
 
 h1, h2, h3 {
     font-family: 'Nova Flat';
-    line-height: 6rem;
+    line-height: 3rem;
     margin: 2rem 0; 
     color: #232323; 
 }
@@ -25,7 +25,7 @@ h1 {
 }
 
 h2 {
-    font-size: 5rem;
+    font-size: 3rem;
 }
 
 h3 {
@@ -36,4 +36,36 @@ p, a, ::placeholder {
     font-family: 'Lato';
 }
 
+//Podcast results
 
+.PodcastResults {
+    padding-top: 10vh;
+}
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+li {
+    max-width: 250px;
+}
+
+.PodcastResults__button--back{
+    font-weight: bolder;
+    background:white;
+    cursor: pointer;
+    color: #282c34a4;
+    border: none;
+    border-radius: 35px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.603);
+    transition: 0.3s;
+    font-size: 2rem;
+    padding: 7px 10px;
+    margin: 10px;
+}
+
+.PodcastResults__button--back:hover,
+.PodcastResults__button--back:focus{
+    color: $color-3;
+}
