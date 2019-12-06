@@ -74,7 +74,7 @@ class MapQuestSearch extends Component {
         collection: "address",
       },
     }).then((data) => {
-      let slicedSuggestionArray = data.data.results.slice(0, 3);
+      let slicedSuggestionArray = data.data.results.slice(0, 5);
 
       {slicedSuggestionArray.map((suggestion) => {
         console.log(suggestion.displayString);
@@ -83,7 +83,6 @@ class MapQuestSearch extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <form onSubmit={this.getMapInfo}>
