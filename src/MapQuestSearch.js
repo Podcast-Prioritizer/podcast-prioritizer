@@ -4,7 +4,7 @@ import Axios from 'axios';
 class MapQuestSearch extends Component {
     // On form submit, take both user inputs and make axios call to retrieve travel time (walking and biking)
     getMapInfo = event => {
-        event.preventDefault();
+        event.preventDefault();       
 
       Axios.all(
       [
@@ -27,7 +27,7 @@ class MapQuestSearch extends Component {
         this.props.setLocationsProp(locationObject);
         this.props.setBikeTimeProp(responseArray[0].data.route.formattedTime);
         this.props.setWalkTimeProp(responseArray[1].data.route.formattedTime);
-        console.log(this.props.stateProp);
+        // console.log(this.props.stateProp);
         // Very simple (and flawed) catch if either call fails
     }).catch(() => {
       console.log(`Don't go to ${this.refs.userDestination.value}`);
@@ -83,6 +83,7 @@ class MapQuestSearch extends Component {
   };
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <form onSubmit={this.getMapInfo}>

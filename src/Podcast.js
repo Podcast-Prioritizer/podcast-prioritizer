@@ -25,7 +25,7 @@ class Podcast extends Component{
                 type: "podcast"
             }
         }).then((data)=>{
-            console.log("podcast results", data.data.results)
+            // console.log("podcast results", data.data.results)
             this.setState({
                 podcastList: data.data.results
             })
@@ -58,7 +58,10 @@ class Podcast extends Component{
                     episodeList: newEpisodes
                 });
                 }
+            
             });
+
+            this.props.setPodcastTime(this.state.episodeList[0]["audio_length_sec"]);
         });
     }
 
@@ -81,7 +84,7 @@ class Podcast extends Component{
     showMore = (e, index) =>{
         document.getElementById(`PodcastCard__description--${index}`).classList.toggle("PodcastCard__description--snippet")
 
-        console.log(e.target.innerHTML)
+        // console.log(e.target.innerHTML)
 
         if(e.target.innerHTML === "...Show more"){
             e.target.innerHTML = "...Show less"
@@ -91,6 +94,7 @@ class Podcast extends Component{
     }
 
     render(){
+        // console.log(this.props, this.state.episodeList[0].audio);
         return(
             <section className="Podcast">
                 <form onSubmit={this.handleSubmit} className="PodcastSearch">
