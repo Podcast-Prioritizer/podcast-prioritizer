@@ -35,6 +35,7 @@ class App extends Component {
   }
 
   render(){
+    const mapQuestApiKey = "uMDO6BJLrXNNrJI5BZ7A0tFS6AojdBjn";
     return (
       <Router>
         <Route path="/" component={Header} />
@@ -46,6 +47,7 @@ class App extends Component {
                 setLocationsProp={this.setLocations}
                 setBikeTimeProp={this.setBikeTime}
                 setWalkTimeProp={this.setWalkTime}
+                apiKey={mapQuestApiKey}
                 stateProp={this.state}
               />
             );
