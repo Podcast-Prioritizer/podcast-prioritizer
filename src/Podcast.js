@@ -68,6 +68,16 @@ class Podcast extends Component{
         })
     }
 
+    totalTime = (seconds)=>{
+        const hours = Math.floor(seconds/3600);
+        const minutes = Math.round((seconds %= 3600)/60);
+        if(hours > 0){
+            return `${hours} h ${minutes} min`
+        }else{
+            return `${minutes} min`
+        }
+    };
+
     render(){
         return(
             <section className="Podcast">
@@ -131,7 +141,8 @@ class Podcast extends Component{
                                             alt={episode.title}
                                             className="PodcastCard__image"/>
                                         <h2 className="PodcastCard__title">{episode.title}</h2>
-                                        <p className="PodcastCard__description">Audio Length: {episode.audio_length_sec} seconds</p>
+                                        <p className="PodcastCard__description">Audio Length: 
+                                        {this.totalTime(episode.audio_length_sec)}</p>
                                     </li>
                                 )
                             })
