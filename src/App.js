@@ -55,7 +55,6 @@ class App extends Component {
               <button type="submit">Search</button>
             </form>
             <Podcast/>
-            <Route path="/:id" component={Episode} />
         </div>
       </Router>
     );
