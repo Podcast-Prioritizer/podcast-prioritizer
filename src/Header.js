@@ -11,12 +11,6 @@ class Header extends Component {
               <NavLink activeClassName="active" to="/home">
                 Home
               </NavLink>
-              <NavLink activeClassName="active" to="/mapquestsearch">
-                MapQuest
-              </NavLink>
-              <NavLink activeClassName="active" to="/podcast">
-                Podcast
-              </NavLink>
             </nav>
 
             <h1>Paths and Podcasts</h1>
