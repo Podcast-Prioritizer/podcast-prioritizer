@@ -49,11 +49,6 @@ class App extends Component {
           stateProp={this.state}
         />
 
-        <form onSubmit={this.getMapInfo}>
-          <input type="text" placeholder="lmao" />
-          <button type="submit">Search</button>
-        </form>
-
         <Podcast/>
       </Router>
     );
