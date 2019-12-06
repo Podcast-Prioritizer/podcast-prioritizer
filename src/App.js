@@ -40,21 +40,15 @@ class App extends Component {
     return (
       <Router>
         <Route path="/" component={Header} />
-        <Route
-          path="/mapquestsearch"
-          render={() => {
-            return (
-              <MapQuestSearch
-                setLocationsProp={this.setLocations}
-                setBikeTimeProp={this.setBikeTime}
-                setWalkTimeProp={this.setWalkTime}
-                apiKey={mapQuestApiKey}
-                stateProp={this.state}
-              />
-            );
-          }}
+
+        <MapQuestSearch
+          setLocationsProp={this.setLocations}
+          setBikeTimeProp={this.setBikeTime}
+          setWalkTimeProp={this.setWalkTime}
+          apiKey={mapQuestApiKey}
+          stateProp={this.state}
         />
-        
+
         <form onSubmit={this.getMapInfo}>
           <input type="text" placeholder="lmao" />
           <button type="submit">Search</button>
