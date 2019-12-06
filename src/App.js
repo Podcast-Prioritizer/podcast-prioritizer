@@ -13,6 +13,7 @@ class App extends Component {
       startAndEndLocations: {},
       bikingTime: "",
       walkingTime: "",
+      podcastTime: "",
     };
   };
 
@@ -34,6 +35,12 @@ class App extends Component {
     })
   }
 
+  setPodcastTime = (returnedPodcastTime) => {
+    this.setState({
+      podcastTime: returnedPodcastTime,
+    })
+  }
+
   render(){
     const mapQuestApiKey = "uMDO6BJLrXNNrJI5BZ7A0tFS6AojdBjn";
     return (
@@ -48,7 +55,10 @@ class App extends Component {
           stateProp={this.state}
         />
 
-        <Podcast/>
+        
+        <Podcast
+          setPodcastTime={this.setPodcastTime}
+        />
       </Router>
     );
   };

@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 class MapQuestSearch extends Component {
     // On form submit, take both user inputs and make axios call to retrieve travel time (walking and biking)
     getMapInfo = event => {
-        event.preventDefault();
+        event.preventDefault();       
 
       Axios.all(
         [
@@ -111,7 +111,7 @@ class MapQuestSearch extends Component {
         collection: "address",
       },
     }).then((data) => {
-      let slicedSuggestionArray = data.data.results.slice(0, 3);
+      let slicedSuggestionArray = data.data.results.slice(0, 5);
 
       slicedSuggestionArray.map((suggestion) => {
         console.log(suggestion.displayString);
@@ -120,7 +120,7 @@ class MapQuestSearch extends Component {
   };
 
   render() {
-    console.log(this.props);
+    console.log(this.props)
     return (
       <div>
         <form onSubmit={this.getMapInfo}>

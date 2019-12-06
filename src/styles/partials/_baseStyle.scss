@@ -48,7 +48,8 @@ ul{
 }
 
 li {
-    max-width: 250px;
+    max-width: 20%;
+    padding: 10px;
 }
 
 .PodcastResults__button--back{
@@ -68,4 +69,13 @@ li {
 .PodcastResults__button--back:hover,
 .PodcastResults__button--back:focus{
     color: $color-3;
+}
+
+.PodcastCard__description{
+    height: initial;
+}
+
+.PodcastCard__description--snippet{
+    height: 10rem;
+    overflow: hidden;
 }
