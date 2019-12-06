@@ -76,9 +76,9 @@ class MapQuestSearch extends Component {
     }).then((data) => {
       let slicedSuggestionArray = data.data.results.slice(0, 3);
 
-      {slicedSuggestionArray.map((suggestion) => {
+      slicedSuggestionArray.map((suggestion) => {
         console.log(suggestion.displayString);
-      })};
+      });
     });
   };
 
