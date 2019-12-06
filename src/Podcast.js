@@ -78,6 +78,18 @@ class Podcast extends Component{
         }
     };
 
+    showMore = (e, index) =>{
+        document.getElementById(`PodcastCard__description--${index}`).classList.toggle("PodcastCard__description--snippet")
+
+        console.log(e.target.innerHTML)
+
+        if(e.target.innerHTML === "...Show more"){
+            e.target.innerHTML = "...Show less"
+        }else{
+            e.target.innerHTML = "...Show more"
+        }
+    }
+
     render(){
         return(
             <section className="Podcast">
@@ -101,7 +113,10 @@ class Podcast extends Component{
 
                     {this.state.episodeList.length ? 
 
-                        <button className="PodcastResults__button--back" onClick={this.closeEpisodeList}><i class="fas fa-arrow-left" title="Go back"></i></button>
+                        <button className="PodcastResults__button--back" onClick={this.closeEpisodeList}>
+                            <span className="visuallyHidden">Click here to go back</span>
+                            <i class="fas fa-arrow-left" title="Go back"></i>
+                        </button>
                         
                         : null
                     }
@@ -110,7 +125,7 @@ class Podcast extends Component{
 
                         {!this.state.episodeList.length ?
 
-                            this.state.podcastList.map((podcast)=>{
+                            this.state.podcastList.map((podcast, index)=>{
                                 return(
                                     <li className="PodcastResults__item" key={podcast.id}>
                                         <img 
@@ -118,9 +133,12 @@ class Podcast extends Component{
                                             alt={podcast.title_original}
                                             className="PodcastCard__image"/>
                                         <h2 className="PodcastCard__title">{podcast.title_original}</h2>
-
-                                        <p className="PodcastCard__description">{podcast.description_original}</p>
-
+                                        <p className="PodcastCard__description PodcastCard__description--snippet" id={`PodcastCard__description--${index}`}>{podcast.description_original}</p>
+                                        <button 
+                                            className="PodcastCard__button--showMore"
+                                            onClick={(e)=>{this.showMore(e, index)}}>
+                                            ...Show more
+                                            </button>
                                         <button 
                                             id={podcast.id} 
                                             onClick={this.getRecentEpisodes}
