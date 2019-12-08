@@ -13,7 +13,7 @@ class Podcast extends Component{
             podcastList: [], 
             userInput: "",
             episodeList: []
-        }
+        };
     }
 
     handleSubmit = (event) => {
