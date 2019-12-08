@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import Swal from "sweetalert2";
 
+import "./App.css";
+
 class MapQuestSearch extends Component {
     // On form submit, take both user inputs and make axios call to retrieve travel time (walking and biking)
     getMapInfo = event => {
@@ -122,29 +124,33 @@ class MapQuestSearch extends Component {
   render() {
     console.log(this.props)
     return (
-      <div>
-        <form onSubmit={this.getMapInfo}>
-          <label htmlFor="userStart" className="visuallyHidden">
-            Enter Your Location
-          </label>
-          <input
-            type="text"
-            placeholder="Ur location"
-            id="userStart"
-            ref="userStart"
-          />
-          <label htmlFor="userDestination" className="visuallyHidden">
-            Enter Your Destination
-          </label>
-          <input
-            type="text"
-            placeholder="Ur destination"
-            id="userDestination"
-            ref="userDestination"
-            onKeyDown={this.autoCompleteDestination}
-          />
-          <button type="submit">Search</button>
-        </form>
+      <div className="MapQuest__searchArea">
+        <div className="wrapper">
+          <form className="MapQuest__form" onSubmit={this.getMapInfo}>
+            <label htmlFor="userStart" className="visuallyHidden">
+              Enter Your Location
+            </label>
+            <input
+              type="text"
+              placeholder="Enter Your Location"
+              id="userStart"
+              ref="userStart"
+            />
+            <label htmlFor="userDestination" className="visuallyHidden">
+              Enter Your Destination
+            </label>
+            <input
+              type="text"
+              placeholder="Enter Your Destination"
+              id="userDestination"
+              ref="userDestination"
+              onKeyDown={this.autoCompleteDestination}
+            />
+            <button className="MapQuest__submitBtn" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
       </div>
     );
   };

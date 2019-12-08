@@ -201,6 +201,8 @@ body {
   font-size: 1.6rem;
   font-family: 'Nova Flat', sans-serif;
   font-family: 'Lato', sans-serif;
+  background-image: url("../assets/sayagata-400px.png");
+  background-attachment: fixed;
 }
 
 .wrapper {
@@ -224,21 +226,23 @@ a {
 
 h1, h2, h3 {
   font-family: 'Nova Flat';
-  line-height: 3rem;
   margin: 2rem 0;
   color: #232323;
 }
 
 h1 {
   font-size: 6rem;
+  line-height: 5rem;
 }
 
 h2 {
   font-size: 3rem;
+  line-height: 4rem;
 }
 
 h3 {
   font-size: 3.5rem;
+  line-height: 4rem;
 }
 
 p, a, ::-webkit-input-placeholder {
@@ -257,11 +261,123 @@ p, a, ::placeholder {
   font-family: 'Lato';
 }
 
+.Header {
+  height: 90vh;
+  background-image: url("../assets/girlWalking.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.Header__displayArea {
+  width: 70%;
+  height: 85%;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0 0 80px 0;
+}
+
+.Header__linksAndLogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem 2rem;
+}
+
+.Header__logo {
+  width: 15rem;
+  height: 8rem;
+}
+
+.Header__nav {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #001e31;
+}
+
+.Header__headerContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 70%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Header__mainHeader {
+  position: relative;
+}
+
+.Header__mainHeader::before {
+  position: absolute;
+  content: '';
+  height: 4px;
+  background-color: #24b62c;
+  width: 40%;
+  top: 65px;
+  left: 30%;
+}
+
+.Header__tagline {
+  font-size: 2rem;
+  text-transform: uppercase;
+  padding-top: 2rem;
+}
+
+.MapQuest__searchArea,
+.Podcast {
+  padding: 6rem 0;
+  background-color: rgba(194, 237, 216, 0.2);
+}
+
+input {
+  padding: 1rem;
+  margin: 3rem 0;
+  border-radius: 5px;
+}
+
+.MapQuest__submitBtn,
+.PodcastSearch__submitButton,
+.PodcastCard__button--showMore,
+.PodcastCard__button {
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: #ffff;
+  background-color: #001e31;
+  border: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.MapQuest__submitBtn:hover,
+.PodcastSearch__submitButton:hover,
+.PodcastCard__button--showMore:hover,
+.PodcastCard__button:hover {
+  background-color: #24b62c;
+}
+
 .PodcastResults {
   padding-top: 10vh;
 }
 
-ul {
+.PodcastResults ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -270,7 +386,7 @@ ul {
   list-style: none;
 }
 
-li {
+.PodcastResults li {
   max-width: 20%;
   padding: 10px;
 }
@@ -291,9 +407,8 @@ li {
   margin: 10px;
 }
 
-.PodcastResults__button--back:hover,
-.PodcastResults__button--back:focus {
-  color: #24b62c;
+.PodcastResults__button--back:hover, .PodcastResults__button--back:focus {
+  color: #ffff;
 }
 
 .PodcastCard__description {
@@ -303,5 +418,10 @@ li {
 .PodcastCard__description--snippet {
   height: 10rem;
   overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.PodcastCard__button--showMore, .PodcastCard__button {
+  margin-top: 1rem;
 }
 /*# sourceMappingURL=App.css.map */

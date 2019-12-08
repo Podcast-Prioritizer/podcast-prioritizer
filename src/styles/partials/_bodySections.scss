@@ -1,0 +1,137 @@
+// ==================================
+// 
+// STANDARD BODY SECTION STYLES
+// 
+// ===================================
+
+.MapQuest__searchArea,
+.Podcast {
+    padding: 6rem 0;
+    background-color: rgba(194, 237, 216,0.2);  
+}
+
+input {
+    padding: 1rem;
+    margin: 3rem 0;
+    border-radius: 5px;
+}
+
+.MapQuest__submitBtn,
+.PodcastSearch__submitButton,
+.PodcastCard__button--showMore,
+.PodcastCard__button {
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    color: $color-4;
+    background-color: $color-1;
+    border: none;
+    transition: 0.3s; 
+
+    &:hover {
+        background-color: $color-3;
+    }
+
+
+}
+
+
+
+
+
+
+
+// ==================================
+// 
+// MAPQUEST SEARCH
+// 
+// ===================================
+
+.MapQuest {
+
+    // &__searchArea {
+    //     padding: 6rem 0;
+    //     background-color: rgba(194, 237, 216,0.3);   
+    // }
+
+    // &__form input {
+    //     padding: 1rem;
+    //     margin: 3rem 0;
+    //     border-radius: 5px;
+    // }
+
+    // &__submitBtn {
+    //     padding: 1rem 2rem;
+    //     border-radius: 5px;
+    //     text-transform: uppercase;
+    //     color: $color-4;
+    //     background-color: $color-1;
+    //     border: none;
+
+        // &:hover {
+        //     background-color: $color-3;
+
+        // }
+    // }
+    
+}
+
+
+// ==================================
+// 
+// PODCAST RESULTS
+// 
+// ===================================
+
+.PodcastResults {
+    padding-top: 10vh;
+
+    ul{
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+    }
+    
+    li {
+        max-width: 20%;
+        padding: 10px;
+    }
+    
+    &__button--back{
+        font-weight: bolder;
+        background:white;
+        cursor: pointer;
+        color: #282c34a4;
+        border: none;
+        border-radius: 35px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.603);
+        transition: 0.3s;
+        font-size: 2rem;
+        padding: 7px 10px;
+        margin: 10px;
+    }
+    
+    &__button--back:hover,
+    &__button--back:focus{
+        color: $color-4;
+    }
+}
+ 
+.PodcastCard {
+
+    &__description{
+        height: initial;
+    }
+    
+    &__description--snippet{
+        height: 10rem;
+        overflow: hidden;
+        margin-bottom: 2rem;
+    }
+
+    &__button--showMore,
+    &__button {
+        margin-top: 1rem;
+    }
+    
+}
