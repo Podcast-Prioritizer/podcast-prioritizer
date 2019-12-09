@@ -1,43 +1,47 @@
 import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
+import cyclist from "./styles/assets/cyclist.png";
+import pedestrian from "./styles/assets/pedestrian.png";
 
 class ComparisonResults extends Component {
-  constructor(props) {
-    super(props);
 
-    this.state = {
-      showResults: false
+  transportSuggestion = (transportationMethod) => {
+    const allMethods = {
+      cycling: "ComparisonResults__item",
+      pedestrian: "ComparisonResults__item"
     };
+    const { podcastTime, walkingTime, bikingTime } = this.props.results;
+
+    const parsedPodcastTime = parseFloat(podcastTime);
+    const parsedBikingTime = parseFloat(bikingTime);
+    const parsedWalkingTime = parseFloat(walkingTime);
+
+    console.log(`Parsed pocast time: ${parsedPodcastTime}`);
+    console.log(`Parsed biking time: ${parsedBikingTime}`);
+    console.log(`Parsed walking time: ${parsedWalkingTime}`);
+
+    if (
+      parsedWalkingTime - parsedPodcastTime >
+      parsedBikingTime - parsedPodcastTime
+    ) {
+      allMethods.cycling =
+        "ComparisonResults__item ComparisonResults__item--selected";
+      console.log("cycle");
+    } else {
+      allMethods.pedestrian =
+        "ComparisonResults__item ComparisonResults__item--selected";
+      console.log("walk");
+    }
+    
+    return allMethods[transportationMethod]
   }
 
-  // Development function to add the results
-  addResultsElement = () => {
-    this.setState({
-      showResults: true
-    });
-  };
-
-  // Remove this component
-  removeResultsElement = () => {
-    this.setState({
-      showResults: false
-    });
-  };
-
-  handleModalClick = e => {
-    console.log(e.target);
-  };
-
   render() {
-    const { showResults } = this.state;
-
+    const { results, closeResultsProp } = this.props;
     return (
       <>
-        <button onClick={this.addResultsElement}>
-          Click me for results (Development)
-        </button>
         <CSSTransition
-          in={showResults}
+          in={results.podcastTime}
           timeout={400}
           classNames="show-modal"
           component={null}
@@ -45,26 +49,39 @@ class ComparisonResults extends Component {
           unmountOnExit
         >
           <div className="ModalContainer">
-            <section
-              className="ComparisonResults"
-              onClick={this.handleModalClick}
-            >
+            <section className="ComparisonResults">
               <button
                 aria-label="close"
                 className="ComparisonResults__button--close"
-                onClick={this.removeResultsElement}
+                onClick={closeResultsProp}
               >
-                X
+                Close
               </button>
-              <h2 className="ComparisonResults__heading">
-                "Should I walk or bike?"
-              </h2>
               <ul className="ComparisonResults__list">
-                <li className="ComparisonResults__item">Walk</li>
-                <li className="ComparisonResults__item ComparisonResults__item--selected">
-                  Bike
+                <li className={this.transportSuggestion('cycling')}>
+                  <img
+                    className="ComparisonResults__icon"
+                    src={cyclist}
+                    alt="A cyclist"
+                  />
+                </li>
+                <li className={this.transportSuggestion('pedestrian')}>
+                  <img
+                    className="ComparisonResults__icon"
+                    src={pedestrian}
+                    alt="A pedestrian"
+                  />
                 </li>
               </ul>
+
+              <p>Biking time: {results.bikingTime}</p>
+              <p>Walking time: {results.walkingTime}</p>
+              <p>Podcast time: {results.podcastTime}</p>
+
+              <p className="ComparisonResults__disclaimer">
+                We don't advise taking your life in your hands by biking and
+                podcasting.
+              </p>
             </section>
           </div>
         </CSSTransition>

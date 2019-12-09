@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header'
 import MapQuestSearch from './MapQuestSearch';
 import Podcast from "./Podcast";
+import ComparisonResults from './ComparisonResults';
 import Footer from "./Footer";
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
@@ -49,6 +50,12 @@ class App extends Component {
     })
   }
 
+  closeResults = () => {
+    this.setState({
+      podcastTime: ""
+    });
+  }
+
   render(){
     const mapQuestApiKey = "uMDO6BJLrXNNrJI5BZ7A0tFS6AojdBjn";
     console.log(this.state)
@@ -69,6 +76,13 @@ class App extends Component {
           setPodcastTime={this.setPodcastTime}
           selectedEpisodeProp={this.selectedEpisode}
         />
+
+        { this.state.podcastEpisode ? 
+        <ComparisonResults 
+          results={this.state}
+          closeResultsProp={this.closeResults}
+        />
+        : null }
 
         <Route path="/" component={Footer}/>
       </Router>

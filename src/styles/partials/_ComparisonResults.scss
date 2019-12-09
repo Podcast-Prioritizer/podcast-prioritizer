@@ -19,24 +19,50 @@
   background: white;
   border: 2px solid black;
   text-align: center;
+
+  &__list {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+  }
+
+  &__item {
+    justify-content: space-between;
+    flex: 1 1 50%;
+
+    &--selected img {
+      background: lighten($color-3, 5%);
+      border-radius: 5px;
+      border: 2px solid black;
+
+      &:hover {
+        background: $color-3;
+      }
+    }
+  }
+
+  &__icon {
+    max-width: 150px;
+    padding: 2rem;
+  }
 }
 
 .show-modal {
   &-enter {
-    transition: .4s;
+    transition: 0.4s;
     opacity: 0;
   }
-  
+
   &-enter-done {
-    transition: .4s;
+    transition: 0.4s;
     opacity: 1;
   }
-  
+
   &-exit {
-    transition: .4s;
+    transition: 0.4s;
     opacity: 1;
   }
-  
+
   &-exit-done {
     opacity: 0;
   }
