@@ -41,9 +41,9 @@ input {
     border: none;
     transition: 0.3s; 
 
-    &:hover {
-        background-color: $color-3;
-    }
+    // &:hover {
+    //     background-color: $color-3;
+    // }
 
 
 }
@@ -110,7 +110,7 @@ input {
     }
     
     li {
-        max-width: 20%;
+        // max-width: 20%;
         padding: 10px;
     }
     

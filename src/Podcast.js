@@ -209,17 +209,19 @@ class Podcast extends Component{
                                 alt={episode.title}
                                 className="PodcastCard__image"
                             />
-                            <h2 className="PodcastCard__title">
-                                {episode.title}
-                            </h2>
-                            <button onClick={this.showDetails}>Details</button>
-                            <dialog className="visuallyHidden">
-                                <div dangerouslySetInnerHTML={{__html: episode.description}}/>
-                            </dialog>
-                            <p className="PodcastCard__description">
-                                Audio Length:
-                                {this.totalTime(episode.audio_length_sec)}
-                            </p>
+                            <div>
+                                <h2 className="PodcastCard__title">
+                                    {episode.title}
+                                </h2>
+                                <button onClick={this.showDetails}>Details</button>
+                                <dialog className="visuallyHidden">
+                                    <div dangerouslySetInnerHTML={{__html: episode.description}}/>
+                                </dialog>
+                                <p className="PodcastCard__description">
+                                    Audio Length:
+                                    {this.totalTime(episode.audio_length_sec)}
+                                </p>
+                            </div>
                         </li>
                         );
                     })}
