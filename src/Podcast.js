@@ -104,17 +104,11 @@ class Podcast extends Component{
     };
 
     selectEpisode = (selectedEpisodeId, index) => {
-        let date = new Date(null);
-
-        date.setSeconds(this.state.episodeList[index]["audio_length_sec"]);
-
-        let podcastEpisodeLength = date.toISOString().substr(11, 8);
-
-        this.props.setPodcastTime(podcastEpisodeLength);
+        let podcastLength = this.state.episodeList[index]["audio_length_sec"];
 
         this.state.episodeList.map((episode) => {
             if (episode.id === selectedEpisodeId) {
-                this.props.setPodcastTime(podcastEpisodeLength);
+                this.props.setPodcastTime(podcastLength);
                 this.props.selectedEpisodeProp(this.state.episodeList[index]);
             };
         });
