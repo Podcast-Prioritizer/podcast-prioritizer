@@ -12,7 +12,7 @@ class Podcast extends Component{
         this.state = {
             podcastList: [], 
             userInput: "",
-            episodeList: []
+            episodeList: [],
         };
     }
 
@@ -29,7 +29,6 @@ class Podcast extends Component{
                 type: "podcast"
             }
         }).then((data)=>{
-            // console.log("podcast results", data.data.results)
             this.setState({
               podcastList: data.data.results
             })  
@@ -65,32 +64,24 @@ class Podcast extends Component{
         }).then(data => {
             const newEpisodes = [];
 
-            console.log("episodes", data.data.episodes[0])
             data.data.episodes.forEach((element, index) => {
                 if (index < 10) {
                 newEpisodes.push(element);
 
                 this.setState({
-                    episodeList: newEpisodes
-                })
-                } 
+                    episodeList: newEpisodes,
+                });
+
+                } ;
             });
-
-            let date = new Date(null);
-
-            date.setSeconds(this.state.episodeList[0]["audio_length_sec"]);
-
-            let podcastEpisodeLength = date.toISOString().substr(11, 8);
-
-            this.props.setPodcastTime(podcastEpisodeLength);
         });
     }
 
     closeEpisodeList = () => {
         this.setState({
             episodeList: ""
-        })
-    }
+        });
+    };
 
     totalTime = (seconds)=>{
         const hours = Math.floor(seconds/3600);
@@ -105,17 +96,31 @@ class Podcast extends Component{
     showMore = (e, index) =>{
         document.getElementById(`PodcastCard__description--${index}`).classList.toggle("PodcastCard__description--snippet")
 
-        // console.log(e.target.innerHTML)
-
         if(e.target.innerHTML === "... Show more"){
             e.target.innerHTML = "... Show less"
         }else{
             e.target.innerHTML = "... Show more"
-        }
-    }
+        };
+    };
+
+    selectEpisode = (selectedEpisodeId, index) => {
+        let date = new Date(null);
+
+        date.setSeconds(this.state.episodeList[index]["audio_length_sec"]);
+
+        let podcastEpisodeLength = date.toISOString().substr(11, 8);
+
+        this.props.setPodcastTime(podcastEpisodeLength);
+
+        this.state.episodeList.map((episode) => {
+            if (episode.id === selectedEpisodeId) {
+                this.props.setPodcastTime(podcastEpisodeLength);
+                this.props.selectedEpisodeProp(this.state.episodeList[index]);
+            };
+        });
+    };
 
     render(){
-        // console.log(this.props, this.state.episodeList[0].audio);
         return (
         <section className="Podcast">
             <div className="wrapper">
@@ -201,9 +206,13 @@ class Podcast extends Component{
                             </li>
                             );
                         })
-                    : this.state.episodeList.map(episode => {
+                    : this.state.episodeList.map((episode, index) => {
                         return (
-                        <li key={episode.id} className="EpisodeResults__item">
+                        <li key={episode.id} 
+                        episodeId={episode.id}
+                        className="EpisodeResults__item"
+                        ref="singleEpisode"
+                        >
                             <img
                                 src={episode.thumbnail}
                                 alt={episode.title}
@@ -221,6 +230,13 @@ class Podcast extends Component{
                                     Audio Length:
                                     {this.totalTime(episode.audio_length_sec)}
                                 </p>
+                                <button
+                                    onClick={() => {
+                                        this.selectEpisode(episode.id, index)
+                                    }}
+                                >
+                                    Select
+                                </button>
                             </div>
                         </li>
                         );
