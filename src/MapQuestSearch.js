@@ -45,11 +45,13 @@ class MapQuestSearch extends Component {
               text:
                 "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
               // icon: "error",
-              imageUrl: { AngryIcon },
+              imageUrl: require('./styles/assets/nounAngry.png'),
+              imageWidth: 100,
               timer: 24000,
               confirmButtonColor: "#001e31",
               confirmButtonText: "Let me try again",
-              background: "#c2edd8",
+              // background: "#c2edd8",
+              border: ('4 solid #c2edd8'),
               padding: "2rem"
             });
           } else if (error.request) {
