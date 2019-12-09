@@ -15,6 +15,7 @@ class App extends Component {
       bikingTime: "",
       walkingTime: "",
       podcastTime: "",
+      podcastEpisode: {},
     };
   };
 
@@ -42,8 +43,15 @@ class App extends Component {
     })
   }
 
+  selectedEpisode = (podcastEpisode) => {
+    this.setState({
+      podcastEpisode: podcastEpisode,
+    })
+  }
+
   render(){
     const mapQuestApiKey = "uMDO6BJLrXNNrJI5BZ7A0tFS6AojdBjn";
+    console.log(this.state)
     return (
       <Router>
         <Route path="/" component={Header} />
@@ -59,6 +67,7 @@ class App extends Component {
         
         <Podcast
           setPodcastTime={this.setPodcastTime}
+          selectedEpisodeProp={this.selectedEpisode}
         />
 
         <Route path="/" component={Footer}/>
