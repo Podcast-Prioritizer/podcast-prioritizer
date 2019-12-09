@@ -65,6 +65,7 @@ class Podcast extends Component{
         }).then(data => {
             const newEpisodes = [];
 
+            console.log("episodes", data.data.episodes[0])
             data.data.episodes.forEach((element, index) => {
                 if (index < 10) {
                 newEpisodes.push(element);
@@ -100,10 +101,10 @@ class Podcast extends Component{
 
         // console.log(e.target.innerHTML)
 
-        if(e.target.innerHTML === "...Show more"){
-            e.target.innerHTML = "...Show less"
+        if(e.target.innerHTML === "... Show more"){
+            e.target.innerHTML = "... Show less"
         }else{
-            e.target.innerHTML = "...Show more"
+            e.target.innerHTML = "... Show more"
         }
     }
 
@@ -133,7 +134,7 @@ class Podcast extends Component{
 
                         <button className="PodcastResults__button--back" onClick={this.closeEpisodeList}>
                             <span className="visuallyHidden">Click here to go back</span>
-                            <i class="fas fa-arrow-left" title="Go back"></i>
+                            <i className="fas fa-arrow-left" title="Go back"></i>
                         </button>
                         
                         : null
@@ -150,19 +151,31 @@ class Podcast extends Component{
                                             src={podcast.thumbnail} 
                                             alt={podcast.title_original}
                                             className="PodcastCard__image"/>
-                                        <h2 className="PodcastCard__title">{podcast.title_original}</h2>
-                                        <p className="PodcastCard__description PodcastCard__description--snippet" id={`PodcastCard__description--${index}`}>{podcast.description_original}</p>
-                                        <button 
-                                            className="PodcastCard__button--showMore"
-                                            onClick={(e)=>{this.showMore(e, index)}}>
-                                            ...Show more
+                                        <div>
+                                            <h2 className="PodcastCard__title">{podcast.title_original.split("|")[0]}</h2>
+                                            <p className="PodcastCard__description PodcastCard__description--snippet" id={`PodcastCard__description--${index}`}>{podcast.description_original}</p>
+
+                                            {
+                                                (podcast.description_original.length > 156)
+                                                ?
+                                                <button 
+                                                    className="PodcastCard__button--showMore"
+                                                    onClick={(e)=>{this.showMore(e, index)}}>
+                                                    ... Show more
+                                                </button>
+                                                : null
+                                            }
+
+                                            <br/>
+                        
+                                            <button 
+                                                id={podcast.id} 
+                                                onClick={this.getRecentEpisodes}
+                                                className="PodcastCard__button">
+                                                Episodes
                                             </button>
-                                        <button 
-                                            id={podcast.id} 
-                                            onClick={this.getRecentEpisodes}
-                                            className="PodcastCard__button">
-                                            Episodes
-                                        </button>
+                                        </div>
+
                                     </li>
                                 )
                             })
@@ -171,14 +184,17 @@ class Podcast extends Component{
 
                             this.state.episodeList.map((episode) => {
                                 return (
-                                    <li key={episode.id} className="PodcastResults__item">
+                                    <li key={episode.id} className="EpisodeResults__item">
                                         <img 
                                             src={episode.thumbnail} 
                                             alt={episode.title}
                                             className="PodcastCard__image"/>
-                                        <h2 className="PodcastCard__title">{episode.title}</h2>
-                                        <p className="PodcastCard__description">Audio Length: 
-                                        {this.totalTime(episode.audio_length_sec)}</p>
+                                        <div>
+                                            <h2 className="PodcastCard__title">{episode.title}</h2>
+                                            <div dangerouslySetInnerHTML={{__html: episode.description}}/>
+                                            <p className="PodcastCard__description"> 
+                                            {this.totalTime(episode.audio_length_sec)}</p>
+                                        </div>
                                     </li>
                                 )
                             })
