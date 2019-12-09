@@ -75,7 +75,13 @@ class Podcast extends Component{
                 } 
             });
 
-            this.props.setPodcastTime(this.state.episodeList[0]["audio_length_sec"]);
+            let date = new Date(null);
+
+            date.setSeconds(this.state.episodeList[0]["audio_length_sec"]);
+
+            let podcastEpisodeLength = date.toISOString().substr(11, 8);
+
+            this.props.setPodcastTime(podcastEpisodeLength);
         });
     }
 
@@ -108,7 +114,6 @@ class Podcast extends Component{
     }
 
     render(){
-        // console.log(this.props, this.state.episodeList[0].audio);
         return(
             <section className="Podcast">
                 <form onSubmit={this.handleSubmit} className="PodcastSearch">
