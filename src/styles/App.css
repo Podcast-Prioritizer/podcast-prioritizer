@@ -251,19 +251,19 @@ h3 {
   line-height: 4rem;
 }
 
-p, a, ::-webkit-input-placeholder {
+p, a, ::-webkit-input-placeholder, i {
   font-family: 'Lato';
 }
 
-p, a, :-ms-input-placeholder {
+p, a, :-ms-input-placeholder, i {
   font-family: 'Lato';
 }
 
-p, a, ::-ms-input-placeholder {
+p, a, ::-ms-input-placeholder, i {
   font-family: 'Lato';
 }
 
-p, a, ::placeholder {
+p, a, ::placeholder, i {
   font-family: 'Lato';
 }
 
@@ -649,6 +649,11 @@ ul {
 .PodcastResults__item {
   width: 20%;
   padding: 10px;
+  background: white;
+}
+
+.PodcastResults__item p, .PodcastResults__item h2 {
+  color: black;
 }
 
 .EpisodeResults__item {
@@ -657,11 +662,14 @@ ul {
   display: -ms-flexbox;
   display: flex;
   padding: 10px;
+  background: white;
+  margin: 15px;
 }
 
 .EpisodeResults__item h2 {
   font-size: 2.5rem;
   margin: 0;
+  color: black;
 }
 
 .EpisodeResults__item img {
@@ -722,17 +730,56 @@ ul {
   text-decoration: underline;
 }
 
-.EpisodeCard__button {
-  width: 80px;
-}
-
 .EpisodeCard__options {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.EpisodeCard__options p {
+  margin: 0 10px;
+}
+
+.EpisodeCard__options .EpisodeCard__options--container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.EpisodeCard__options button {
+  padding: 0 10px;
+  margin: 0 10px;
+  border: none;
+}
+
+.EpisodeCard__options .EpisodeCard__options--details:hover,
+.EpisodeCard__options .EpisodeCard__options--details:focus {
+  text-decoration: underline;
+}
+
+.EpisodeCard__options .EpisodeCard__options--listen {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  padding: 5px 20px;
+  border-radius: 15px;
+  font-weight: bold;
+  color: #24b62c;
+}
+
+.EpisodeCard__options .EpisodeCard__options--listen:hover,
+.EpisodeCard__options .EpisodeCard__options--listen:focus {
+  background: #24b62c;
+  color: white;
+}
+
+.EpisodeCard__options .EpisodeCard__options--audioLength {
+  color: gray;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .EpisodeCard__titleBar {

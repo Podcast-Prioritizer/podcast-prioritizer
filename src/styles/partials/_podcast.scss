@@ -58,16 +58,24 @@ ul{
 .PodcastResults__item {
     width: 20%;
     padding: 10px;
+    background:white;
+    
+    p, h2{
+        color: black;
+    }
 }
 
 .EpisodeResults__item{
     width: 100%;
     display: flex;
     padding: 10px;
+    background: white;
+    margin: 15px;
 
     h2{
         font-size: 2.5rem;
         margin: 0;
+        color: black;
     }
 
     img{
@@ -122,13 +130,47 @@ ul{
     }
 }
 
-.EpisodeCard__button{
-    width: 80px;
-}
-
 .EpisodeCard__options{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    
+    p{
+        margin: 0 10px;
+    }
+
+    .EpisodeCard__options--container{
+        display: flex;
+    }
+
+    button{
+        padding: 0 10px;
+        margin: 0 10px;
+        border: none;
+    }
+
+    .EpisodeCard__options--details:hover,
+    .EpisodeCard__options--details:focus{
+        text-decoration: underline;
+    }
+
+    .EpisodeCard__options--listen{
+        transition: 0.4s;
+        padding: 5px 20px;
+        border-radius: 15px;
+        font-weight: bold;
+        color: $color-3;
+    }
+
+    .EpisodeCard__options--listen:hover,
+    .EpisodeCard__options--listen:focus{
+        background: $color-3;
+        color: white;
+    }
+
+    .EpisodeCard__options--audioLength{
+        color: gray;
+        align-self: center;
+    }
 }
 
 .EpisodeCard__titleBar{

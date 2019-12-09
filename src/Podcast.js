@@ -246,15 +246,19 @@ class Podcast extends Component{
                                     />
                                 </dialog>
                                 <div className="EpisodeCard__options">
+                                    <div className="EpisodeCard__options--container">
+                                        <button className="EpisodeCard__options--listen">
+                                            <i class="fas fa-headphones-alt"></i> Listen
+                                        </button>
+                                        <p className="EpisodeCard__options--audioLength">     
+                                            {this.totalTime(episode.audio_length_sec)}
+                                        </p>
+                                    </div>
                                     <button 
-                                        className="EpisodeCard__button"
+                                        className="EpisodeCard__options--details"
                                         onClick={(e)=>{this.showDetails(e, index)}}>
                                         Details
                                     </button>
-                                    <i class="fas fa-headphones-alt"> Listen</i>
-                                    <p className="EpisodeCard__options--audioLength">
-                                        {this.totalTime(episode.audio_length_sec)}
-                                    </p>
                                 </div>
                             </div>
                         </li>
