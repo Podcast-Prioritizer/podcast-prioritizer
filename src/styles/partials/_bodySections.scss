@@ -41,9 +41,9 @@ input {
     border: none;
     transition: 0.3s; 
 
-    &:hover {
-        background-color: $color-3;
-    }
+    // &:hover {
+    //     background-color: $color-3;
+    // }
 
 
 }
@@ -110,7 +110,7 @@ input {
     }
     
     li {
-        max-width: 20%;
+        // max-width: 20%;
         padding: 10px;
     }
     
@@ -160,6 +160,31 @@ input {
     }
     
 }
+
+// ==================================
+// 
+// SWEETALERTS
+// 
+// ===================================
+
+#swal2-content.swal2-html-container {
+    // color: #0000;
+    font-size: 1.8rem;  
+}
+
+#swal2.content p {
+    color: #0000;
+    // font-size: 1.8rem;
+
+}
+
+button.swal2-confirm.swal2-styled {
+    font-size: 1.6rem;
+    padding: 1rem;
+    // border: none;
+}
+
+
 
 // ==================================
 // 

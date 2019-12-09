@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import Swal from "sweetalert2";
 
+import AngryIcon from './styles/assets/nounAngry.png';
+
 import "./App.css";
 
 class MapQuestSearch extends Component {
@@ -35,18 +37,20 @@ class MapQuestSearch extends Component {
           this.props.setLocationsProp(locationObject);
           this.props.setBikeTimeProp(responseArray[0].data.route.formattedTime);
           this.props.setWalkTimeProp(responseArray[1].data.route.formattedTime);
-          console.log(this.props.stateProp);
-          // Very simple (and flawed) catch if either call fails
         })
         .catch(error => {
-          // console.log(`Don't go to ${this.refs.userDestination.value}`);
           if (error) {
             Swal.fire({
               title: "Uh-oh!",
               text:
                 "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
-              icon: "error",
-              timer: 4000
+              // icon: "error",
+              imageUrl: { AngryIcon },
+              timer: 24000,
+              confirmButtonColor: "#001e31",
+              confirmButtonText: "Let me try again",
+              background: "#c2edd8",
+              padding: "2rem"
             });
           } else if (error.request) {
               Swal.fire({
@@ -67,10 +71,7 @@ class MapQuestSearch extends Component {
                   timer: 4000
               });
             }
-        });
-    
-    
-    
+        }); 
   };
 
   makeAxiosCallBike = (userStart, userDestination) => {
