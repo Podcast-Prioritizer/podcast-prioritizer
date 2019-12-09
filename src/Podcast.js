@@ -13,7 +13,7 @@ class Podcast extends Component{
             podcastList: [], 
             userInput: "",
             episodeList: []
-        }
+        };
     }
 
     handleSubmit = (event) => {
@@ -76,7 +76,13 @@ class Podcast extends Component{
                 } 
             });
 
-            this.props.setPodcastTime(this.state.episodeList[0]["audio_length_sec"]);
+            let date = new Date(null);
+
+            date.setSeconds(this.state.episodeList[0]["audio_length_sec"]);
+
+            let podcastEpisodeLength = date.toISOString().substr(11, 8);
+
+            this.props.setPodcastTime(podcastEpisodeLength);
         });
     }
 
@@ -110,105 +116,118 @@ class Podcast extends Component{
 
     render(){
         // console.log(this.props, this.state.episodeList[0].audio);
-        return(
-            <section className="Podcast">
-                <form onSubmit={this.handleSubmit} className="PodcastSearch">
+        return (
+        <section className="Podcast">
+            <div className="wrapper">
+                <div className="Podcast__introContent">
+                <h2>Pick your Podcast</h2>
+                <p>
+                    Find an episode of a podcast to keep you entertained on your commute.
+                </p>
+            </div>
 
-                    <input 
-                        type="text" 
-                        placeholder="Search podcast" 
-                        onChange={this.handleChange} 
-                        value={this.state.userInput}
-                        className="PodcastSearch__textInput"/>
+            <form onSubmit={this.handleSubmit} className="PodcastSearch">
+                <input
+                    type="text"
+                    placeholder="Search podcast"
+                    onChange={this.handleChange}
+                    value={this.state.userInput}
+                    className="PodcastSearch__textInput"
+                />
 
-                    <input 
-                        type="submit" 
-                        onSubmit={this.handleSubmit}
-                        className="PodcastSearch__submitButton"/>
+                <button
+                    type="submit"
+                    onSubmit={this.handleSubmit}
+                    className="PodcastSearch__submitButton"
+                >
+                    Submit
+                </button>
+            </form>
 
-                </form>
+            <section className="PodcastResults">
+                {this.state.episodeList.length ? (
+                <button
+                    className="PodcastResults__button--back"
+                    onClick={this.closeEpisodeList}
+                >
+                    <span className="visuallyHidden">
+                        Click here to go back
+                    </span>
+                    <i class="fas fa-arrow-left" title="Go back"></i>
+                </button>
+                ) : null}
 
-                <section className="PodcastResults">
+                <ul className="PodcastResults__list">
+                    {!this.state.episodeList.length
+                        ? this.state.podcastList.map((podcast, index) => {
+                            return (
+                            <li className="PodcastResults__item" key={podcast.id}>
+                                <img
+                                    src={podcast.thumbnail}
+                                    alt={podcast.title_original}
+                                    className="PodcastCard__image"
+                                    />
+                                <div>
+                                    <h2 className="PodcastCard__title">
+                                        {podcast.title_original.split("|")[0]}
+                                    </h2>
+                                    <p
+                                    className="PodcastCard__description PodcastCard__description--snippet"
+                                    id={`PodcastCard__description--${index}`}
+                                    >
+                                    {podcast.description_original}
+                                    </p>
+        
+                                    {
+                                    (podcast.description_original.length > 156)
+                                    ?
+                                    <button 
+                                        className="PodcastCard__button--showMore"
+                                        onClick={(e)=>{this.showMore(e, index)}}>
+                                        ... Show more
+                                    </button>
+                                    : null
+                                    }
+                                    <br/>
 
-                    {this.state.episodeList.length ? 
-
-                        <button className="PodcastResults__button--back" onClick={this.closeEpisodeList}>
-                            <span className="visuallyHidden">Click here to go back</span>
-                            <i className="fas fa-arrow-left" title="Go back"></i>
-                        </button>
-                        
-                        : null
-                    }
-
-                    <ul className="PodcastResults__list">
-
-                        {!this.state.episodeList.length ?
-
-                            this.state.podcastList.map((podcast, index)=>{
-                                return(
-                                    <li className="PodcastResults__item" key={podcast.id}>
-                                        <img 
-                                            src={podcast.thumbnail} 
-                                            alt={podcast.title_original}
-                                            className="PodcastCard__image"/>
-                                        <div>
-                                            <h2 className="PodcastCard__title">{podcast.title_original.split("|")[0]}</h2>
-                                            <p className="PodcastCard__description PodcastCard__description--snippet" id={`PodcastCard__description--${index}`}>{podcast.description_original}</p>
-
-                                            {
-                                                (podcast.description_original.length > 156)
-                                                ?
-                                                <button 
-                                                    className="PodcastCard__button--showMore"
-                                                    onClick={(e)=>{this.showMore(e, index)}}>
-                                                    ... Show more
-                                                </button>
-                                                : null
-                                            }
-
-                                            <br/>
-                        
-                                            <button 
-                                                id={podcast.id} 
-                                                onClick={this.getRecentEpisodes}
-                                                className="PodcastCard__button">
-                                                Episodes
-                                            </button>
-                                        </div>
-
-                                    </li>
-                                )
-                            })
-                            
-                            :
-
-                            this.state.episodeList.map((episode) => {
-                                return (
-                                    <li key={episode.id} className="EpisodeResults__item">
-                                        <img 
-                                            src={episode.thumbnail} 
-                                            alt={episode.title}
-                                            className="PodcastCard__image"/>
-                                        <div>
-                                            <h2 className="PodcastCard__title">{episode.title}</h2>
-                                            <button onClick={this.showDetails}>Details</button>
-                                            <dialog className="visuallyHidden">
-                                                <div dangerouslySetInnerHTML={{__html: episode.description}}/>
-                                            </dialog>
-                                            <p className="PodcastCard__description"> 
-                                            {this.totalTime(episode.audio_length_sec)}</p>
-                                        </div>
-                                    </li>
-                                )
-                            })
-                        
-                        }   
-
-                    </ul>
-                </section>
-
+                                    <button
+                                    id={podcast.id}
+                                    onClick={this.getRecentEpisodes}
+                                    className="PodcastCard__button"
+                                    >
+                                    Episodes
+                                    </button>
+                                </div>
+                            </li>
+                            );
+                        })
+                    : this.state.episodeList.map(episode => {
+                        return (
+                        <li key={episode.id} className="EpisodeResults__item">
+                            <img
+                                src={episode.thumbnail}
+                                alt={episode.title}
+                                className="PodcastCard__image"
+                            />
+                            <h2 className="PodcastCard__title">
+                                {episode.title}
+                            </h2>
+                            <button onClick={this.showDetails}>Details</button>
+                            <dialog className="visuallyHidden">
+                                <div dangerouslySetInnerHTML={{__html: episode.description}}/>
+                            </dialog>
+                            <p className="PodcastCard__description">
+                                Audio Length:
+                                {this.totalTime(episode.audio_length_sec)}
+                            </p>
+                        </li>
+                        );
+                    })}
+                </ul>
             </section>
-        )
+            </div>
+        </section>
+        );
     }
 }
 
