@@ -26,7 +26,7 @@ class Header extends Component {
                 <h1 className="Header__mainHeader">Paths and Podcasts</h1>
 
                 <p className="Header__tagline">
-                  Don't settle for a boring commute
+                  Who said your commute has to be boring?
                 </p>
 
               </div>

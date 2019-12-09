@@ -8,7 +8,7 @@
 .Podcast {
     padding: 6rem 0;
     // background-color: rgba(194, 237, 216,0.2); 
-    background-color: rgba(0, 30, 49, 1); 
+    // background-color: rgba(0, 30, 49, 1); 
      
     &__introContent {
         color: $color-4;
@@ -159,4 +159,19 @@ input {
         margin-top: 1rem;
     }
     
+}
+
+// ==================================
+// 
+// FOOTER
+// 
+// ===================================
+
+.Footer {
+    background-color: $color-2;
+
+    &__copy {
+        padding: 1rem 0;
+        text-align: center;
+    }
 }

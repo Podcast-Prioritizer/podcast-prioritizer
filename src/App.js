@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header'
 import MapQuestSearch from './MapQuestSearch';
 import Podcast from "./Podcast";
+import Footer from "./Footer";
 
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './styles/App.scss';
@@ -59,6 +60,8 @@ class App extends Component {
         <Podcast
           setPodcastTime={this.setPodcastTime}
         />
+
+        <Route path="/" component={Footer}/>
       </Router>
     );
   };
