@@ -1,0 +1,43 @@
+.ModalContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(12, 12, 12, 0.5);
+}
+
+.ComparisonResults {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  height: 80vh;
+  margin: 0 auto;
+  padding: 3rem 2.5rem;
+  background: white;
+  border: 2px solid black;
+  text-align: center;
+}
+
+.show-modal {
+  &-enter {
+    transition: .4s;
+    opacity: 0;
+  }
+  
+  &-enter-done {
+    transition: .4s;
+    opacity: 1;
+  }
+  
+  &-exit {
+    transition: .4s;
+    opacity: 1;
+  }
+  
+  &-exit-done {
+    opacity: 0;
+  }
+}
