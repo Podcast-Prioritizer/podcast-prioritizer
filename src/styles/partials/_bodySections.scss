@@ -7,13 +7,23 @@
 .MapQuest__searchArea,
 .Podcast {
     padding: 6rem 0;
-    background-color: rgba(194, 237, 216,0.2);  
+    // background-color: rgba(194, 237, 216,0.2); 
+    background-color: rgba(0, 30, 49, 1); 
+     
+    &__introContent {
+        color: $color-4;
+
+        h2 {
+            color: $color-4;
+        }
+    }
 }
 
 input {
     padding: 1rem;
-    margin: 3rem 0;
+    margin: 3rem 2rem 3rem 0;
     border-radius: 5px;
+    width: 40%;
 }
 
 .MapQuest__submitBtn,
@@ -23,8 +33,11 @@ input {
     padding: 1rem 2rem;
     border-radius: 5px;
     text-transform: uppercase;
-    color: $color-4;
-    background-color: $color-1;
+    font-weight: 600;
+    // color: $color-4;
+    // background-color: $color-1;
+    color: $color-1;
+    background-color: $color-2;
     border: none;
     transition: 0.3s; 
 
@@ -37,17 +50,21 @@ input {
 
 
 
-
-
-
-
 // ==================================
 // 
-// MAPQUEST SEARCH
+// MAPQUEST SEARCH & RESULTS
 // 
 // ===================================
 
 .MapQuest {
+
+    &__introContent {
+        color: $color-4;
+
+        h2 {
+            color: $color-4;
+        }
+    }
 
     // &__searchArea {
     //     padding: 6rem 0;
@@ -119,14 +136,22 @@ input {
  
 .PodcastCard {
 
+    &__title {
+        color: $color-4;
+
+    }
+
     &__description{
         height: initial;
+        color: $color-4;
+        
     }
     
     &__description--snippet{
         height: 10rem;
         overflow: hidden;
         margin-bottom: 2rem;
+        color: $color-4;
     }
 
     &__button--showMore,

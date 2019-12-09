@@ -126,6 +126,12 @@ class MapQuestSearch extends Component {
     return (
       <div className="MapQuest__searchArea">
         <div className="wrapper">
+
+          <div className="MapQuest__introContent">
+            <h2>Hit the road</h2>
+            <p>Find the best way to reach your destination.  Enter your start location and your desired destination.</p>
+          </div>
+
           <form className="MapQuest__form" onSubmit={this.getMapInfo}>
             <label htmlFor="userStart" className="visuallyHidden">
               Enter Your Location

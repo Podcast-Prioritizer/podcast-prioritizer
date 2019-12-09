@@ -227,7 +227,6 @@ a {
 h1, h2, h3 {
   font-family: 'Nova Flat';
   margin: 2rem 0;
-  color: #232323;
 }
 
 h1 {
@@ -263,7 +262,7 @@ p, a, ::placeholder {
 
 .Header {
   height: 90vh;
-  background-image: url("../assets/girlWalking.jpg");
+  background-image: url("../assets/girlWalkingListening.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -271,7 +270,7 @@ p, a, ::placeholder {
 
 .Header__displayArea {
   width: 70%;
-  height: 85%;
+  height: 90%;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 0 0 80px 0;
 }
@@ -301,6 +300,14 @@ p, a, ::placeholder {
   font-weight: 600;
   text-transform: uppercase;
   color: #001e31;
+}
+
+.Header__navLink {
+  color: #001e31;
+}
+
+.Header__navLink:hover {
+  color: #24b62c;
 }
 
 .Header__headerContent {
@@ -343,13 +350,24 @@ p, a, ::placeholder {
 .MapQuest__searchArea,
 .Podcast {
   padding: 6rem 0;
-  background-color: rgba(194, 237, 216, 0.2);
+  background-color: #001e31;
+}
+
+.MapQuest__searchArea__introContent,
+.Podcast__introContent {
+  color: #ffff;
+}
+
+.MapQuest__searchArea__introContent h2,
+.Podcast__introContent h2 {
+  color: #ffff;
 }
 
 input {
   padding: 1rem;
-  margin: 3rem 0;
+  margin: 3rem 2rem 3rem 0;
   border-radius: 5px;
+  width: 40%;
 }
 
 .MapQuest__submitBtn,
@@ -359,8 +377,9 @@ input {
   padding: 1rem 2rem;
   border-radius: 5px;
   text-transform: uppercase;
-  color: #ffff;
-  background-color: #001e31;
+  font-weight: 600;
+  color: #001e31;
+  background-color: #c2edd8;
   border: none;
   -webkit-transition: 0.3s;
   transition: 0.3s;
@@ -371,6 +390,14 @@ input {
 .PodcastCard__button--showMore:hover,
 .PodcastCard__button:hover {
   background-color: #24b62c;
+}
+
+.MapQuest__introContent {
+  color: #ffff;
+}
+
+.MapQuest__introContent h2 {
+  color: #ffff;
 }
 
 .PodcastResults {
@@ -411,14 +438,20 @@ input {
   color: #ffff;
 }
 
+.PodcastCard__title {
+  color: #ffff;
+}
+
 .PodcastCard__description {
   height: initial;
+  color: #ffff;
 }
 
 .PodcastCard__description--snippet {
   height: 10rem;
   overflow: hidden;
   margin-bottom: 2rem;
+  color: #ffff;
 }
 
 .PodcastCard__button--showMore, .PodcastCard__button {

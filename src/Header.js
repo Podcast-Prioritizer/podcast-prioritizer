@@ -15,7 +15,7 @@ class Header extends Component {
                 <img className="Header__logo" src={ logo } alt="Paths and Podcasts Logo"/>
   
                 <nav className="Header__nav">
-                  <NavLink activeClassName="active" to="/home">
+                  <NavLink className="Header__navLink" activeClassName="active" to="/home">
                     Home
                   </NavLink>
                 </nav>
