@@ -119,7 +119,7 @@ class ComparisonResults extends Component {
                   </div>
                 </section>
 
-                <section>
+                <section className="ComparisonResults__map">
                   <img src={map} alt="" />
                 </section>
 
