@@ -70,6 +70,7 @@ class Podcast extends Component{
 
                 this.setState({
                     episodeList: newEpisodes,
+                    podcastList:[]
                 });
 
                 } ;
@@ -153,6 +154,7 @@ class Podcast extends Component{
                     type="submit"
                     onSubmit={this.handleSubmit}
                     className="PodcastSearch__submitButton"
+                    onClick={this.closeEpisodeList}
                 >
                     Submit
                 </button>
