@@ -36,7 +36,7 @@
     .PodcastResults__item {
         flex-direction: column;
         
-        img {
+        &>div {
             display: inline-block;
             margin: 0 auto;
         }
@@ -57,11 +57,13 @@
 
         h2 {
             margin-top: 1rem;
+            font-size: 2.25rem;
         }
 
         img {
-            display: inline-block;
-            margin: 0 auto; 
+            // display: inline-block;
+            // margin: 0 auto; 
+            display: none;
         }
     }
 

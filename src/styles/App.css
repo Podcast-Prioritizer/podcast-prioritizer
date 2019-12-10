@@ -885,7 +885,7 @@ dialog .EpisodeCard__closeDialog {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .PodcastResults__item img {
+  .PodcastResults__item > div {
     display: inline-block;
     margin: 0 auto;
   }
@@ -906,10 +906,10 @@ dialog .EpisodeCard__closeDialog {
   }
   .EpisodeResults__item h2 {
     margin-top: 1rem;
+    font-size: 2.25rem;
   }
   .EpisodeResults__item img {
-    display: inline-block;
-    margin: 0 auto;
+    display: none;
   }
 }
 
