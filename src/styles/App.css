@@ -689,7 +689,7 @@ ul {
 }
 
 .PodcastCard__description--snippet {
-  max-height: 20rem;
+  max-height: 18rem;
   overflow: hidden;
 }
 
@@ -828,7 +828,7 @@ dialog .EpisodeCard__closeDialog {
   position: fixed;
   bottom: 0;
   width: 100vw;
-  height: 70vh;
+  height: 100vh;
   margin: 0 auto;
   padding: 3rem 2.5rem;
   background: white;
