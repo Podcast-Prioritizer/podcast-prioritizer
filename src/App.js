@@ -18,6 +18,7 @@ class App extends Component {
       walkingTime: "",
       podcastTime: "",
       podcastEpisode: {},
+      map: ""
     };
   };
 
@@ -57,6 +58,12 @@ class App extends Component {
     });
   }
 
+  directionsMap = (userMap) => {
+    this.setState({
+      map: userMap
+    });
+  }
+
   render(){
     console.log(this.state)
     return (
@@ -69,6 +76,7 @@ class App extends Component {
           setWalkTimeProp={this.setWalkTime}
           apiKey={this.state.mapQuestApiKey}
           stateProp={this.state}
+          mapProp={this.directionsMap}
         />
 
         

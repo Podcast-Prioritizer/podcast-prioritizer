@@ -11,8 +11,7 @@ class ComparisonResults extends Component {
 
   render() {
     const { results, closeResultsProp } = this.props;
-    console.log(results);
-    const { podcastTime, bikingTime, walkingTime } = results;
+    const { podcastTime, bikingTime, walkingTime, map } = results;
 
     function transportSuggestion(transportationMethod) {
       // Map the classnames that will be output onto the element
@@ -106,6 +105,10 @@ class ComparisonResults extends Component {
                     />
                     {printTimeDifference(walkingTime)}
                   </div>
+                </section>
+
+                <section>
+                  <img src={map} alt="" />
                 </section>
 
                 <p className="ComparisonResults__disclaimer">
