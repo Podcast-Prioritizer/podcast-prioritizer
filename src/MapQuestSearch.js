@@ -187,12 +187,6 @@ class MapQuestSearch extends Component {
               placeholder="Enter Your Location"
               ref="userStart"
             />
-            {/* <input
-              type="text"
-              placeholder="Enter Your Location"
-              id="userStart"
-              ref="userStart"
-            /> */}
             <label htmlFor="userDestination" className="visuallyHidden">
               Enter Your Destination
             </label>
@@ -202,14 +196,6 @@ class MapQuestSearch extends Component {
               placeholder="Enter Your Location"
               ref="userDestination"
             />
-            {/* <input
-              type="text"
-              placeholder="Enter Your Destination"
-              id="userDestination"
-              ref="userDestination"
-              onKeyDown={this.autoCompleteDestination}
-            /> */}
-
             <button className="MapQuest__submitBtn" type="submit">
               Search
             </button>
