@@ -345,6 +345,11 @@ p {
   padding-top: 2rem;
 }
 
+:focus {
+  -webkit-box-shadow: 2px 2px 2px slategray;
+          box-shadow: 2px 2px 2px slategray;
+}
+
 .MapQuest__searchArea,
 .PodcastSearch {
   padding: 6rem 0 3rem 0;
@@ -399,6 +404,21 @@ input {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.MapQuest__form input {
+  width: 100%;
+  padding: 1rem;
+}
+
+.MapQuest__form span {
+  padding-right: 2rem;
+  margin: 3rem 2rem 3rem 0;
+  border-radius: 5px;
+  width: 40%;
 }
 
 .MapQuest__submitBtn {
@@ -857,6 +877,22 @@ dialog .EpisodeCard__closeDialog {
           transform: translateY(100%);
 }
 
+@media (max-width: 1100px) {
+  h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  .PodcastCard__button--showMore {
+    display: block;
+  }
+  .PodcastCard__description--snippet {
+    max-height: 14rem;
+  }
+}
+
 @media (max-width: 975px) {
   .Header__displayArea {
     width: 100%;
@@ -875,9 +911,10 @@ dialog .EpisodeCard__closeDialog {
         -ms-flex-align: center;
             align-items: center;
   }
-  .MapQuest__form input {
+  .MapQuest__form span {
+    padding: 0;
+    margin: 0;
     width: 80%;
-    margin-bottom: 0;
   }
   .PodcastSearch__form {
     -webkit-box-orient: vertical;
@@ -938,22 +975,6 @@ dialog .EpisodeCard__closeDialog {
   }
   .Header__mainHeader::before {
     top: 105px;
-  }
-}
-
-@media (max-width: 1100px) {
-  h2 {
-    font-size: 2.5rem;
-    margin-top: 0;
-  }
-}
-
-@media (max-width: 1000px) {
-  .PodcastCard__button--showMore {
-    display: block;
-  }
-  .PodcastCard__description--snippet {
-    max-height: 14rem;
   }
 }
 /*# sourceMappingURL=App.css.map */
