@@ -70,8 +70,7 @@ class Podcast extends Component{
                 newEpisodes.push(element);
 
                 this.setState({
-                    episodeList: newEpisodes,
-                    podcastList:[]
+                    episodeList: newEpisodes
                 });
 
                 } ;

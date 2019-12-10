@@ -1,11 +1,10 @@
-
 // MEDIUM SCREENS =====================
 @media (max-width: 975px) { 
-      .Header {
-          &__displayArea {
-              width: 100%;
-              height: 100%;
-              border-radius: 0;
+    .Header {
+        &__displayArea {
+            width: 100%;
+            height: 100%;
+            border-radius: 0;
         }
     }
 }
@@ -33,9 +32,9 @@
         &__form {
             flex-direction: column;
             align-items: center;
-              input {
-                  width: 80%;
-                  margin-bottom: 0;
+                input {
+                    width: 80%;
+                    margin-bottom: 0;
               }
         }
     }
@@ -43,7 +42,7 @@
     .PodcastResults__item {
         flex-direction: column;
         
-        img {
+        &>div {
             display: inline-block;
             margin: 0 auto;
         }
@@ -64,21 +63,23 @@
 
         h2 {
             margin-top: 1rem;
+            font-size: 2.25rem;
         }
 
         img {
-            display: inline-block;
-            margin: 0 auto; 
+            // display: inline-block;
+            // margin: 0 auto; 
+            display: none;
         }
     }
 
 }
 // TABLET SCREENS ======================
 @media (max-width: 640px) { 
-      .Header {
-          &__mainHeader::before {
+    .Header {
+            &__mainHeader::before {
             top: 120px;
-      }
+        }
     }
 }
 
@@ -89,10 +90,12 @@
     } 
     
     .Header {
-          &__mainHeader::before {
+            &__mainHeader::before {
             top: 105px;
-      }
+        }
     }
+
+}
     
 @media(max-width: 1100px){
     //Change title styles
@@ -102,14 +105,13 @@
     }
 }
 
-//Display "show more" button as container gets smaller
-@media(max-width: 900px){
+@media(max-width: 1000px){
     .PodcastCard__button--showMore{
         display: block;
     }
-}
+
     //Change max height of podcast description to match smaller screen
     .PodcastCard__description--snippet{
-        max-height: 16rem;
+        max-height: 14rem;
     }
 }
