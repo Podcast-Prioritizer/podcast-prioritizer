@@ -20,21 +20,6 @@
         padding: 2rem 2rem;
     }
 
-    &__nav {
-        justify-content: flex-end;
-        font-weight: 600;
-        text-transform: uppercase;
-        color: $color-1;
-    }
-
-    &__navLink {
-        color: $color-1;
-
-        &:hover {
-            color: $color-3;
-        }
-    }
-
     &__headerContent {
         display: flex;
         flex-direction: column;
@@ -57,7 +42,7 @@
         left: 30%;
         
     }
-   
+
     &__tagline {
         font-size: 2rem;
         text-transform: uppercase;

@@ -13,30 +13,31 @@ ul{
     padding: 10px 0;
 }
 
+//Podcast results 
 .PodcastResults__item{
     width: 100%;
     background:white;
     display: flex;
     margin: 10px 0;
     border-radius: 5px;
-    
+    //Image div container
     &>div{
         position: relative;
         height: 250px;
     }
-    
+    //Podcast Title and description
     p, h2{
         color: black;
         margin: 0;
     }
-
+//Format thumbnail image for each podcast
     img{
         height: 250px;
         width: 250px;
         border-radius: 5px;
         cursor: pointer;
     }
-
+//Format podcast description
     .PodcastCard__text{
         padding: 10px 20px;
         height: 100%;
@@ -50,6 +51,7 @@ ul{
     left: 0;
 }
 
+//Format Episode Results
 .EpisodeResults__item{
     width: 100%;
     display: flex;
@@ -57,7 +59,7 @@ ul{
     background: white;
     margin: 10px 0;
     border-radius: 5px;
-
+//Episode Title
     h2{
         font-size: 2.5rem;
         margin: 0;
@@ -80,24 +82,7 @@ ul{
     }
 }
 
-.PodcastResults__button--back{
-    font-weight: bolder;
-    background:white;
-    cursor: pointer;
-    color: #282c34a4;
-    border: none;
-    border-radius: 35px;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.603);
-    transition: 0.3s;
-    font-size: 2.75rem;
-    padding: 7px 12px;
-}
-
-.PodcastResults__button--back:hover,
-.PodcastResults__button--back:focus{
-    color: $color-3;
-}
-
+//Podcast description - hide if text overflows
 .PodcastCard__description{
     height: initial;
 }
@@ -107,6 +92,7 @@ ul{
     overflow: hidden;
 }
 
+//Show mpre button shows overflowing text on click
 .PodcastCard__button--showMore{
     border: none;
     background: none;
@@ -122,6 +108,7 @@ ul{
     }
 }
 
+//Episode card - buttons
 .EpisodeCard__options{
     display: flex;
     justify-content: space-between;
@@ -134,13 +121,13 @@ ul{
     .EpisodeCard__options--container{
         display: flex;
     }
-
+//Format all buttons
     button{
         padding: 0 10px;
         margin: 0;
         border: none;
     }
-
+//Styling details and listen button
     .EpisodeCard__options--details,
     .EpisodeCard__options--listen{
         transition: 0.4s;
@@ -157,13 +144,14 @@ ul{
         background: $color-3;
         color: white;
     }
-
+//Format audio length of each episode
     .EpisodeCard__options--audioLength{
         color: rgb(102, 102, 102);
         align-self: center;
     }
 }
 
+//Title bar of dialog pop up - more details
 .EpisodeCard__titleBar{
     background: blue;
     display: flex;
@@ -175,7 +163,27 @@ ul{
     padding: 20px;
 }
 
+//More details pop up dialog of each episode
 dialog{
     padding: 0;
     width: 50%;
+}
+
+//Format back button when episode list renders
+.PodcastResults__button--back{
+    font-weight: bolder;
+    background:white;
+    cursor: pointer;
+    color: #282c34a4;
+    border: none;
+    border-radius: 35px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.603);
+    transition: 0.3s;
+    font-size: 2.75rem;
+    padding: 7px 12px;
+}
+
+.PodcastResults__button--back:hover,
+.PodcastResults__button--back:focus{
+    color: $color-3;
 }
