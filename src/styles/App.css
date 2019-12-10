@@ -202,8 +202,6 @@ body {
   font-family: 'Nova Flat', sans-serif;
   font-family: 'Lato', sans-serif;
   background-color: #001e31;
-  background-image: url("../assets/sayagata-400px.png");
-  background-color: #001e31;
   background-image: url("data:image/svg+xml,%3Csvg width='48' height='32' viewBox='0 0 48 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230e486d' fill-opacity='0.4'%3E%3Cpath d='M27 32c0-3.314 2.686-6 6-6 5.523 0 10-4.477 10-10S38.523 6 33 6c-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 6.627 0 12 5.373 12 12s-5.373 12-12 12c-2.21 0-4 1.79-4 4h-2zm-6 0c0-3.314-2.686-6-6-6-5.523 0-10-4.477-10-10S9.477 6 15 6c3.314 0 6-2.686 6-6h-2c0 2.21-1.79 4-4 4C8.373 4 3 9.373 3 16s5.373 12 12 12c2.21 0 4 1.79 4 4h2z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-attachment: fixed;
 }
@@ -293,6 +291,23 @@ p {
   border-radius: 0 0 80px 0;
 }
 
+.Header__linksAndLogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem 0;
+}
+
+.Header__logo {
+  width: 15rem;
+  height: 7rem;
+}
 .Header__logo {
   width: 18rem;
   height: 10rem;
@@ -328,9 +343,7 @@ p {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  text-align: center;
 }
 
 .Header__mainHeader {
@@ -354,17 +367,17 @@ p {
 }
 
 .MapQuest__searchArea,
-.Podcast {
-  padding: 6rem 0;
+.PodcastSearch {
+  padding: 6rem 0 3rem 0;
 }
 
 .MapQuest__searchArea__introContent,
-.Podcast__introContent {
+.PodcastSearch__introContent {
   color: #ffff;
 }
 
 .MapQuest__searchArea__introContent h2,
-.Podcast__introContent h2 {
+.PodcastSearch__introContent h2 {
   color: #ffff;
 }
 
@@ -378,7 +391,9 @@ input {
 .MapQuest__submitBtn,
 .PodcastSearch__submitButton,
 .PodcastCard__button {
-  padding: 1.2rem 2rem;
+  padding: 1rem 2rem;
+  margin: 3rem 0;
+  display: inline-block;
   border-radius: 5px;
   text-transform: uppercase;
   font-weight: 600;
@@ -389,12 +404,34 @@ input {
   transition: 0.3s;
 }
 
+.MapQuest__submitBtn:hover,
+.PodcastSearch__submitButton:hover,
+.PodcastCard__button:hover {
+  background-color: #24b62c;
+}
+
 .MapQuest__introContent {
   color: #ffff;
 }
 
 .MapQuest__introContent h2 {
   color: #ffff;
+}
+
+.MapQuest__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.MapQuest__submitBtn {
+  display: inline-block;
+}
+
+.PodcastSearch__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .PodcastResults {
@@ -452,6 +489,24 @@ input {
 
 .PodcastCard__button--showMore, .PodcastCard__button {
   margin-top: 1rem;
+}
+
+.swal2-html-container {
+  font-size: 1.8rem;
+}
+
+.swal2-popup.swal2-modal {
+  border: 15px solid #c2edd8;
+}
+
+.swal2.content #text {
+  color: #0000;
+}
+
+button.swal2-confirm.swal2-styled {
+  background-color: #001e31;
+  font-size: 1.6rem;
+  padding: 1rem;
 }
 
 .Footer {
@@ -717,6 +772,32 @@ ul {
 dialog {
   padding: 0;
   width: 50%;
+  border-radius: 10px;
+  border: none;
+  -webkit-box-shadow: 2px 2px 2px 2px lightslategray;
+          box-shadow: 2px 2px 2px 2px lightslategray;
+}
+
+dialog .EpisodeCard__titleBar {
+  background-color: #c2edd8;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 10px 10px 0 0;
+  font-weight: 600;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+dialog .EpisodeCard__closeDialog {
+  border: none;
+  background-color: #001e31;
+  border-radius: 50%;
+  padding: 0.5rem;
+  width: 2rem;
+  color: #ffff;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .ModalContainer {
@@ -830,9 +911,212 @@ dialog {
     font-size: 2.5rem;
     margin-top: 0;
   }
+  .PodcastCard__description--snippet {
+    max-height: 11.5rem;
+  }
 }
 
-@media (max-width: 900px) {
+.ModalContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.ComparisonResults {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  height: 70vh;
+  margin: 0 auto;
+  padding: 3rem 2.5rem;
+  background: white;
+  border: 2px solid black;
+  text-align: center;
+}
+
+.ComparisonResults__options {
+  width: 100%;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.ComparisonResults__option {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33%;
+          flex: 1 1 33%;
+}
+
+.ComparisonResults__option img {
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.ComparisonResults__option:first-of-type img {
+  margin-left: auto;
+}
+
+.ComparisonResults__option--selected img {
+  background: #28cb31;
+}
+
+.ComparisonResults__option--selected img:hover {
+  background: #24b62c;
+}
+
+.ComparisonResults__details {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 33%;
+          flex: 1 1 33%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.ComparisonResults__details p:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+
+.ComparisonResults__icon {
+  max-width: 150px;
+  padding: 2rem;
+}
+
+.ComparisonResults__button--close {
+  display: block;
+  margin-left: auto;
+}
+
+.show-modal-enter {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
+.show-modal-enter-done {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.show-modal-exit {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.show-modal-exit-active {
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
+@media (max-width: 975px) {
+  .Header__displayArea {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .MapQuest__form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .MapQuest__form input {
+    width: 80%;
+    margin-bottom: 0;
+  }
+  .PodcastSearch__form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .PodcastSearch__form input {
+    width: 80%;
+    margin-bottom: 0;
+  }
+  .PodcastResults__item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .PodcastResults__item img {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  .PodcastCard__submitButton {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  .Episode__options--details {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .EpisodeResults__item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .EpisodeResults__item h2 {
+    margin-top: 1rem;
+  }
+  .EpisodeResults__item img {
+    display: inline-block;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .Header__mainHeader::before {
+    top: 120px;
+  }
+}
+
+@media (max-width: 375px) {
+  html {
+    font-size: 55%;
+  }
+  .Header__mainHeader::before {
+    top: 105px;
+  }
+}
+
+@media (max-width: 375px) and (max-width: 1100px) {
+  h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+  }
+  .PodcastCard__description--snippet {
+    max-height: 15.5rem;
+  }
+}
+
+@media (max-width: 375px) and (max-width: 900px) {
   .PodcastCard__button--showMore {
     display: block;
   }

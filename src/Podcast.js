@@ -37,11 +37,12 @@ class Podcast extends Component{
             Swal.fire({
                 title: "Uh-oh!",
                 text:
-                "Looks like we don't have any podcasts that match your criteria (you must be super picky!).  Please try again",
-                icon: "error",
-                timer: 4000,
-                button: false
-                });
+                  "Looks like we don't have any podcasts that match your criteria (you must be super picky!).  Please try again and broaden your horizons.",
+                imageUrl: require("./styles/assets/nounAngry.png"),
+                imageWidth: 100,
+                confirmButtonText: "Let me try again",
+                padding: "2rem"
+              });
             }
         })  
     }  
@@ -129,16 +130,16 @@ class Podcast extends Component{
     render() {
         
         return (
-        <section className="Podcast">
-        <div className="wrapper">
-            <div className="Podcast__introContent">
+        <section className="PodcastSearch">
+            <div className="wrapper">
+                <div className="PodcastSearch__introContent">
                 <h2>Pick your Podcast</h2>
                 <p>
                     Find an episode of a podcast to keep you entertained on your commute.
                 </p>
             </div>
 
-            <form onSubmit={this.handleSubmit} className="PodcastSearch">
+            <form onSubmit={this.handleSubmit} className="PodcastSearch__form">
                 <input
                     type="text"
                     placeholder="Search podcast"
@@ -216,7 +217,7 @@ class Podcast extends Component{
                             </li>
                             );
                         })
-                    : this.state.episodeList.map((episode, index) => {
+                    : this.state.episodeList.map((episode, index) => {  
                         return (
                         <li
                             key={episode.id}
