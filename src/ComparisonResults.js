@@ -4,15 +4,25 @@ import cyclist from "./styles/assets/cyclist.png";
 import pedestrian from "./styles/assets/pedestrian.png";
 
 class ComparisonResults extends Component {
-  readableMinutes = (seconds, suffix = "s") => {
-    const minutes = Math.round(Math.abs(seconds) / 60);
-    return `${minutes} minute${minutes !== 1 ? suffix : ""}`;
+  readableTime = (seconds) => {
+    const readableMinutes = (seconds, suffix = "s") => {
+      const minutes = Math.round(Math.abs(seconds) / 60);
+      return `${minutes > 60 ? minutes % 60 : minutes} minute${minutes !== 1 ? suffix : ""}`;
+    }
+
+    const readableHours = (seconds, suffix = "s ") => {
+      const hours = Math.floor(Math.abs(seconds) / 3600);
+      return hours ? `${hours} hour${hours !== 1 ? suffix : " "}` : '';
+    };
+
+    return `${readableHours(seconds)}${readableMinutes(seconds)}`;
   };
 
   render() {
     const { results, closeResultsProp } = this.props;
     const { podcastTime, bikingTime, walkingTime, map } = results;
 
+    // Adds the '--selected' modifier to the transportation method that's closest to the travel time
     function transportSuggestion(transportationMethod) {
       // Map the classnames that will be output onto the element
       const allTransportMethods = {
@@ -34,10 +44,9 @@ class ComparisonResults extends Component {
       return allTransportMethods[transportationMethod];
     }
 
-    const printTimeDifference = (transportMethod) => {
+    // Takes the travel time and compares it to the podcast length
+    const printTimeDifference = transportMethod => {
       const timeDifference = transportMethod - podcastTime;
-
-      const minutesDifference = this.readableMinutes(timeDifference);
 
       if (transportMethod === podcastTime) {
         return (
@@ -48,17 +57,17 @@ class ComparisonResults extends Component {
       } else if (timeDifference < 0) {
         return (
           <span className="ComparisonResults__timeDifference ComparisonResults__timeDifference--lower">
-            {`-${minutesDifference}`}
+            -{this.readableTime(timeDifference)}
           </span>
         );
       } else {
         return (
           <span className="ComparisonResults__timeDifference ComparisonResults__timeDifference--higher">
-            {`${minutesDifference}`}
+            +{this.readableTime(timeDifference)}
           </span>
         );
       }
-    }
+    };
 
     return (
       <>
@@ -92,9 +101,12 @@ class ComparisonResults extends Component {
                   </div>
 
                   <div className="ComparisonResults__details">
-                    <p>Podcast length: {this.readableMinutes(podcastTime)}</p>
-                    <p>Biking time: {this.readableMinutes(bikingTime)}</p>
-                    <p>Walking time: {this.readableMinutes(walkingTime)}</p>
+                    <p>
+                      Podcast length:{" "}
+                      {this.readableTime(podcastTime)}
+                    </p>
+                    <p>Biking time: {this.readableTime(bikingTime)}</p>
+                    <p>Walking time: {this.readableTime(walkingTime)}</p>
                   </div>
 
                   <div className={transportSuggestion("pedestrian")}>
