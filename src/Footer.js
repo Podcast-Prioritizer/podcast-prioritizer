@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import "./App.css";
-// import logo from "./styles/assets/logo.png";
-
-import { NavLink } from "react-router-dom";
 
 class Footer extends Component {
 

@@ -17,7 +17,7 @@ a {
 // SET STANDARD STYLES ============================
 
 h1, h2, h3 {
-    font-family: 'Nova Flat';
+    font-family: 'Francois One', sans-serif;
     margin: 2rem 0; 
     // color: #232323; 
     
@@ -30,8 +30,8 @@ h1 {
 
 h2 {
     font-size: 2.75rem;
-    line-height: 2.5rem;
-    padding-bottom: 5px;
+    line-height: 2.75rem;
+    padding-bottom: 10px;
 }
 
 h3 {
@@ -148,7 +148,7 @@ ul{
 }
 
 .PodcastCard__description--snippet{
-    max-height: 19rem;
+    max-height: 20rem;
     overflow: hidden;
 }
 
