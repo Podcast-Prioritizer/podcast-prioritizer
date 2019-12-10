@@ -104,21 +104,26 @@ class Podcast extends Component{
     };
 
     selectEpisode = (selectedEpisodeId, index) => {
-        let date = new Date(null);
-
-        date.setSeconds(this.state.episodeList[index]["audio_length_sec"]);
-
-        let podcastEpisodeLength = date.toISOString().substr(11, 8);
-
-        this.props.setPodcastTime(podcastEpisodeLength);
+        let podcastLength = this.state.episodeList[index]["audio_length_sec"];
 
         this.state.episodeList.map((episode) => {
             if (episode.id === selectedEpisodeId) {
-                this.props.setPodcastTime(podcastEpisodeLength);
+                this.props.setPodcastTime(podcastLength);
                 this.props.selectedEpisodeProp(this.state.episodeList[index]);
             };
         });
     };
+
+    //episode details
+    showDetails = (e, index) => {
+        document.getElementById(`EpisodeCard__description--${index}`).classList.remove("visuallyHidden")
+        document.getElementById(`EpisodeCard__description--${index}`).setAttribute("open", true)
+    }
+
+    closeDialog= (e, index) => {
+        document.getElementById(`EpisodeCard__description--${index}`).classList.add("visuallyHidden")
+        document.getElementById(`EpisodeCard__description--${index}`).setAttribute("open", false)
+    }
 
     render(){
         return (
@@ -184,7 +189,7 @@ class Podcast extends Component{
                                     </p>
         
                                     {
-                                    (podcast.description_original.length > 156)
+                                    (podcast.description_original.length > 300)
                                     ?
                                     <button 
                                         className="PodcastCard__button--showMore"
@@ -222,21 +227,33 @@ class Podcast extends Component{
                                 <h2 className="PodcastCard__title">
                                     {episode.title}
                                 </h2>
-                                <button onClick={this.showDetails}>Details</button>
-                                <dialog className="visuallyHidden">
-                                    <div dangerouslySetInnerHTML={{__html: episode.description}}/>
+                                <dialog className="visuallyHidden" id={`EpisodeCard__description--${index}`}>
+                                    <div className="EpisodeCard__titleBar">
+                                        <p>{episode.title}</p>
+                                        <button className="EpisodeCard__closeDialog" onClick={(e)=>{this.closeDialog(e, index)}}>
+                                            x
+                                        </button>
+                                    </div>
+                                    <div 
+                                        dangerouslySetInnerHTML={{__html: episode.description}}
+                                        className="EpisodeCard__description"
+                                    />
                                 </dialog>
-                                <p className="PodcastCard__description">
-                                    Audio Length:
-                                    {this.totalTime(episode.audio_length_sec)}
-                                </p>
-                                <button
-                                    onClick={() => {
-                                        this.selectEpisode(episode.id, index)
-                                    }}
-                                >
-                                    Select
-                                </button>
+                                <div className="EpisodeCard__options">
+                                    <div className="EpisodeCard__options--container">
+                                        <button className="EpisodeCard__options--listen">
+                                            <i class="fas fa-headphones-alt"></i> Listen
+                                        </button>
+                                        <p className="EpisodeCard__options--audioLength">     
+                                            {this.totalTime(episode.audio_length_sec)}
+                                        </p>
+                                    </div>
+                                    <button 
+                                        className="EpisodeCard__options--details"
+                                        onClick={(e)=>{this.showDetails(e, index)}}>
+                                        Details
+                                    </button>
+                                </div>
                             </div>
                         </li>
                         );

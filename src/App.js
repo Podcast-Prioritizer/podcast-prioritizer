@@ -12,6 +12,7 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
+      mapQuestApiKey: "uMDO6BJLrXNNrJI5BZ7A0tFS6AojdBjn",
       startAndEndLocations: {},
       bikingTime: "",
       walkingTime: "",
@@ -57,7 +58,6 @@ class App extends Component {
   }
 
   render(){
-    const mapQuestApiKey = "uMDO6BJLrXNNrJI5BZ7A0tFS6AojdBjn";
     console.log(this.state)
     return (
       <Router>
@@ -67,7 +67,7 @@ class App extends Component {
           setLocationsProp={this.setLocations}
           setBikeTimeProp={this.setBikeTime}
           setWalkTimeProp={this.setWalkTime}
-          apiKey={mapQuestApiKey}
+          apiKey={this.state.mapQuestApiKey}
           stateProp={this.state}
         />
 
