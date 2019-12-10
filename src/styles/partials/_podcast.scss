@@ -44,9 +44,19 @@ ul{
     }
 }
 
-.PodcastCard__button{
+.PodcastCard__button {
+    padding: 1rem 2rem;
+    margin: 0;
+    display: inline-block;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $color-1;
+    background-color: $color-2;
+    border: none;
+    transition: 0.3s;
     position: absolute;
-    width: 100%;
+    width: 250px;
     bottom: 0;
     left: 0;
 }
@@ -159,14 +169,8 @@ ul{
     padding: 5px;
 }
 
-.EpisodeCard__description{
+.EpisodeCard__description {
     padding: 20px;
-}
-
-//More details pop up dialog of each episode
-dialog{
-    padding: 0;
-    width: 50%;
 }
 
 //Format back button when episode list renders
@@ -186,4 +190,48 @@ dialog{
 .PodcastResults__button--back:hover,
 .PodcastResults__button--back:focus{
     color: $color-3;
+}
+
+//More details pop up dialog of each episode
+dialog {
+    padding: 0;
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px lightslategray;
+
+    .EpisodeCard {
+
+        &__titleBar {
+            background-color: $color-2;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px 10px 0 0 ;
+            font-weight: 600;
+            align-items: center;
+        }   
+
+        &__closeDialog {
+            border: none;
+            background-color: $color-2;
+            width: 2rem;
+            color: $color-1;
+            text-align: center;
+            font-size: 2rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    }   
+}
+
+@media(max-width: 1100px){
+
+    h2{
+        font-size: 2.5rem;
+        margin-top: 0;
+    }
+
+    .PodcastCard__description--snippet{
+        max-height: 11.5rem;
+    }
 }
