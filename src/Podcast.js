@@ -189,7 +189,7 @@ class Podcast extends Component{
                                     </p>
         
                                     {
-                                    (podcast.description_original.length > 156)
+                                    (podcast.description_original.length > 300)
                                     ?
                                     <button 
                                         className="PodcastCard__button--showMore"
