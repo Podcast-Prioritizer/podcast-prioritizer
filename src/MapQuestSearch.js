@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
 import Swal from "sweetalert2";
-
-import AngryIcon from './styles/assets/nounAngry.png';
-
 import "./App.css";
 
 class MapQuestSearch extends Component {
@@ -43,25 +40,22 @@ class MapQuestSearch extends Component {
             Swal.fire({
               title: "Uh-oh!",
               text:
-                "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
-              // icon: "error",
+                "Looks like you're not too sure where you're going.  Make sure you have included both a start and a destination address",
               imageUrl: require('./styles/assets/nounAngry.png'),
               imageWidth: 100,
-              timer: 24000,
-              confirmButtonColor: "#001e31",
               confirmButtonText: "Let me try again",
-              // background: "#c2edd8",
-              border: ('4 solid #c2edd8'),
               padding: "2rem"
             });
           } else if (error.request) {
               Swal.fire({
-              title: "Uh-oh!",
-              text:
-                "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
-              icon: "error",
-              timer: 4000
-            });
+                title: "Uh-oh!",
+                text:
+                  "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
+                imageUrl: require("./styles/assets/nounAngry.png"),
+                imageWidth: 100,
+                confirmButtonText: "Let me try again",
+                padding: "2rem"
+              });
           } else if (
             this.props.stateProp.bikingTime === "00:00:00" || 
             this.props.stateProps.walkingTime === "") {
@@ -69,8 +63,10 @@ class MapQuestSearch extends Component {
                 title: "Uh-oh!",
                 text:
                   "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
-                  icon: "error",
-                  timer: 4000
+                imageUrl: require("./styles/assets/nounAngry.png"),
+                imageWidth: 100,
+                confirmButtonText: "Let me try again",
+                padding: "2rem"
               });
             }
         }); 

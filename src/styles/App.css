@@ -571,15 +571,20 @@ input {
   margin-top: 1rem;
 }
 
-#swal2-content.swal2-html-container {
+.swal2-html-container {
   font-size: 1.8rem;
 }
 
-#swal2.content p {
+.swal2-popup.swal2-modal {
+  border: 15px solid #c2edd8;
+}
+
+.swal2.content #text {
   color: #0000;
 }
 
 button.swal2-confirm.swal2-styled {
+  background-color: #001e31;
   font-size: 1.6rem;
   padding: 1rem;
 }
