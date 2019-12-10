@@ -90,7 +90,7 @@ ul{
 
 .PodcastCard__button {
     padding: 1rem 2rem;
-    margin: 3rem 0;
+    margin: 0;
     display: inline-block;
     border-radius: 5px;
     text-transform: uppercase;
@@ -100,7 +100,7 @@ ul{
     border: none;
     transition: 0.3s;
     position: absolute;
-    width: 100%;
+    width: 250px;
     bottom: 0;
     left: 0;
 }
