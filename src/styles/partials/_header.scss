@@ -14,16 +14,10 @@
         border-radius: 0 0 80px 0;
     }
 
-    &__linksAndLogo {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 2rem 2rem;
-    }
-
     &__logo {
-        width: 15rem;
-        height: 8rem;
+        width: 18rem;
+        height: 10rem;
+        padding: 2rem 2rem;
     }
 
     &__nav {

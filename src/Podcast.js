@@ -133,8 +133,8 @@ class Podcast extends Component{
         
         return (
         <section className="Podcast">
-            <div className="wrapper">
-                <div className="Podcast__introContent">
+        <div className="wrapper">
+            <div className="Podcast__introContent">
                 <h2>Pick your Podcast</h2>
                 <p>
                     Find an episode of a podcast to keep you entertained on your commute.
@@ -285,7 +285,7 @@ class Podcast extends Component{
                     })}
                 </ul>
             </section>
-            </div>
+        </div>
         </section>
         );
     }
