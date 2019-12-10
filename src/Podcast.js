@@ -107,8 +107,6 @@ class Podcast extends Component{
     selectEpisode = (selectedEpisodeId, index) => {
         let podcastLength = this.state.episodeList[index]["audio_length_sec"];
 
-        console.log(podcastLength);
-
         this.state.episodeList.map((episode) => {
             if (episode.id === selectedEpisodeId) {
                 this.props.setPodcastTime(podcastLength);
@@ -129,7 +127,6 @@ class Podcast extends Component{
     }
 
     render() {
-        const { selectedEpisodeProp } = this.props;
         
         return (
         <section className="Podcast">
