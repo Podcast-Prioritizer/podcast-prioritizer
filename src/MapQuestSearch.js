@@ -30,10 +30,14 @@ class MapQuestSearch extends Component {
             endAddress: returnLocationInfo[1].street,
             endCity: returnLocationInfo[1].adminArea5
           };
+          
+          let formattedBikeSeconds = responseArray[0].data.route.formattedTime.split(':').reduce((acc, time) => (60 * acc) + +time);
+          
+          let formattedPedestrianSeconds = responseArray[1].data.route.formattedTime.split(':').reduce((acc, time) => (60 * acc) + +time);
 
           this.props.setLocationsProp(locationObject);
-          this.props.setBikeTimeProp(responseArray[0].data.route.formattedTime);
-          this.props.setWalkTimeProp(responseArray[1].data.route.formattedTime);
+          this.props.setBikeTimeProp(formattedBikeSeconds);
+          this.props.setWalkTimeProp(formattedPedestrianSeconds);
         })
         .catch(error => {
           if (error) {
@@ -121,7 +125,6 @@ class MapQuestSearch extends Component {
   };
 
   render() {
-    console.log(this.props)
     return (
       <div className="MapQuest__searchArea">
         <div className="wrapper">
