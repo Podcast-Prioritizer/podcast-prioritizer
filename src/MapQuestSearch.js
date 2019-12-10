@@ -1,79 +1,10 @@
-import React, { Component } from 'react';
-import Axios from 'axios';
+import React, { Component } from "react";
+import Axios from "axios";
 import Swal from "sweetalert2";
+
 import "./App.css";
 
 class MapQuestSearch extends Component {
-    // On form submit, take both user inputs and make axios call to retrieve travel time (walking and biking)
-    getMapInfo = event => {
-        event.preventDefault();       
-
-      Axios.all(
-        [
-          this.makeAxiosCallBike(
-            this.refs.userStart.value,
-            this.refs.userDestination.value
-          ),
-          this.makeAxiosCallWalk(
-            this.refs.userStart.value,
-            this.refs.userDestination.value
-          )
-        ]
-        // When axios data is returned, set locations and formatted time to state
-      )
-        .then(responseArray => {
-          const returnLocationInfo = responseArray[0].data.route.locations;
-
-          let locationObject = {
-            startAddress: returnLocationInfo[0].street,
-            startCity: returnLocationInfo[0].adminArea5,
-            endAddress: returnLocationInfo[1].street,
-            endCity: returnLocationInfo[1].adminArea5
-          };
-          
-          let formattedBikeSeconds = responseArray[0].data.route.formattedTime.split(':').reduce((acc, time) => (60 * acc) + +time);
-          
-          let formattedPedestrianSeconds = responseArray[1].data.route.formattedTime.split(':').reduce((acc, time) => (60 * acc) + +time);
-
-          this.props.setLocationsProp(locationObject);
-          this.props.setBikeTimeProp(formattedBikeSeconds);
-          this.props.setWalkTimeProp(formattedPedestrianSeconds);
-        })
-        .catch(error => {
-          if (error) {
-            Swal.fire({
-              title: "Uh-oh!",
-              text:
-                "Looks like you're not too sure where you're going.  Make sure you have included both a start and a destination address",
-              imageUrl: require('./styles/assets/nounAngry.png'),
-              imageWidth: 100,
-              confirmButtonText: "Let me try again",
-              padding: "2rem"
-            });
-          } else if (error.request) {
-              Swal.fire({
-                title: "Uh-oh!",
-                text:
-                  "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
-                imageUrl: require("./styles/assets/nounAngry.png"),
-                imageWidth: 100,
-                confirmButtonText: "Let me try again",
-                padding: "2rem"
-              });
-          } else if (
-            this.props.stateProp.bikingTime === "00:00:00" || 
-            this.props.stateProps.walkingTime === "") {
-              Swal.fire({
-                title: "Uh-oh!",
-                text:
-                  "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
-                imageUrl: require("./styles/assets/nounAngry.png"),
-                imageWidth: 100,
-                confirmButtonText: "Let me try again",
-                padding: "2rem"
-              });
-            }
-        }); 
   displayMap = (userStart, userEnd) => {
     return Axios({
       url: "https://www.mapquestapi.com/staticmap/v5/map",
@@ -141,17 +72,21 @@ class MapQuestSearch extends Component {
           Swal.fire({
             title: "Uh-oh!",
             text:
-              "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
-            icon: "error",
-            timer: 4000
+              "Looks like you're not too sure where you're going.  Make sure you have included both a start and a destination address",
+            imageUrl: require("./styles/assets/nounAngry.png"),
+            imageWidth: 100,
+            confirmButtonText: "Let me try again",
+            padding: "2rem"
           });
         } else if (error.request) {
           Swal.fire({
             title: "Uh-oh!",
             text:
-              "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
-            icon: "error",
-            timer: 4000
+              "Looks like you're not too sure where you're going.  Make sure you have included both a start and a destination address",
+            imageUrl: require("./styles/assets/nounAngry.png"),
+            imageWidth: 100,
+            confirmButtonText: "Let me try again",
+            padding: "2rem"
           });
         } else if (
           this.props.stateProp.bikingTime === "00:00:00" ||
@@ -160,9 +95,11 @@ class MapQuestSearch extends Component {
           Swal.fire({
             title: "Uh-oh!",
             text:
-              "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
-            icon: "error",
-            timer: 4000
+              "Looks like you're not too sure where you're going.  Make sure you have included both a start and a destination address",
+            imageUrl: require("./styles/assets/nounAngry.png"),
+            imageWidth: 100,
+            confirmButtonText: "Let me try again",
+            padding: "2rem"
           });
         }
       });
@@ -257,6 +194,5 @@ class MapQuestSearch extends Component {
     );
   }
 }
-};
 
 export default MapQuestSearch;
