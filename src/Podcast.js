@@ -107,6 +107,8 @@ class Podcast extends Component{
     selectEpisode = (selectedEpisodeId, index) => {
         let podcastLength = this.state.episodeList[index]["audio_length_sec"];
 
+        console.log(podcastLength);
+
         this.state.episodeList.map((episode) => {
             if (episode.id === selectedEpisodeId) {
                 this.props.setPodcastTime(podcastLength);
@@ -126,7 +128,9 @@ class Podcast extends Component{
         document.getElementById(`EpisodeCard__description--${index}`).setAttribute("open", false)
     }
 
-    render(){
+    render() {
+        const { selectedEpisodeProp } = this.props;
+        
         return (
         <section className="PodcastSearch">
             <div className="wrapper">
@@ -173,12 +177,23 @@ class Podcast extends Component{
                         ? this.state.podcastList.map((podcast, index) => {
                             return (
                             <li className="PodcastResults__item" key={podcast.id}>
-                                <img
-                                    src={podcast.thumbnail}
-                                    alt={podcast.title_original}
-                                    className="PodcastCard__image"
-                                    />
                                 <div>
+                                    <img
+                                        src={podcast.thumbnail}
+                                        alt={podcast.title_original}
+                                        className="PodcastCard__image"
+                                        id={podcast.id}
+                                        onClick={this.getRecentEpisodes}
+                                        />
+                                    <button
+                                        id={podcast.id}
+                                        onClick={this.getRecentEpisodes}
+                                        className="PodcastCard__button"
+                                        >
+                                        Episodes
+                                    </button>
+                                </div>
+                                <div className="PodcastCard__text">
                                     <h2 className="PodcastCard__title">
                                         {podcast.title_original.split("|")[0]}
                                     </h2>
@@ -190,7 +205,7 @@ class Podcast extends Component{
                                     </p>
         
                                     {
-                                    (podcast.description_original.length > 300)
+                                    (podcast.description_original.length > 450)
                                     ?
                                     <button 
                                         className="PodcastCard__button--showMore"
@@ -199,64 +214,72 @@ class Podcast extends Component{
                                     </button>
                                     : null
                                     }
-                                    <br/>
-
-                                    <button
-                                    id={podcast.id}
-                                    onClick={this.getRecentEpisodes}
-                                    className="PodcastCard__button"
-                                    >
-                                    Episodes
-                                    </button>
                                 </div>
                             </li>
                             );
                         })
                     : this.state.episodeList.map((episode, index) => {  
                         return (
-                        <li key={episode.id} 
-                        episodeId={episode.id}
-                        className="EpisodeResults__item"
-                        ref="singleEpisode"
-                        >
+                          <li
+                            key={episode.id}
+                            episodeId={episode.id}
+                            className="EpisodeResults__item"
+                            ref="singleEpisode"
+                          >
                             <img
-                                src={episode.thumbnail}
-                                alt={episode.title}
-                                className="PodcastCard__image"
+                              src={episode.thumbnail}
+                              alt={episode.title}
+                              className="PodcastCard__image"
                             />
                             <div>
-                                <h2 className="PodcastCard__title">
-                                    {episode.title}
-                                </h2>
-                                <dialog className="visuallyHidden" id={`EpisodeCard__description--${index}`}>
-                                    <div className="EpisodeCard__titleBar">
-                                        <p>{episode.title}</p>
-                                        <button className="EpisodeCard__closeDialog" onClick={(e)=>{this.closeDialog(e, index)}}>
-                                            x
-                                        </button>
-                                    </div>
-                                    <div 
-                                        dangerouslySetInnerHTML={{__html: episode.description}}
-                                        className="EpisodeCard__description"
-                                    />
-                                </dialog>
-                                <div className="EpisodeCard__options">
-                                    <div className="EpisodeCard__options--container">
-                                        <button className="EpisodeCard__options--listen">
-                                            <i class="fas fa-headphones-alt"></i> Listen
-                                        </button>
-                                        <p className="EpisodeCard__options--audioLength">     
-                                            {this.totalTime(episode.audio_length_sec)}
-                                        </p>
-                                    </div>
-                                    <button 
-                                        className="EpisodeCard__options--details"
-                                        onClick={(e)=>{this.showDetails(e, index)}}>
-                                        Details
-                                    </button>
+                              <h2 className="PodcastCard__title">
+                                {episode.title}
+                              </h2>
+                              <dialog
+                                className="visuallyHidden"
+                                id={`EpisodeCard__description--${index}`}
+                              >
+                                <div className="EpisodeCard__titleBar">
+                                  <p>{episode.title}</p>
+                                  <button
+                                    className="EpisodeCard__closeDialog"
+                                    onClick={e => {
+                                      this.closeDialog(e, index);
+                                    }}
+                                  >
+                                    x
+                                  </button>
                                 </div>
+                                <div
+                                  dangerouslySetInnerHTML={{
+                                    __html: episode.description
+                                  }}
+                                  className="EpisodeCard__description"
+                                />
+                              </dialog>
+                              <div className="EpisodeCard__options">
+                                <div className="EpisodeCard__options--container">
+                                  <button
+                                    className="EpisodeCard__options--listen"
+                                    onClick={() => this.selectEpisode(episode.id, index)}
+                                  >
+                                    <i class="fas fa-headphones-alt"></i> Listen
+                                  </button>
+                                  <p className="EpisodeCard__options--audioLength">
+                                    {this.totalTime(episode.audio_length_sec)}
+                                  </p>
+                                </div>
+                                <button
+                                  className="EpisodeCard__options--details"
+                                  onClick={e => {
+                                    this.showDetails(e, index);
+                                  }}
+                                >
+                                  Details
+                                </button>
+                              </div>
                             </div>
-                        </li>
+                          </li>
                         );
                     })}
                 </ul>
