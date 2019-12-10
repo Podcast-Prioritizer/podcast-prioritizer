@@ -378,9 +378,8 @@ input {
 
 .MapQuest__submitBtn,
 .PodcastSearch__submitButton,
-.PodcastCard__button--showMore,
 .PodcastCard__button {
-  padding: 1rem 2rem;
+  padding: 1.2rem 2rem;
   border-radius: 5px;
   text-transform: uppercase;
   font-weight: 600;
@@ -490,7 +489,8 @@ h1 {
 
 h2 {
   font-size: 2.75rem;
-  line-height: 3rem;
+  line-height: 2.5rem;
+  padding-bottom: 5px;
 }
 
 h3 {
@@ -526,7 +526,7 @@ ul {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   list-style: none;
-  padding: 10px;
+  padding: 10px 0;
 }
 
 .PodcastResults__item {
@@ -539,6 +539,11 @@ ul {
   border-radius: 5px;
 }
 
+.PodcastResults__item > div {
+  position: relative;
+  height: 250px;
+}
+
 .PodcastResults__item p, .PodcastResults__item h2 {
   color: black;
   margin: 0;
@@ -548,10 +553,19 @@ ul {
   height: 250px;
   width: 250px;
   border-radius: 5px;
+  cursor: pointer;
 }
 
-.PodcastResults__item > div {
+.PodcastResults__item .PodcastCard__text {
   padding: 10px 20px;
+  height: 100%;
+}
+
+.PodcastCard__button {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 
 .EpisodeResults__item {
@@ -561,7 +575,7 @@ ul {
   display: flex;
   padding: 10px;
   background: white;
-  margin: 15px;
+  margin: 10px 0;
   border-radius: 5px;
 }
 
@@ -603,9 +617,8 @@ ul {
           box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.603);
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  font-size: 2rem;
-  padding: 7px 10px;
-  margin: 10px;
+  font-size: 2.75rem;
+  padding: 7px 12px;
 }
 
 .PodcastResults__button--back:hover,
@@ -618,7 +631,7 @@ ul {
 }
 
 .PodcastCard__description--snippet {
-  max-height: 10rem;
+  max-height: 19rem;
   overflow: hidden;
 }
 
@@ -629,6 +642,7 @@ ul {
   padding: 0;
   margin: 0;
   text-transform: initial;
+  display: none;
 }
 
 .PodcastCard__button--showMore:hover, .PodcastCard__button--showMore:focus {
@@ -657,15 +671,11 @@ ul {
 
 .EpisodeCard__options button {
   padding: 0 10px;
-  margin: 0 10px;
+  margin: 0;
   border: none;
 }
 
-.EpisodeCard__options .EpisodeCard__options--details:hover,
-.EpisodeCard__options .EpisodeCard__options--details:focus {
-  text-decoration: underline;
-}
-
+.EpisodeCard__options .EpisodeCard__options--details,
 .EpisodeCard__options .EpisodeCard__options--listen {
   -webkit-transition: 0.4s;
   transition: 0.4s;
@@ -675,6 +685,8 @@ ul {
   color: #24b62c;
 }
 
+.EpisodeCard__options .EpisodeCard__options--details:hover,
+.EpisodeCard__options .EpisodeCard__options--details:focus,
 .EpisodeCard__options .EpisodeCard__options--listen:hover,
 .EpisodeCard__options .EpisodeCard__options--listen:focus {
   background: #24b62c;
@@ -682,7 +694,7 @@ ul {
 }
 
 .EpisodeCard__options .EpisodeCard__options--audioLength {
-  color: gray;
+  color: #666666;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -714,7 +726,13 @@ dialog {
     margin-top: 0;
   }
   .PodcastCard__description--snippet {
-    max-height: 11.5rem;
+    max-height: 15.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .PodcastCard__button--showMore {
+    display: block;
   }
 }
 /*# sourceMappingURL=App.css.map */

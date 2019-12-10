@@ -172,12 +172,23 @@ class Podcast extends Component{
                         ? this.state.podcastList.map((podcast, index) => {
                             return (
                             <li className="PodcastResults__item" key={podcast.id}>
-                                <img
-                                    src={podcast.thumbnail}
-                                    alt={podcast.title_original}
-                                    className="PodcastCard__image"
-                                    />
                                 <div>
+                                    <img
+                                        src={podcast.thumbnail}
+                                        alt={podcast.title_original}
+                                        className="PodcastCard__image"
+                                        id={podcast.id}
+                                        onClick={this.getRecentEpisodes}
+                                        />
+                                    <button
+                                        id={podcast.id}
+                                        onClick={this.getRecentEpisodes}
+                                        className="PodcastCard__button"
+                                        >
+                                        Episodes
+                                    </button>
+                                </div>
+                                <div className="PodcastCard__text">
                                     <h2 className="PodcastCard__title">
                                         {podcast.title_original.split("|")[0]}
                                     </h2>
@@ -189,7 +200,7 @@ class Podcast extends Component{
                                     </p>
         
                                     {
-                                    (podcast.description_original.length > 300)
+                                    (podcast.description_original.length > 450)
                                     ?
                                     <button 
                                         className="PodcastCard__button--showMore"
@@ -198,15 +209,6 @@ class Podcast extends Component{
                                     </button>
                                     : null
                                     }
-                                    <br/>
-
-                                    <button
-                                    id={podcast.id}
-                                    onClick={this.getRecentEpisodes}
-                                    className="PodcastCard__button"
-                                    >
-                                    Episodes
-                                    </button>
                                 </div>
                             </li>
                             );
