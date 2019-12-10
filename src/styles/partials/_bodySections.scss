@@ -5,10 +5,8 @@
 // ===================================
 
 .MapQuest__searchArea,
-.Podcast {
-    padding: 6rem 0;
-    // background-color: rgba(194, 237, 216,0.2); 
-    // background-color: rgba(0, 30, 49, 1); 
+.PodcastSearch {
+    padding: 6rem 0 3rem 0;
      
     &__introContent {
         color: $color-4;
@@ -27,28 +25,22 @@ input {
 }
 
 .MapQuest__submitBtn,
-.PodcastSearch__submitButton,
-.PodcastCard__button--showMore,
-.PodcastCard__button {
+.PodcastSearch__submitButton{
     padding: 1rem 2rem;
+    margin: 3rem 0;
+    display: inline-block;
     border-radius: 5px;
     text-transform: uppercase;
     font-weight: 600;
-    // color: $color-4;
-    // background-color: $color-1;
     color: $color-1;
     background-color: $color-2;
     border: none;
     transition: 0.3s; 
 
-    // &:hover {
-    //     background-color: $color-3;
-    // }
-
-
+    &:hover {
+        background-color: $color-3;
+    }
 }
-
-
 
 // ==================================
 // 
@@ -66,33 +58,27 @@ input {
         }
     }
 
-    // &__searchArea {
-    //     padding: 6rem 0;
-    //     background-color: rgba(194, 237, 216,0.3);   
-    // }
+    &__form {
+        display: flex;
+    }
 
-    // &__form input {
-    //     padding: 1rem;
-    //     margin: 3rem 0;
-    //     border-radius: 5px;
-    // }
-
-    // &__submitBtn {
-    //     padding: 1rem 2rem;
-    //     border-radius: 5px;
-    //     text-transform: uppercase;
-    //     color: $color-4;
-    //     background-color: $color-1;
-    //     border: none;
-
-        // &:hover {
-        //     background-color: $color-3;
-
-        // }
-    // }
+    &__submitBtn {
+        display: inline-block;
+    }
     
 }
 
+// ==================================
+// 
+// PODCAST SEARCH
+// 
+// ===================================
+
+.PodcastSearch {
+    &__form {
+        display: flex;
+    }
+}
 
 // ==================================
 // 
@@ -160,6 +146,31 @@ input {
     }
     
 }
+
+// ==================================
+// 
+// SWEETALERTS
+// 
+// ===================================
+
+.swal2-html-container {
+    font-size: 1.8rem; 
+}
+
+.swal2-popup.swal2-modal {
+    border: 15px solid $color-2;     
+}
+
+.swal2.content #text {
+    color: #0000;
+}
+
+button.swal2-confirm.swal2-styled {
+    background-color: $color-1;
+    font-size: 1.6rem;
+    padding: 1rem;
+}
+
 
 // ==================================
 // 

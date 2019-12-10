@@ -19,8 +19,6 @@ a {
 h1, h2, h3 {
     font-family: 'Nova Flat';
     margin: 2rem 0; 
-    // color: #232323; 
-    
 }
 
 h1 {
@@ -40,6 +38,10 @@ h3 {
 
 p, a, ::placeholder, i {
     font-family: 'Lato';
+}
+
+p{
+    line-height: 1.25;
 }
 
 // .PodcastResults {
