@@ -1,0 +1,60 @@
+
+// MEDIUM SCREENS =====================
+@media (max-width: 975px) { 
+      .Header {
+          &__displayArea {
+              width: 100%;
+              height: 100%;
+              border-radius: 0;
+        }
+    }
+}
+
+@media (max-width: 800px) { 
+      .MapQuest {
+          &__form {
+              flex-direction: column;
+              align-items: center;
+              input {
+                  width: 80%;
+                  margin-bottom: 0;
+              }
+        }
+
+    }
+
+    .PodcastSearch {
+        &__form {
+            flex-direction: column;
+            align-items: center;
+              input {
+                  width: 80%;
+                  margin-bottom: 0;
+              }
+        }
+    }
+}
+
+
+// TABLET SCREENS ======================
+@media (max-width: 640px) { 
+      .Header {
+          &__mainHeader::before {
+            top: 120px;
+      }
+    }
+}
+
+// MOBILE SCREENS ========================
+@media (max-width: 375px) { 
+    html {
+        font-size: 55%;
+    } 
+    
+    .Header {
+          &__mainHeader::before {
+            top: 105px;
+      }
+    }
+    
+}

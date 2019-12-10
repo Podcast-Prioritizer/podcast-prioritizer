@@ -133,16 +133,16 @@ class Podcast extends Component{
 
     render(){
         return (
-        <section className="Podcast">
+        <section className="PodcastSearch">
             <div className="wrapper">
-                <div className="Podcast__introContent">
+                <div className="PodcastSearch__introContent">
                 <h2>Pick your Podcast</h2>
                 <p>
                     Find an episode of a podcast to keep you entertained on your commute.
                 </p>
             </div>
 
-            <form onSubmit={this.handleSubmit} className="PodcastSearch">
+            <form onSubmit={this.handleSubmit} className="PodcastSearch__form">
                 <input
                     type="text"
                     placeholder="Search podcast"
