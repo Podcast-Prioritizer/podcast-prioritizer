@@ -30,7 +30,8 @@ h1 {
 
 h2 {
     font-size: 2.75rem;
-    line-height: 3rem;
+    line-height: 2.5rem;
+    padding-bottom: 5px;
 }
 
 h3 {
@@ -42,17 +43,19 @@ p, a, ::placeholder {
     font-family: 'Lato';
 }
 
-//Podcast results
+//Podcast and episode results
 
 .PodcastResults{
     padding: 0;
     margin: 0;
 }
+
+//Flex podcast and episode results, remove list styles and add padding
 ul{
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    padding: 10px;
+    padding: 10px 0;
 }
 
 .PodcastResults__item{
@@ -61,6 +64,11 @@ ul{
     display: flex;
     margin: 10px 0;
     border-radius: 5px;
+    
+    &>div{
+        position: relative;
+        height: 250px;
+    }
     
     p, h2{
         color: black;
@@ -71,11 +79,20 @@ ul{
         height: 250px;
         width: 250px;
         border-radius: 5px;
+        cursor: pointer;
     }
 
-    &>div{
+    .PodcastCard__text{
         padding: 10px 20px;
+        height: 100%;
     }
+}
+
+.PodcastCard__button{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
 }
 
 .EpisodeResults__item{
@@ -83,7 +100,7 @@ ul{
     display: flex;
     padding: 10px;
     background: white;
-    margin: 15px;
+    margin: 10px 0;
     border-radius: 5px;
 
     h2{
@@ -117,9 +134,8 @@ ul{
     border-radius: 35px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.603);
     transition: 0.3s;
-    font-size: 2rem;
-    padding: 7px 10px;
-    margin: 10px;
+    font-size: 2.75rem;
+    padding: 7px 12px;
 }
 
 .PodcastResults__button--back:hover,
@@ -132,7 +148,7 @@ ul{
 }
 
 .PodcastCard__description--snippet{
-    max-height: 10rem;
+    max-height: 19rem;
     overflow: hidden;
 }
 
@@ -143,6 +159,7 @@ ul{
     padding: 0;
     margin: 0;
     text-transform: initial;
+    display: none;
 
     &:hover,
     &:focus{
@@ -165,15 +182,11 @@ ul{
 
     button{
         padding: 0 10px;
-        margin: 0 10px;
+        margin: 0;
         border: none;
     }
 
-    .EpisodeCard__options--details:hover,
-    .EpisodeCard__options--details:focus{
-        text-decoration: underline;
-    }
-
+    .EpisodeCard__options--details,
     .EpisodeCard__options--listen{
         transition: 0.4s;
         padding: 5px 20px;
@@ -182,6 +195,8 @@ ul{
         color: $color-3;
     }
 
+    .EpisodeCard__options--details:hover,
+    .EpisodeCard__options--details:focus,
     .EpisodeCard__options--listen:hover,
     .EpisodeCard__options--listen:focus{
         background: $color-3;
@@ -189,7 +204,7 @@ ul{
     }
 
     .EpisodeCard__options--audioLength{
-        color: gray;
+        color: rgb(102, 102, 102);
         align-self: center;
     }
 }
@@ -208,16 +223,4 @@ ul{
 dialog{
     padding: 0;
     width: 50%;
-}
-
-@media(max-width: 1100px){
-
-    h2{
-        font-size: 2.5rem;
-        margin-top: 0;
-    }
-
-    .PodcastCard__description--snippet{
-        max-height: 11.5rem;
-    }
 }
