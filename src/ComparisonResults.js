@@ -4,19 +4,15 @@ import cyclist from "./styles/assets/cyclist.png";
 import pedestrian from "./styles/assets/pedestrian.png";
 
 class ComparisonResults extends Component {
+  readableMinutes = (seconds, suffix = "s") => {
+    const minutes = Math.round(Math.abs(seconds) / 60);
+    return `${minutes} minute${minutes !== 1 ? suffix : ""}`;
+  };
+
   render() {
     const { results, closeResultsProp } = this.props;
+    console.log(results);
     const { podcastTime, bikingTime, walkingTime } = results;
-
-    const formattedPodcastTime = podcastTime
-      .split(":")
-      .reduce((acc, time) => 60 * acc + +time);
-    const formattedWalkingTime = walkingTime
-      .split(":")
-      .reduce((acc, time) => 60 * acc + +time);
-    const formattedBikingTime = bikingTime
-      .split(":")
-      .reduce((acc, time) => 60 * acc + +time);
 
     function transportSuggestion(transportationMethod) {
       // Map the classnames that will be output onto the element
@@ -26,8 +22,7 @@ class ComparisonResults extends Component {
       };
 
       if (
-        Math.abs(formattedPodcastTime - formattedWalkingTime) >
-        Math.abs(formattedPodcastTime - formattedBikingTime)
+        Math.abs(podcastTime - walkingTime) > Math.abs(podcastTime - bikingTime)
       ) {
         allTransportMethods.cycling =
           "ComparisonResults__option ComparisonResults__option--selected";
@@ -38,29 +33,14 @@ class ComparisonResults extends Component {
 
       // Return the appropriate classnames
       return allTransportMethods[transportationMethod];
-    };
+    }
 
-    function printTimeDifference(transportMethod) {
-      console.log("transport method", transportMethod);
-      console.log("podcast time", formattedPodcastTime);
+    const printTimeDifference = (transportMethod) => {
+      const timeDifference = transportMethod - podcastTime;
 
-      const timeDifference = transportMethod - formattedPodcastTime;
+      const minutesDifference = this.readableMinutes(timeDifference);
 
-      const timeDifferenceMinutes = Math.floor(Math.abs(timeDifference) / 60);
-      const timeDifferenceSeconds =
-        Math.abs(timeDifference) - timeDifferenceMinutes * 60;
-
-      const pluralize = (count, noun, suffix = "s") =>
-        `${count} ${noun}${count !== 1 ? suffix : ""}`;
-
-      const minutesString = timeDifferenceMinutes
-        ? pluralize(timeDifferenceMinutes, "minute")
-        : "";
-      const secondsString = timeDifferenceSeconds
-        ? pluralize(timeDifferenceSeconds, "second")
-        : "";
-
-      if (transportMethod === formattedPodcastTime) {
+      if (transportMethod === podcastTime) {
         return (
           <span className="ComparisonResults__timeDifference ComparisonResults__timeDifference--exact">
             EXACT MATCH
@@ -69,17 +49,17 @@ class ComparisonResults extends Component {
       } else if (timeDifference < 0) {
         return (
           <span className="ComparisonResults__timeDifference ComparisonResults__timeDifference--lower">
-            {`-${minutesString} ${secondsString}`}
+            {`-${minutesDifference}`}
           </span>
         );
       } else {
         return (
           <span className="ComparisonResults__timeDifference ComparisonResults__timeDifference--higher">
-            {`${minutesString} ${secondsString}`}
+            {`${minutesDifference}`}
           </span>
         );
       }
-    };
+    }
 
     return (
       <>
@@ -109,13 +89,13 @@ class ComparisonResults extends Component {
                       src={cyclist}
                       alt="A cyclist"
                     />
-                    {printTimeDifference(formattedBikingTime)}
+                    {printTimeDifference(bikingTime)}
                   </div>
 
                   <div className="ComparisonResults__details">
-                    <p>Podcast length: {podcastTime}</p>
-                    <p>Biking time: {bikingTime}</p>
-                    <p>Walking time: {walkingTime}</p>
+                    <p>Podcast length: {this.readableMinutes(podcastTime)}</p>
+                    <p>Biking time: {this.readableMinutes(bikingTime)}</p>
+                    <p>Walking time: {this.readableMinutes(walkingTime)}</p>
                   </div>
 
                   <div className={transportSuggestion("pedestrian")}>
@@ -124,7 +104,7 @@ class ComparisonResults extends Component {
                       src={pedestrian}
                       alt="A pedestrian"
                     />
-                    {printTimeDifference(formattedWalkingTime)}
+                    {printTimeDifference(walkingTime)}
                   </div>
                 </section>
 
