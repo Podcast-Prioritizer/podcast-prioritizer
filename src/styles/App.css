@@ -237,7 +237,7 @@ a {
 }
 
 h1, h2, h3 {
-  font-family: 'Nova Flat';
+  font-family: 'Francois One', sans-serif;
   margin: 2rem 0;
 }
 
@@ -247,13 +247,14 @@ h1 {
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 2.75rem;
   line-height: 3rem;
+  padding-bottom: 10px;
 }
 
 h3 {
   font-size: 3.5rem;
-  line-height: 3rem;
+  line-height: 4rem;
 }
 
 p, a, ::-webkit-input-placeholder, i {
@@ -307,23 +308,6 @@ p {
 .Header__logo {
   width: 15rem;
   height: 7rem;
-}
-
-.Header__nav {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #001e31;
-}
-
-.Header__navLink {
-  color: #001e31;
-}
-
-.Header__navLink:hover {
-  color: #24b62c;
 }
 
 .Header__headerContent {
@@ -511,56 +495,6 @@ button.swal2-confirm.swal2-styled {
   text-align: center;
 }
 
-section {
-  overflow: hidden;
-}
-
-body, h1, h2, h3, p, ul, li {
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-h1, h2, h3 {
-  font-family: 'Francois One', sans-serif;
-  margin: 2rem 0;
-}
-
-h1 {
-  font-size: 6rem;
-  line-height: 5rem;
-}
-
-h2 {
-  font-size: 2.75rem;
-  line-height: 2.75rem;
-  padding-bottom: 10px;
-}
-
-h3 {
-  font-size: 3.5rem;
-  line-height: 4rem;
-}
-
-p, a, ::-webkit-input-placeholder {
-  font-family: 'Lato';
-}
-
-p, a, :-ms-input-placeholder {
-  font-family: 'Lato';
-}
-
-p, a, ::-ms-input-placeholder {
-  font-family: 'Lato';
-}
-
-p, a, ::placeholder {
-  font-family: 'Lato';
-}
-
 .PodcastResults {
   padding: 0;
   margin: 0;
@@ -664,26 +598,6 @@ ul {
   width: 100%;
 }
 
-.PodcastResults__button--back {
-  font-weight: bolder;
-  background: white;
-  cursor: pointer;
-  color: #282c34a4;
-  border: none;
-  border-radius: 35px;
-  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.603);
-          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.603);
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  font-size: 2.75rem;
-  padding: 7px 12px;
-}
-
-.PodcastResults__button--back:hover,
-.PodcastResults__button--back:focus {
-  color: #24b62c;
-}
-
 .PodcastCard__description {
   height: initial;
 }
@@ -773,6 +687,26 @@ ul {
   padding: 20px;
 }
 
+.PodcastResults__button--back {
+  font-weight: bolder;
+  background: white;
+  cursor: pointer;
+  color: #282c34a4;
+  border: none;
+  border-radius: 35px;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.603);
+          box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.603);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  font-size: 2.75rem;
+  padding: 7px 12px;
+}
+
+.PodcastResults__button--back:hover,
+.PodcastResults__button--back:focus {
+  color: #24b62c;
+}
+
 dialog {
   padding: 0;
   width: 50%;
@@ -802,16 +736,6 @@ dialog .EpisodeCard__closeDialog {
   font-size: 2rem;
   text-transform: uppercase;
   font-weight: bold;
-}
-
-@media (max-width: 1100px) {
-  h2 {
-    font-size: 2.5rem;
-    margin-top: 0;
-  }
-  .PodcastCard__description--snippet {
-    max-height: 11.5rem;
-  }
 }
 
 .ModalContainer {
@@ -1011,15 +935,12 @@ dialog .EpisodeCard__closeDialog {
   }
 }
 
-@media (max-width: 375px) and (max-width: 900px) {
+@media (max-width: 1000px) {
   .PodcastCard__button--showMore {
     display: block;
   }
-}
-
-@media (max-width: 375px) {
   .PodcastCard__description--snippet {
-    max-height: 16rem;
+    max-height: 14rem;
   }
 }
 /*# sourceMappingURL=App.css.map */
