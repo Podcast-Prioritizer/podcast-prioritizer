@@ -201,13 +201,40 @@ ul{
     padding: 5px;
 }
 
-.EpisodeCard__description{
+.EpisodeCard__description {
     padding: 20px;
 }
 
-dialog{
+dialog {
     padding: 0;
     width: 50%;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px lightslategray;
+
+    .EpisodeCard {
+
+        &__titleBar {
+            background-color: $color-2;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px 10px 0 0 ;
+            font-weight: 600;
+            align-items: center;
+        }   
+
+        &__closeDialog {
+            border: none;
+            background-color: $color-1;
+            border-radius: 50%;
+            padding: 0.5rem;
+            width: 2rem;
+            color: $color-4;
+            text-align: center;
+            text-transform: uppercase;
+
+        }
+    }   
 }
 
 @media(max-width: 1100px){

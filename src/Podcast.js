@@ -211,7 +211,7 @@ class Podcast extends Component{
                             </li>
                             );
                         })
-                    : this.state.episodeList.map((episode, index) => {
+                    : this.state.episodeList.map((episode, index) => {  
                         return (
                         <li key={episode.id} 
                         episodeId={episode.id}

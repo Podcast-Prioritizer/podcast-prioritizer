@@ -495,6 +495,19 @@ button.swal2-confirm.swal2-styled {
   padding: 1rem;
 }
 
+.Footer {
+  background-color: #c2edd8;
+}
+
+.Footer__copy {
+  padding: 1rem 0;
+  text-align: center;
+}
+
+section {
+  overflow: hidden;
+}
+
 body, h1, h2, h3, p, ul, li {
   margin: 0;
   padding: 0;
@@ -714,13 +727,60 @@ ul {
       align-self: center;
 }
 
-.Footer {
-  background-color: #c2edd8;
+.EpisodeCard__titleBar {
+  background: blue;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 5px;
 }
 
-.Footer__copy {
-  padding: 1rem 0;
+.EpisodeCard__description {
+  padding: 20px;
+}
+
+dialog {
+  padding: 0;
+  width: 50%;
+  border-radius: 10px;
+  border: none;
+  -webkit-box-shadow: 2px 2px 2px 2px lightslategray;
+          box-shadow: 2px 2px 2px 2px lightslategray;
+}
+
+dialog .EpisodeCard__titleBar {
+  background-color: #c2edd8;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 10px 10px 0 0;
+  font-weight: 600;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+dialog .EpisodeCard__closeDialog {
+  border: none;
+  background-color: #001e31;
+  border-radius: 50%;
+  padding: 0.5rem;
+  width: 2rem;
+  color: #ffff;
   text-align: center;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+  h2 {
+    font-size: 2.5rem;
+    margin-top: 0;
+  }
+  .PodcastCard__description--snippet {
+    max-height: 11.5rem;
+  }
 }
 
 @media (max-width: 975px) {
@@ -731,13 +791,79 @@ ul {
   }
 }
 
-@media (max-width: 1100px) {
-  h2 {
-    font-size: 2.5rem;
-    margin-top: 0;
+@media (max-width: 800px) {
+  .MapQuest__form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
-  .PodcastCard__description--snippet {
-    max-height: 11.5rem;
+  .MapQuest__form input {
+    width: 80%;
+    margin-bottom: 0;
+  }
+  .PodcastSearch__form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .PodcastSearch__form input {
+    width: 80%;
+    margin-bottom: 0;
+  }
+  .PodcastResults__item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .PodcastResults__item img {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  .PodcastCard__submitButton {
+    display: inline-block;
+    margin: 0 auto;
+  }
+  .Episode__options--details {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .EpisodeResults__item {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .EpisodeResults__item h2 {
+    margin-top: 1rem;
+  }
+  .EpisodeResults__item img {
+    display: inline-block;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .Header__mainHeader::before {
+    top: 120px;
+  }
+}
+
+@media (max-width: 375px) {
+  html {
+    font-size: 55%;
+  }
+  .Header__mainHeader::before {
+    top: 105px;
   }
 }
 /*# sourceMappingURL=App.css.map */

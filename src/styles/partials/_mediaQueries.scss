@@ -20,7 +20,6 @@
                   margin-bottom: 0;
               }
         }
-
     }
 
     .PodcastSearch {
@@ -33,9 +32,40 @@
               }
         }
     }
+
+    .PodcastResults__item {
+        flex-direction: column;
+        
+        img {
+            display: inline-block;
+            margin: 0 auto;
+        }
+    }
+
+    .PodcastCard__submitButton {
+        display: inline-block;
+        margin: 0 auto;
+
+    }
+
+    .Episode__options--details {
+        align-items: center;
+    }
+
+    .EpisodeResults__item{
+        flex-direction: column;
+
+        h2 {
+            margin-top: 1rem;
+        }
+
+        img {
+            display: inline-block;
+            margin: 0 auto; 
+        }
+    }
+
 }
-
-
 // TABLET SCREENS ======================
 @media (max-width: 640px) { 
       .Header {
