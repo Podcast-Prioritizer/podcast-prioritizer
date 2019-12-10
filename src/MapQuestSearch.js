@@ -5,73 +5,98 @@ import Swal from "sweetalert2";
 import "./App.css";
 
 class MapQuestSearch extends Component {
-    // On form submit, take both user inputs and make axios call to retrieve travel time (walking and biking)
-    getMapInfo = event => {
-        event.preventDefault();       
+  displayMap = (userStart, userEnd) => {
+    return Axios({
+      url: "https://www.mapquestapi.com/staticmap/v5/map",
+      params: {
+        key: this.props.apiKey,
+        format: "png",
+        start: userStart,
+        end: userEnd,
+        size: "300,200@2x",
+        zoom: 12,
+        routeColor: "24b62c",
+        routeArc: true
+      }
+    }).then(data => {
+      this.props.mapProp(data.request.responseURL);
+    });
+  };
 
-      Axios.all(
-        [
-          this.makeAxiosCallBike(
-            this.refs.userStart.value,
-            this.refs.userDestination.value
-          ),
-          this.makeAxiosCallWalk(
-            this.refs.userStart.value,
-            this.refs.userDestination.value
-          )
-        ]
-        // When axios data is returned, set locations and formatted time to state
-      )
-        .then(responseArray => {
-          const returnLocationInfo = responseArray[0].data.route.locations;
+  // On form submit, take both user inputs and make axios call to retrieve travel time (walking and biking)
+  getMapInfo = event => {
+    event.preventDefault();
 
-          let locationObject = {
-            startAddress: returnLocationInfo[0].street,
-            startCity: returnLocationInfo[0].adminArea5,
-            endAddress: returnLocationInfo[1].street,
-            endCity: returnLocationInfo[1].adminArea5
-          };
-          
-          let formattedBikeSeconds = responseArray[0].data.route.formattedTime.split(':').reduce((acc, time) => (60 * acc) + +time);
-          
-          let formattedPedestrianSeconds = responseArray[1].data.route.formattedTime.split(':').reduce((acc, time) => (60 * acc) + +time);
+    Axios.all(
+      [
+        this.makeAxiosCallBike(
+          this.refs.userStart.value,
+          this.refs.userDestination.value
+        ),
+        this.makeAxiosCallWalk(
+          this.refs.userStart.value,
+          this.refs.userDestination.value
+        )
+      ]
+      // When axios data is returned, set locations and formatted time to state
+    )
+      .then(responseArray => {
+        const returnLocationInfo = responseArray[0].data.route.locations;
 
-          this.props.setLocationsProp(locationObject);
-          this.props.setBikeTimeProp(formattedBikeSeconds);
-          this.props.setWalkTimeProp(formattedPedestrianSeconds);
-        })
-        .catch(error => {
-          if (error) {
-            Swal.fire({
-              title: "Uh-oh!",
-              text:
-                "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
-              icon: "error",
-              timer: 4000
-            });
-          } else if (error.request) {
-              Swal.fire({
-              title: "Uh-oh!",
-              text:
-                "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
-              icon: "error",
-              timer: 4000
-            });
-          } else if (
-            this.props.stateProp.bikingTime === "00:00:00" || 
-            this.props.stateProps.walkingTime === "") {
-              Swal.fire({
-                title: "Uh-oh!",
-                text:
-                  "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
-                  icon: "error",
-                  timer: 4000
-              });
-            }
-        });
-    
-    
-    
+        let locationObject = {
+          startAddress: returnLocationInfo[0].street,
+          startCity: returnLocationInfo[0].adminArea5,
+          endAddress: returnLocationInfo[1].street,
+          endCity: returnLocationInfo[1].adminArea5
+        };
+
+        let formattedBikeSeconds = responseArray[0].data.route.formattedTime
+          .split(":")
+          .reduce((acc, time) => 60 * acc + +time);
+
+        let formattedPedestrianSeconds = responseArray[1].data.route.formattedTime
+          .split(":")
+          .reduce((acc, time) => 60 * acc + +time);
+
+        this.props.setLocationsProp(locationObject);
+        this.props.setBikeTimeProp(formattedBikeSeconds);
+        this.props.setWalkTimeProp(formattedPedestrianSeconds);
+
+        this.displayMap(
+          returnLocationInfo[0].street,
+          returnLocationInfo[1].street
+        );
+      })
+      .catch(error => {
+        if (error) {
+          Swal.fire({
+            title: "Uh-oh!",
+            text:
+              "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
+            icon: "error",
+            timer: 4000
+          });
+        } else if (error.request) {
+          Swal.fire({
+            title: "Uh-oh!",
+            text:
+              "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
+            icon: "error",
+            timer: 4000
+          });
+        } else if (
+          this.props.stateProp.bikingTime === "00:00:00" ||
+          this.props.stateProps.walkingTime === ""
+        ) {
+          Swal.fire({
+            title: "Uh-oh!",
+            text:
+              "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
+            icon: "error",
+            timer: 4000
+          });
+        }
+      });
   };
 
   makeAxiosCallBike = (userStart, userDestination) => {
@@ -83,12 +108,12 @@ class MapQuestSearch extends Component {
         key: this.props.apiKey,
         from: userStart,
         to: userDestination,
-        routeType: "bicycle",
-      },
+        routeType: "bicycle"
+      }
     });
   };
 
-    makeAxiosCallWalk = (userStart, userDestination) => {
+  makeAxiosCallWalk = (userStart, userDestination) => {
     return Axios({
       url: "https://www.mapquestapi.com/directions/v2/route",
       method: "GET",
@@ -97,8 +122,8 @@ class MapQuestSearch extends Component {
         key: this.props.apiKey,
         from: userStart,
         to: userDestination,
-        routeType: "pedestrian",
-      },
+        routeType: "pedestrian"
+      }
     });
   };
 
@@ -111,12 +136,12 @@ class MapQuestSearch extends Component {
       params: {
         key: this.props.apiKey,
         q: this.refs.userDestination.value,
-        collection: "address",
-      },
-    }).then((data) => {
+        collection: "address"
+      }
+    }).then(data => {
       let slicedSuggestionArray = data.data.results.slice(0, 5);
 
-      slicedSuggestionArray.map((suggestion) => {
+      slicedSuggestionArray.map(suggestion => {
         console.log(suggestion.displayString);
       });
     });
@@ -126,10 +151,12 @@ class MapQuestSearch extends Component {
     return (
       <div className="MapQuest__searchArea">
         <div className="wrapper">
-
           <div className="MapQuest__introContent">
             <h2>Hit the road</h2>
-            <p>Find the best way to reach your destination.  Enter your start location and your desired destination.</p>
+            <p>
+              Find the best way to reach your destination. Enter your start
+              location and your desired destination.
+            </p>
           </div>
 
           <form className="MapQuest__form" onSubmit={this.getMapInfo}>
@@ -159,7 +186,7 @@ class MapQuestSearch extends Component {
         </div>
       </div>
     );
-  };
+  }
 };
 
 export default MapQuestSearch;
