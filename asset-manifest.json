@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/podcast-prioritizer/static/css/main.da6a8aae.chunk.css",
+    "main.js": "/podcast-prioritizer/static/js/main.e9eade8b.chunk.js",
+    "main.js.map": "/podcast-prioritizer/static/js/main.e9eade8b.chunk.js.map",
+    "runtime-main.js": "/podcast-prioritizer/static/js/runtime-main.631ad712.js",
+    "runtime-main.js.map": "/podcast-prioritizer/static/js/runtime-main.631ad712.js.map",
+    "static/js/2.b2ba7d2f.chunk.js": "/podcast-prioritizer/static/js/2.b2ba7d2f.chunk.js",
+    "static/js/2.b2ba7d2f.chunk.js.map": "/podcast-prioritizer/static/js/2.b2ba7d2f.chunk.js.map",
+    "index.html": "/podcast-prioritizer/index.html",
+    "precache-manifest.2849f01973bddb5f393ac3f8f1ff4882.js": "/podcast-prioritizer/precache-manifest.2849f01973bddb5f393ac3f8f1ff4882.js",
+    "service-worker.js": "/podcast-prioritizer/service-worker.js",
+    "static/css/main.da6a8aae.chunk.css.map": "/podcast-prioritizer/static/css/main.da6a8aae.chunk.css.map",
+    "static/media/App.scss": "/podcast-prioritizer/static/media/sayagata-400px.a05f1fb3.png",
+    "static/media/logo.png": "/podcast-prioritizer/static/media/logo.0b2aa362.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.631ad712.js",
+    "static/js/2.b2ba7d2f.chunk.js",
+    "static/css/main.da6a8aae.chunk.css",
+    "static/js/main.e9eade8b.chunk.js"
+  ]
+}
