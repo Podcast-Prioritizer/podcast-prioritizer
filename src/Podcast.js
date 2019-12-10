@@ -37,10 +37,11 @@ class Podcast extends Component{
               Swal.fire({
                 title: "Uh-oh!",
                 text:
-                  "Looks like we don't have any podcasts that match your criteria (you must be super picky!).  Please try again",
-                icon: "error",
-                timer: 4000,
-                button: false
+                  "Looks like we don't have any podcasts that match your criteria (you must be super picky!).  Please try again and broaden your horizons.",
+                imageUrl: require("./styles/assets/nounAngry.png"),
+                imageWidth: 100,
+                confirmButtonText: "Let me try again",
+                padding: "2rem"
               });
             }
         })  
