@@ -156,12 +156,14 @@ class MapQuestSearch extends Component {
   componentDidMount = () => {
     window.placeSearch({
       key: this.props.apiKey,
-      container: document.querySelector("#userStart")
+      container: document.querySelector("#userStart"),
+      style: false
     });
 
     window.placeSearch({
       key: this.props.apiKey,
-      container: document.querySelector("#userDestination")
+      container: document.querySelector("#userDestination"),
+      style: false
     });
   };
 

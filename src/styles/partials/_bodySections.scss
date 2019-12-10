@@ -4,6 +4,10 @@
 // 
 // ===================================
 
+:focus {
+    box-shadow: 2px 2px 2px slategray;
+}
+
 .MapQuest__searchArea,
 .PodcastSearch {
     padding: 6rem 0 3rem 0;
@@ -60,6 +64,19 @@ input {
 
     &__form {
         display: flex;
+        align-items: center;
+
+        input {
+            width: 100%;
+            padding: 1rem;
+        }
+
+        span {
+            padding-right: 2rem;
+            margin: 3rem 2rem 3rem 0;
+            border-radius: 5px;
+            width: 40%; 
+        }
     }
 
     &__submitBtn {

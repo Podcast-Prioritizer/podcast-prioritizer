@@ -15,10 +15,17 @@
           &__form {
               flex-direction: column;
               align-items: center;
-              input {
+
+              span {
+                  padding: 0;
+                  margin: 0;
                   width: 80%;
-                  margin-bottom: 0;
               }
+              
+            //   input {
+            //     //   width: %;
+            //       margin-bottom: 0;
+            //   }
         }
     }
 
