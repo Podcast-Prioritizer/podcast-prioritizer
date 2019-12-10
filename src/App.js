@@ -79,11 +79,13 @@ class App extends Component {
           mapProp={this.directionsMap}
         />
 
+        { this.state.bikingTime ?
+          <Podcast
+            setPodcastTime={this.setPodcastTime}
+            selectedEpisodeProp={this.selectedEpisode}
+          />
+          : null }
         
-        <Podcast
-          setPodcastTime={this.setPodcastTime}
-          selectedEpisodeProp={this.selectedEpisode}
-        />
 
         { this.state.podcastEpisode ? 
         <ComparisonResults 
