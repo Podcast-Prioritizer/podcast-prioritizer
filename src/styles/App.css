@@ -739,24 +739,31 @@ dialog .EpisodeCard__closeDialog {
 }
 
 .ModalContainer {
+  background: rgba(0, 0, 0, 0.8);
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
 }
 
 .ComparisonResults {
   position: fixed;
-  bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  margin: 0 auto;
+  width: 95%;
+  height: 90%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   padding: 3rem 2.5rem;
   background: white;
   border: 2px solid black;
+  border-radius: 5px;
   text-align: center;
 }
 
@@ -817,6 +824,12 @@ dialog .EpisodeCard__closeDialog {
 .ComparisonResults__icon {
   max-width: 150px;
   padding: 2rem;
+}
+
+.ComparisonResults__map {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 700px;
 }
 
 .ComparisonResults__button--close {
@@ -928,7 +941,7 @@ dialog .EpisodeCard__closeDialog {
   }
 }
 
-@media (max-width: 375px) and (max-width: 1100px) {
+@media (max-width: 1100px) {
   h2 {
     font-size: 2.5rem;
     margin-top: 0;
