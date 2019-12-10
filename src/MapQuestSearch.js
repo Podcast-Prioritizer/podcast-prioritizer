@@ -72,17 +72,21 @@ class MapQuestSearch extends Component {
           Swal.fire({
             title: "Uh-oh!",
             text:
-              "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
-            icon: "error",
-            timer: 4000
+              "Looks like you're not too sure where you're going.  Make sure you have included both a start and a destination address",
+            imageUrl: require("./styles/assets/nounAngry.png"),
+            imageWidth: 100,
+            confirmButtonText: "Let me try again",
+            padding: "2rem"
           });
         } else if (error.request) {
           Swal.fire({
             title: "Uh-oh!",
             text:
-              "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
-            icon: "error",
-            timer: 4000
+              "Looks like you're not too sure where you're going.  Make sure you have included both a start and a destination address",
+            imageUrl: require("./styles/assets/nounAngry.png"),
+            imageWidth: 100,
+            confirmButtonText: "Let me try again",
+            padding: "2rem"
           });
         } else if (
           this.props.stateProp.bikingTime === "00:00:00" ||
@@ -91,9 +95,11 @@ class MapQuestSearch extends Component {
           Swal.fire({
             title: "Uh-oh!",
             text:
-              "Looks like you're not too sure where you're going.  Make sure you have included a start and destination address",
-            icon: "error",
-            timer: 4000
+              "Looks like you're not too sure where you're going.  Make sure you have included both a start and a destination address",
+            imageUrl: require("./styles/assets/nounAngry.png"),
+            imageWidth: 100,
+            confirmButtonText: "Let me try again",
+            padding: "2rem"
           });
         }
       });
