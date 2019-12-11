@@ -18,11 +18,13 @@ a {
 h1, h2, h3 {
     font-family: 'Francois One', sans-serif;
     margin: 2rem 0; 
+    letter-spacing: 0.2rem;
 }
 
 h1 {
     font-size: 6rem;
     line-height: 5rem;
+    
 }
 
 h2 {
@@ -34,6 +36,8 @@ h2 {
 h3 {
     font-size: 3.5rem;
     line-height: 4rem;
+
+
 }
 
 p, a, ::placeholder, i {
