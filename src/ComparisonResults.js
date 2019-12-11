@@ -82,6 +82,7 @@ class ComparisonResults extends Component {
           <div className="ModalContainer">
             <section className="ComparisonResults">
               <div className="wrapper">
+                <h2>You should (edit me)</h2>
                 <button
                   aria-label="close modal"
                   className="ComparisonResults__button--close"
@@ -101,10 +102,7 @@ class ComparisonResults extends Component {
                   </div>
 
                   <div className="ComparisonResults__details">
-                    <p>
-                      Podcast length:{" "}
-                      {this.readableTime(podcastTime)}
-                    </p>
+                    <p>Podcast length: {this.readableTime(podcastTime)}</p>
                     <p>Biking time: {this.readableTime(bikingTime)}</p>
                     <p>Walking time: {this.readableTime(walkingTime)}</p>
                   </div>
