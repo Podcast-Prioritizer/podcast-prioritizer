@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Axios from "axios";
 import Swal from "sweetalert2";
 
-import "./App.css";
+import "./styles/App.scss";
 
 class MapQuestSearch extends Component {
   displayMap = (userStart, userEnd) => {
