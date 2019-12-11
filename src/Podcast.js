@@ -98,7 +98,7 @@ class Podcast extends Component{
         document.getElementById(`PodcastCard__description--${index}`).classList.toggle("PodcastCard__description--snippet")
 
         if(e.target.innerHTML === "... Show more"){
-            e.target.innerHTML = "... Show less"
+            e.target.innerHTML = "Show less"
         }else{
             e.target.innerHTML = "... Show more"
         };
