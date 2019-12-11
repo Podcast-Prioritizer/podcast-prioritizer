@@ -148,7 +148,6 @@ class MapQuestSearch extends Component {
       let slicedSuggestionArray = data.data.results.slice(0, 5);
 
       slicedSuggestionArray.map(suggestion => {
-        console.log(suggestion.displayString);
       });
     });
   };
@@ -157,13 +156,11 @@ class MapQuestSearch extends Component {
     window.placeSearch({
       key: this.props.apiKey,
       container: document.querySelector("#userStart"),
-      // style: false
     });
 
     window.placeSearch({
       key: this.props.apiKey,
       container: document.querySelector("#userDestination"),
-      // style: false
     });
   };
 
