@@ -4,15 +4,17 @@ import cyclist from "./styles/assets/cyclist.png";
 import pedestrian from "./styles/assets/pedestrian.png";
 
 class ComparisonResults extends Component {
-  readableTime = (seconds) => {
+  readableTime = seconds => {
     const readableMinutes = (seconds, suffix = "s") => {
       const minutes = Math.round(Math.abs(seconds) / 60);
-      return `${minutes > 60 ? minutes % 60 : minutes} minute${minutes !== 1 ? suffix : ""}`;
-    }
+      return `${minutes > 60 ? minutes % 60 : minutes} minute${
+        minutes !== 1 ? suffix : ""
+      }`;
+    };
 
     const readableHours = (seconds, suffix = "s ") => {
       const hours = Math.floor(Math.abs(seconds) / 3600);
-      return hours ? `${hours} hour${hours !== 1 ? suffix : " "}` : '';
+      return hours ? `${hours} hour${hours !== 1 ? suffix : " "}` : "";
     };
 
     return `${readableHours(seconds)}${readableMinutes(seconds)}`;
@@ -72,7 +74,7 @@ class ComparisonResults extends Component {
     return (
       <>
         <CSSTransition
-          in={podcastTime}
+          in={podcastTime ? true : false}
           timeout={400}
           classNames="show-modal"
           component={null}
@@ -82,7 +84,6 @@ class ComparisonResults extends Component {
           <div className="ModalContainer">
             <section className="ComparisonResults">
               <div className="wrapper">
-                <h2>You should (edit me)</h2>
                 <button
                   aria-label="close modal"
                   className="ComparisonResults__button--close"
@@ -90,6 +91,14 @@ class ComparisonResults extends Component {
                 >
                   Close
                 </button>
+
+                <h2 className="ComparisonResults__heading">
+                  You should{" "}
+                  {Math.abs(podcastTime - walkingTime) >
+                  Math.abs(podcastTime - bikingTime)
+                    ? "cycle"
+                    : "walk"}
+                </h2>
 
                 <section className="ComparisonResults__options">
                   <div className={transportSuggestion("cycling")}>

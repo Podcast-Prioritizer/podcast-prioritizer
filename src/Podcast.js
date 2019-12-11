@@ -166,7 +166,7 @@ class Podcast extends Component{
                     <span className="visuallyHidden">
                         Click here to go back
                     </span>
-                    <i class="fas fa-arrow-left" title="Go back"></i>
+                    <i className="fas fa-arrow-left" title="Go back"></i>
                 </button>
                 ) : null}
 
@@ -220,7 +220,6 @@ class Podcast extends Component{
                         return (
                         <li
                             key={episode.id}
-                            episodeId={episode.id}
                             className="EpisodeResults__item"
                             ref="singleEpisode"
                         >
@@ -261,7 +260,7 @@ class Podcast extends Component{
                                         className="EpisodeCard__options--listen"
                                         onClick={() => this.selectEpisode(episode.id, index)}
                                         >
-                                        <i class="fas fa-headphones-alt"></i> Listen
+                                        <i className="fas fa-headphones-alt"></i> Listen
                                         </button>
                                         <p className="EpisodeCard__options--audioLength">
                                         {this.totalTime(episode.audio_length_sec)}

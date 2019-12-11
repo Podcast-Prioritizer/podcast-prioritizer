@@ -25,6 +25,11 @@
   border-radius: 5px;
   text-align: center;
 
+  &__heading {
+    text-transform: uppercase;
+    font-size: 2.4rem;
+  }
+
   &__options {
     width: 100%;
     margin: 0 auto 5px auto;
