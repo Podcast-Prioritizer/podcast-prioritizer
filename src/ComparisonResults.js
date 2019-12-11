@@ -9,7 +9,8 @@ class ComparisonResults extends Component {
 
   render() {
     const { results, closeResultsProp } = this.props;
-    const { podcastTime, bikingTime, walkingTime, map } = results;
+    console.log(results);
+    const { podcastTime, bikingTime, walkingTime, podcastEpisode, map } = results;
 
     // Adds the '--selected' modifier to the transportation method that's closest to the travel time
     function transportSuggestion(transportationMethod) {
@@ -113,9 +114,35 @@ class ComparisonResults extends Component {
                   </div>
                 </section>
 
-                <section className="ComparisonResults__map">
-                  <img src={map} alt="" />
-                </section>
+                <div className="ComparisonResults__body">
+                  <section 
+                    className="ComparisonResults__podcast"
+                    style={Math.abs(podcastTime - walkingTime) <
+                  Math.abs(podcastTime - bikingTime)
+                    ? {order: 1}
+                    : {}}
+                  >
+                    <img
+                      src={podcastEpisode.thumbnail}
+                      alt=""
+                      className="ComparisonResults__img"
+                    />
+                    <h3 className="ComparisonResults__podcastTitle">
+                      {podcastEpisode.title}
+                    </h3>
+                    <a
+                      href={podcastEpisode["listennotes_url"]}
+                      target="_blank"
+                      className="ComparisonResults__link"
+                    >
+                      More info
+                    </a>
+                  </section>
+
+                  <section className="ComparisonResults__map">
+                    <img src={map} alt="" />
+                  </section>
+                </div>
 
                 <p className="ComparisonResults__disclaimer">
                   We don't advise taking your life in your hands by biking and
