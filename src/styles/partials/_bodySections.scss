@@ -8,6 +8,10 @@
     box-shadow: 2px 2px 2px slategray;
 }
 
+.Search__formArea {
+    min-height: 95vh;
+}
+
 .MapQuest__searchArea,
 .PodcastSearch {
     padding: 6rem 0 3rem 0;
@@ -69,13 +73,13 @@ input {
         input {
             width: 100%;
             padding: 1rem;
+            height: 25px;
         }
 
         span {
             padding-right: 2rem;
             margin: 3rem 2rem 3rem 0;
             border-radius: 5px;
-            width: 40%; 
         }
     }
 
@@ -87,7 +91,7 @@ input {
 
 // ==================================
 // 
-// PODCAST SEARCH
+// PODCAST 
 // 
 // ===================================
 
@@ -96,12 +100,6 @@ input {
         display: flex;
     }
 }
-
-// ==================================
-// 
-// PODCAST RESULTS
-// 
-// ===================================
 
 .PodcastResults {
     padding-top: 10vh;
@@ -162,6 +160,232 @@ input {
         margin-top: 1rem;
     }
     
+}
+
+//Podcast and episode results
+
+.PodcastResults{
+    padding: 0;
+    margin: 0;
+}
+
+//Flex podcast and episode results, remove list styles and add padding
+ul{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 10px 0;
+}
+
+//Podcast results 
+.PodcastResults__item{
+    width: 100%;
+    background:white;
+    display: flex;
+    margin: 10px 0;
+    border-radius: 5px;
+    //Image div container
+    &>div{
+        position: relative;
+        height: 250px;
+    }
+    //Podcast Title and description
+    p, h2{
+        color: black;
+        margin: 0;
+    }
+//Format thumbnail image for each podcast
+    img{
+        height: 250px;
+        width: 250px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+//Format podcast description
+    .PodcastCard__text{
+        padding: 10px 20px;
+        height: 100%;
+    }
+}
+
+.PodcastCard__button {
+    padding: 1rem 2rem;
+    margin: 0;
+    display: inline-block;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $color-1;
+    background-color: $color-2;
+    border: none;
+    transition: 0.3s;
+    position: absolute;
+    width: 250px;
+    bottom: 0;
+    left: 0;
+}
+
+//Format Episode Results
+.EpisodeResults__item{
+    width: 100%;
+    display: flex;
+    padding: 10px;
+    background: white;
+    margin: 10px 0;
+    border-radius: 5px;
+//Episode Title
+    h2{
+        font-size: 2.5rem;
+        margin: 0;
+        margin-left: 10px;
+        color: black;
+    }
+
+    img{
+        width: 150px;
+        height: 150px;
+        border-radius: 5px;
+    }
+
+    &>div{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 0 10px;
+        width: 100%;
+    }
+}
+
+//Podcast description - hide if text overflows
+.PodcastCard__description{
+    height: initial;
+}
+
+.PodcastCard__description--snippet{
+    max-height: 18rem;
+    overflow: hidden;
+}
+
+//Show mpre button shows overflowing text on click
+.PodcastCard__button--showMore{
+    border: none;
+    background: none;
+    color: $color-3;
+    padding: 0;
+    margin: 0;
+    text-transform: initial;
+    display: none;
+
+    &:hover,
+    &:focus{
+        text-decoration: underline;
+    }
+}
+
+//Episode card - buttons
+.EpisodeCard__options{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    
+    p{
+        margin: 0 10px;
+    }
+
+    .EpisodeCard__options--container{
+        display: flex;
+    }
+//Format all buttons
+    button{
+        padding: 0 10px;
+        margin: 0;
+        border: none;
+    }
+//Styling details and listen button
+    .EpisodeCard__options--details,
+    .EpisodeCard__options--listen{
+        transition: 0.4s;
+        padding: 5px 20px;
+        border-radius: 15px;
+        font-weight: bold;
+        color: $color-3;
+    }
+
+    .EpisodeCard__options--details:hover,
+    .EpisodeCard__options--details:focus,
+    .EpisodeCard__options--listen:hover,
+    .EpisodeCard__options--listen:focus{
+        background: $color-3;
+        color: white;
+    }
+//Format audio length of each episode
+    .EpisodeCard__options--audioLength{
+        color: rgb(102, 102, 102);
+        align-self: center;
+    }
+}
+
+//Title bar of dialog pop up - more details
+.EpisodeCard__titleBar{
+    background: blue;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.EpisodeCard__description {
+    padding: 20px;
+}
+
+//Format back button when episode list renders
+.PodcastResults__button--back{
+    font-weight: bolder;
+    background:white;
+    cursor: pointer;
+    color: #282c34a4;
+    border: none;
+    border-radius: 35px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.603);
+    transition: 0.3s;
+    font-size: 2.75rem;
+    padding: 7px 12px;
+}
+
+.PodcastResults__button--back:hover,
+.PodcastResults__button--back:focus{
+    color: $color-3;
+}
+
+//More details pop up dialog of each episode
+dialog {
+    padding: 0;
+    width: 80%;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 2px 2px 2px 2px lightslategray;
+
+    .EpisodeCard {
+
+        &__titleBar {
+            background-color: $color-2;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px 10px 0 0 ;
+            font-weight: 600;
+            align-items: center;
+        }   
+
+        &__closeDialog {
+            border: none;
+            background-color: $color-2;
+            width: 2rem;
+            color: $color-1;
+            text-align: center;
+            font-size: 2rem;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+    }   
 }
 
 // ==================================

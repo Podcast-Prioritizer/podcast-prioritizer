@@ -70,29 +70,31 @@ class App extends Component {
       <Router>
         <Route path="/" component={Header} />
 
-        <MapQuestSearch
-          setLocationsProp={this.setLocations}
-          setBikeTimeProp={this.setBikeTime}
-          setWalkTimeProp={this.setWalkTime}
-          apiKey={this.state.mapQuestApiKey}
-          stateProp={this.state}
-          mapProp={this.directionsMap}
-        />
-
-        { this.state.bikingTime ?
-          <Podcast
-            setPodcastTime={this.setPodcastTime}
-            selectedEpisodeProp={this.selectedEpisode}
+        <div className="Search__formArea">
+          <MapQuestSearch
+            setLocationsProp={this.setLocations}
+            setBikeTimeProp={this.setBikeTime}
+            setWalkTimeProp={this.setWalkTime}
+            apiKey={this.state.mapQuestApiKey}
+            stateProp={this.state}
+            mapProp={this.directionsMap}
+          />
+  
+          { this.state.bikingTime ?
+            <Podcast
+              setPodcastTime={this.setPodcastTime}
+              selectedEpisodeProp={this.selectedEpisode}
+            />
+            : null }
+          
+  
+          { this.state.podcastEpisode ? 
+          <ComparisonResults 
+            results={this.state}
+            closeResultsProp={this.closeResults}
           />
           : null }
-        
-
-        { this.state.podcastEpisode ? 
-        <ComparisonResults 
-          results={this.state}
-          closeResultsProp={this.closeResults}
-        />
-        : null }
+        </div>
 
         <Route path="/" component={Footer}/>
       </Router>
