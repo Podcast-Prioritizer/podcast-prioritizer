@@ -1,11 +1,11 @@
+// HEADER =====================
+
 .Header {
     height: 90vh;
     background-image: url("../assets/girlWalkingListening.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    // display: flex;
-    
 
     &__displayArea {
         width: 70%;
@@ -48,8 +48,7 @@
         background-color: $color-3;
         width: 40%;
         top: 65px;
-        left: 30%;
-        
+        left: 30%;  
     }
 
     &__tagline {
