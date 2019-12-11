@@ -1,24 +1,11 @@
 import React, { Component } from "react";
+import readableTime from './readableTime';
 import { CSSTransition } from "react-transition-group";
+
 import cyclist from "./styles/assets/cyclist.png";
 import pedestrian from "./styles/assets/pedestrian.png";
 
 class ComparisonResults extends Component {
-  readableTime = seconds => {
-    const readableMinutes = (seconds, suffix = "s") => {
-      const minutes = Math.round(Math.abs(seconds) / 60);
-      return `${minutes > 60 ? minutes % 60 : minutes} minute${
-        minutes !== 1 ? suffix : ""
-      }`;
-    };
-
-    const readableHours = (seconds, suffix = "s ") => {
-      const hours = Math.floor(Math.abs(seconds) / 3600);
-      return hours ? `${hours} hour${hours !== 1 ? suffix : " "}` : "";
-    };
-
-    return `${readableHours(seconds)}${readableMinutes(seconds)}`;
-  };
 
   render() {
     const { results, closeResultsProp } = this.props;
@@ -59,13 +46,13 @@ class ComparisonResults extends Component {
       } else if (timeDifference < 0) {
         return (
           <span className="ComparisonResults__timeDifference ComparisonResults__timeDifference--lower">
-            -{this.readableTime(timeDifference)}
+            -{readableTime(timeDifference)}
           </span>
         );
       } else {
         return (
           <span className="ComparisonResults__timeDifference ComparisonResults__timeDifference--higher">
-            +{this.readableTime(timeDifference)}
+            +{readableTime(timeDifference)}
           </span>
         );
       }
@@ -111,9 +98,9 @@ class ComparisonResults extends Component {
                   </div>
 
                   <div className="ComparisonResults__details">
-                    <p>Podcast length: {this.readableTime(podcastTime)}</p>
-                    <p>Biking time: {this.readableTime(bikingTime)}</p>
-                    <p>Walking time: {this.readableTime(walkingTime)}</p>
+                    <p>Podcast length: {readableTime(podcastTime)}</p>
+                    <p>Biking time: {readableTime(bikingTime)}</p>
+                    <p>Walking time: {readableTime(walkingTime)}</p>
                   </div>
 
                   <div className={transportSuggestion("pedestrian")}>

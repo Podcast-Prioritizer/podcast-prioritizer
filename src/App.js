@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header'
 import MapQuestSearch from './MapQuestSearch';
+import CommuteSidebar from './CommuteSidebar';
 import Podcast from "./Podcast";
 import ComparisonResults from './ComparisonResults';
 import Footer from "./Footer";
@@ -54,7 +55,8 @@ class App extends Component {
 
   closeResults = () => {
     this.setState({
-      podcastTime: ""
+      podcastTime: "",
+      podcastEpisode: {}
     });
   }
 
@@ -84,9 +86,18 @@ class App extends Component {
               setPodcastTime={this.setPodcastTime}
               selectedEpisodeProp={this.selectedEpisode}
             />
-            : null }
+            : null 
+          }
           
-  
+          {
+            (this.state.bikingTime && !this.state.podcastTime) ?
+            <CommuteSidebar
+              walkingTime={this.state.walkingTime}
+              bikingTime={this.state.bikingTime}
+            />
+            : null
+          }
+
           { this.state.podcastEpisode ? 
           <ComparisonResults 
             results={this.state}
