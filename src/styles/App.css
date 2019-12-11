@@ -239,6 +239,7 @@ a {
 h1, h2, h3 {
   font-family: 'Francois One', sans-serif;
   margin: 2rem 0;
+  letter-spacing: 0.2rem;
 }
 
 h1 {
@@ -290,6 +291,12 @@ p {
   height: 90%;
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 0 0 80px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .Header__linksAndLogo {
@@ -306,8 +313,9 @@ p {
 }
 
 .Header__logo {
-  width: 15rem;
-  height: 7rem;
+  margin: 0 auto;
+  width: 70%;
+  height: auto;
 }
 
 .Header__headerContent {
@@ -340,14 +348,14 @@ p {
 }
 
 .Header__tagline {
-  font-size: 2rem;
-  text-transform: uppercase;
+  margin: 0;
+  font-size: 2.8rem;
+  font-weight: 400;
   padding-top: 2rem;
 }
 
-:focus {
-  -webkit-box-shadow: 2px 2px 2px slategray;
-          box-shadow: 2px 2px 2px slategray;
+.Search__formArea {
+  min-height: 95vh;
 }
 
 .MapQuest__searchArea,
@@ -372,9 +380,16 @@ input {
   width: 40%;
 }
 
-.MapQuest__submitBtn,
+.MapQuest__submitBtn {
+  padding: 1.4rem 2rem;
+}
+
 .PodcastSearch__submitButton {
   padding: 1rem 2rem;
+}
+
+.MapQuest__submitBtn,
+.PodcastSearch__submitButton {
   margin: 3rem 0;
   display: inline-block;
   border-radius: 5px;
@@ -412,13 +427,13 @@ input {
 .MapQuest__form input {
   width: 100%;
   padding: 1rem;
+  height: 25px;
 }
 
 .MapQuest__form span {
   padding-right: 2rem;
   margin: 3rem 2rem 3rem 0;
   border-radius: 5px;
-  width: 40%;
 }
 
 .MapQuest__submitBtn {
@@ -488,33 +503,6 @@ input {
   margin-top: 1rem;
 }
 
-.swal2-html-container {
-  font-size: 1.8rem;
-}
-
-.swal2-popup.swal2-modal {
-  border: 15px solid #c2edd8;
-}
-
-.swal2.content #text {
-  color: #0000;
-}
-
-button.swal2-confirm.swal2-styled {
-  background-color: #001e31;
-  font-size: 1.6rem;
-  padding: 1rem;
-}
-
-.Footer {
-  background-color: #c2edd8;
-}
-
-.Footer__copy {
-  padding: 1rem 0;
-  text-align: center;
-}
-
 .PodcastResults {
   padding: 0;
   margin: 0;
@@ -578,6 +566,10 @@ ul {
   width: 250px;
   bottom: 0;
   left: 0;
+}
+
+.PodcastCard__button:hover, .PodcastCard__button:focus {
+  background-color: #24b62c;
 }
 
 .EpisodeResults__item {
@@ -705,6 +697,8 @@ ul {
 
 .EpisodeCard__description {
   padding: 20px;
+  max-height: 70vh;
+  overflow-y: scroll;
 }
 
 .PodcastResults__button--back {
@@ -729,11 +723,16 @@ ul {
 
 dialog {
   padding: 0;
-  width: 50%;
+  width: 80%;
   border-radius: 10px;
   border: none;
   -webkit-box-shadow: 2px 2px 2px 2px lightslategray;
           box-shadow: 2px 2px 2px 2px lightslategray;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 dialog .EpisodeCard__titleBar {
@@ -758,6 +757,37 @@ dialog .EpisodeCard__closeDialog {
   font-weight: bold;
 }
 
+dialog .EpisodeCard__closeDialog:hover, dialog .EpisodeCard__closeDialog:focus {
+  color: #757575;
+}
+
+.swal2-html-container {
+  font-size: 1.8rem;
+}
+
+.swal2-popup.swal2-modal {
+  border: 15px solid #c2edd8;
+}
+
+.swal2.content #text {
+  color: #0000;
+}
+
+button.swal2-confirm.swal2-styled {
+  background-color: #001e31;
+  font-size: 1.6rem;
+  padding: 1rem;
+}
+
+.Footer {
+  background-color: #c2edd8;
+}
+
+.Footer__copy {
+  padding: 1rem 0;
+  text-align: center;
+}
+
 .ModalContainer {
   background: rgba(0, 0, 0, 0.8);
   position: fixed;
@@ -773,6 +803,7 @@ dialog .EpisodeCard__closeDialog {
 }
 
 .ComparisonResults {
+  overflow: scroll;
   position: fixed;
   width: 95%;
   height: 90%;
@@ -787,9 +818,14 @@ dialog .EpisodeCard__closeDialog {
   text-align: center;
 }
 
+.ComparisonResults__heading {
+  text-transform: uppercase;
+  font-size: 2.4rem;
+}
+
 .ComparisonResults__options {
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 5px auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -807,10 +843,7 @@ dialog .EpisodeCard__closeDialog {
 .ComparisonResults__option img {
   border: 2px solid black;
   border-radius: 5px;
-}
-
-.ComparisonResults__option:first-of-type img {
-  margin-left: auto;
+  margin: 0 auto;
 }
 
 .ComparisonResults__option--selected img {
@@ -837,6 +870,12 @@ dialog .EpisodeCard__closeDialog {
           justify-content: center;
 }
 
+.ComparisonResults__details p {
+  display: inline-block;
+  margin: 0 10px;
+  border-bottom: 2px solid #c2edd8;
+}
+
 .ComparisonResults__details p:not(:last-child) {
   margin-bottom: 1.6rem;
 }
@@ -849,12 +888,34 @@ dialog .EpisodeCard__closeDialog {
 .ComparisonResults__map {
   margin: 0 auto;
   width: 100%;
-  max-width: 700px;
+  max-width: 650px;
 }
 
 .ComparisonResults__button--close {
   display: block;
   margin-left: auto;
+  padding: 1rem 2rem;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #001e31;
+  background-color: #c2edd8;
+  border: none;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.ComparisonResults__button--close:hover {
+  background-color: #24b62c;
+}
+
+.ComparisonResults__disclaimer {
+  padding: 10px 0;
+}
+
+.ComparisonResults h2 {
+  display: inline;
 }
 
 .show-modal-enter {
@@ -966,6 +1027,35 @@ dialog .EpisodeCard__closeDialog {
 @media (max-width: 640px) {
   .Header__mainHeader::before {
     top: 120px;
+  }
+}
+
+@media (max-width: 550px) {
+  .ComparisonResults__options {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .ComparisonResults__option {
+    margin-bottom: 25px;
+  }
+  .ComparisonResults__option img {
+    width: 85%;
+  }
+  .ComparisonResults__details {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .ComparisonResults__details p {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100%;
+            flex: 1 1 100%;
+    padding: 3px;
+    margin: 0;
+    display: block;
   }
 }
 
