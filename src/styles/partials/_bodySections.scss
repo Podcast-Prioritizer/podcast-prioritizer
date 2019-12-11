@@ -4,10 +4,6 @@
 // 
 // ===================================
 
-:focus {
-    box-shadow: 2px 2px 2px slategray;
-}
-
 .Search__formArea {
     min-height: 95vh;
 }
@@ -32,9 +28,16 @@ input {
     width: 40%;
 }
 
-.MapQuest__submitBtn,
+.MapQuest__submitBtn{
+padding: 1.4rem 2rem;
+}
+
 .PodcastSearch__submitButton{
     padding: 1rem 2rem;
+}
+
+.MapQuest__submitBtn,
+.PodcastSearch__submitButton{
     margin: 3rem 0;
     display: inline-block;
     border-radius: 5px;
@@ -222,6 +225,11 @@ ul{
     width: 250px;
     bottom: 0;
     left: 0;
+
+    &:hover, 
+    &:focus{
+        background-color: $color-3;
+    }
 }
 
 //Format Episode Results
