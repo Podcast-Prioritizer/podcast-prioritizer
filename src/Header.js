@@ -7,23 +7,21 @@ class Header extends Component {
         return (
           <div className="Header">
             <div className="Header__displayArea">
-              
-              <div className="wrapper">
-                <div className="Header__linksAndLogo">
-                  <img className="Header__logo" src={ logo } alt="Paths and Podcasts Logo"/>
-                </div>
-              </div>
-
               <div className="Header__headerContent">
-
                 <div className="wrapper">
-                  <h1 className="Header__mainHeader">Paths and Podcasts</h1>
-  
-                  <p className="Header__tagline">
-                    Who said your commute has to be boring?
-                  </p>
-                </div>
+                  <div className="Header__linksAndLogo">
+                    <img
+                      className="Header__logo"
+                      src={logo}
+                      alt="Paths and Podcasts Logo"
+                      title="Paths and Podcasts"
+                    />
+                  </div>
 
+                  <h2 className="Header__tagline">
+                    Who said your commute has to be boring?
+                  </h2>
+                </div>
               </div>
             </div>
           </div>
