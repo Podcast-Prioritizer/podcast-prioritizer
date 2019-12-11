@@ -758,7 +758,7 @@ dialog .EpisodeCard__closeDialog {
 }
 
 dialog .EpisodeCard__closeDialog:hover, dialog .EpisodeCard__closeDialog:focus {
-  color: #383838;
+  color: #757575;
 }
 
 .swal2-html-container {
