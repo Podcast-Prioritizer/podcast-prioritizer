@@ -111,7 +111,6 @@ input {
     }
     
     li {
-        // max-width: 20%;
         padding: 10px;
     }
     
@@ -194,14 +193,14 @@ ul{
         color: black;
         margin: 0;
     }
-//Format thumbnail image for each podcast
+    //Format thumbnail image for each podcast
     img{
         height: 250px;
         width: 250px;
         border-radius: 5px;
         cursor: pointer;
     }
-//Format podcast description
+    //Format podcast description
     .PodcastCard__text{
         padding: 10px 20px;
         height: 100%;

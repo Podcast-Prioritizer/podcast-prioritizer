@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import './App.css';
+import "./styles/App.scss";
 // SWEET ALERTS
 import Swal from "sweetalert2";
 
