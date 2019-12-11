@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/podcast-prioritizer/static/css/main.9245aaf2.chunk.css",
+    "main.css": "/podcast-prioritizer/static/css/main.ccc5e0d1.chunk.css",
     "main.js": "/podcast-prioritizer/static/js/main.e134df2c.chunk.js",
     "main.js.map": "/podcast-prioritizer/static/js/main.e134df2c.chunk.js.map",
     "runtime-main.js": "/podcast-prioritizer/static/js/runtime-main.7f230b4e.js",
@@ -8,9 +8,9 @@
     "static/js/2.550125d3.chunk.js": "/podcast-prioritizer/static/js/2.550125d3.chunk.js",
     "static/js/2.550125d3.chunk.js.map": "/podcast-prioritizer/static/js/2.550125d3.chunk.js.map",
     "index.html": "/podcast-prioritizer/index.html",
-    "precache-manifest.155ad08ab5a37c752438f74170a16e3f.js": "/podcast-prioritizer/precache-manifest.155ad08ab5a37c752438f74170a16e3f.js",
+    "precache-manifest.1272c291f615c239530b55c3dc0497e8.js": "/podcast-prioritizer/precache-manifest.1272c291f615c239530b55c3dc0497e8.js",
     "service-worker.js": "/podcast-prioritizer/service-worker.js",
-    "static/css/main.9245aaf2.chunk.css.map": "/podcast-prioritizer/static/css/main.9245aaf2.chunk.css.map",
+    "static/css/main.ccc5e0d1.chunk.css.map": "/podcast-prioritizer/static/css/main.ccc5e0d1.chunk.css.map",
     "static/js/2.550125d3.chunk.js.LICENSE": "/podcast-prioritizer/static/js/2.550125d3.chunk.js.LICENSE",
     "static/media/cyclist.png": "/podcast-prioritizer/static/media/cyclist.dad81756.png",
     "static/media/App.scss": "/podcast-prioritizer/static/media/girlWalkingListening.e0d8a2b9.jpg",
@@ -21,7 +21,7 @@
   "entrypoints": [
     "static/js/runtime-main.7f230b4e.js",
     "static/js/2.550125d3.chunk.js",
-    "static/css/main.9245aaf2.chunk.css",
+    "static/css/main.ccc5e0d1.chunk.css",
     "static/js/main.e134df2c.chunk.js"
   ]
 }
