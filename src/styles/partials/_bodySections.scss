@@ -397,6 +397,11 @@ dialog {
             font-size: 2rem;
             text-transform: uppercase;
             font-weight: bold;
+
+            &:hover,
+            &:focus{
+                color: rgb(56, 56, 56);
+            }
         }
     }   
 }

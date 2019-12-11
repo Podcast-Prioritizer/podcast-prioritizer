@@ -757,6 +757,10 @@ dialog .EpisodeCard__closeDialog {
   font-weight: bold;
 }
 
+dialog .EpisodeCard__closeDialog:hover, dialog .EpisodeCard__closeDialog:focus {
+  color: #383838;
+}
+
 .swal2-html-container {
   font-size: 1.8rem;
 }
