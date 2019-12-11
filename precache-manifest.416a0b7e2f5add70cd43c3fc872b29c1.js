@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6b155621a8e06d3b3650ed7f43240133",
+    "revision": "91fdd4e065b0e0176937534159a43219",
     "url": "/podcast-prioritizer/index.html"
   },
   {
-    "revision": "09c7f31261928d62af40",
-    "url": "/podcast-prioritizer/static/css/main.ccc5e0d1.chunk.css"
+    "revision": "9054cd9321dadbfe4620",
+    "url": "/podcast-prioritizer/static/css/main.e2eb5d5c.chunk.css"
   },
   {
-    "revision": "5034dce9c2094e73709d",
-    "url": "/podcast-prioritizer/static/js/2.550125d3.chunk.js"
+    "revision": "25705e3143453c3f9683",
+    "url": "/podcast-prioritizer/static/js/2.f2992008.chunk.js"
   },
   {
     "revision": "78ddf5a465591a03b9601ba2ddd63415",
-    "url": "/podcast-prioritizer/static/js/2.550125d3.chunk.js.LICENSE"
+    "url": "/podcast-prioritizer/static/js/2.f2992008.chunk.js.LICENSE"
   },
   {
-    "revision": "09c7f31261928d62af40",
-    "url": "/podcast-prioritizer/static/js/main.e134df2c.chunk.js"
+    "revision": "9054cd9321dadbfe4620",
+    "url": "/podcast-prioritizer/static/js/main.398110f6.chunk.js"
   },
   {
     "revision": "2c3be8c4d8ef2abbeaf3",
