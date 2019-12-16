@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/podcast-prioritizer/static/css/main.e2eb5d5c.chunk.css",
-    "main.js": "/podcast-prioritizer/static/js/main.398110f6.chunk.js",
-    "main.js.map": "/podcast-prioritizer/static/js/main.398110f6.chunk.js.map",
+    "main.css": "/podcast-prioritizer/static/css/main.669b3497.chunk.css",
+    "main.js": "/podcast-prioritizer/static/js/main.c5128216.chunk.js",
+    "main.js.map": "/podcast-prioritizer/static/js/main.c5128216.chunk.js.map",
     "runtime-main.js": "/podcast-prioritizer/static/js/runtime-main.7f230b4e.js",
     "runtime-main.js.map": "/podcast-prioritizer/static/js/runtime-main.7f230b4e.js.map",
-    "static/js/2.f2992008.chunk.js": "/podcast-prioritizer/static/js/2.f2992008.chunk.js",
-    "static/js/2.f2992008.chunk.js.map": "/podcast-prioritizer/static/js/2.f2992008.chunk.js.map",
+    "static/js/2.6b237e26.chunk.js": "/podcast-prioritizer/static/js/2.6b237e26.chunk.js",
+    "static/js/2.6b237e26.chunk.js.map": "/podcast-prioritizer/static/js/2.6b237e26.chunk.js.map",
     "index.html": "/podcast-prioritizer/index.html",
-    "precache-manifest.416a0b7e2f5add70cd43c3fc872b29c1.js": "/podcast-prioritizer/precache-manifest.416a0b7e2f5add70cd43c3fc872b29c1.js",
+    "precache-manifest.c9cd69d47dd041d40b900f90df486bcb.js": "/podcast-prioritizer/precache-manifest.c9cd69d47dd041d40b900f90df486bcb.js",
     "service-worker.js": "/podcast-prioritizer/service-worker.js",
-    "static/css/main.e2eb5d5c.chunk.css.map": "/podcast-prioritizer/static/css/main.e2eb5d5c.chunk.css.map",
-    "static/js/2.f2992008.chunk.js.LICENSE": "/podcast-prioritizer/static/js/2.f2992008.chunk.js.LICENSE",
+    "static/css/main.669b3497.chunk.css.map": "/podcast-prioritizer/static/css/main.669b3497.chunk.css.map",
+    "static/js/2.6b237e26.chunk.js.LICENSE": "/podcast-prioritizer/static/js/2.6b237e26.chunk.js.LICENSE",
     "static/media/cyclist.png": "/podcast-prioritizer/static/media/cyclist.dad81756.png",
     "static/media/App.scss": "/podcast-prioritizer/static/media/girlWalkingListening.e0d8a2b9.jpg",
     "static/media/logo.png": "/podcast-prioritizer/static/media/logo.0b2aa362.png",
@@ -20,8 +20,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.7f230b4e.js",
-    "static/js/2.f2992008.chunk.js",
-    "static/css/main.e2eb5d5c.chunk.css",
-    "static/js/main.398110f6.chunk.js"
+    "static/js/2.6b237e26.chunk.js",
+    "static/css/main.669b3497.chunk.css",
+    "static/js/main.c5128216.chunk.js"
   ]
 }
