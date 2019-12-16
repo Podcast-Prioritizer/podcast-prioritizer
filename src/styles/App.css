@@ -284,6 +284,7 @@ p {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  position: relative;
 }
 
 .Header__displayArea {
@@ -352,6 +353,41 @@ p {
   font-size: 2.8rem;
   font-weight: 400;
   padding-top: 2rem;
+}
+
+.Header__getStarted {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.Header__scrollButton {
+  border: 0;
+  border-radius: 100px;
+  padding: 5px;
+  background-color: #24b62c;
+  border: 2px solid transparent;
+  -webkit-transition: .2s;
+  transition: .2s;
+  font-size: 3rem;
+}
+
+.Header__scrollButton:hover, .Header__scrollButton:focus {
+  background-color: #c2edd8;
+  border: 2px solid #24b62c;
+  -webkit-transform-origin: top;
+          transform-origin: top;
+  -webkit-transform: scaleY(1.05) translateY(2px);
+          transform: scaleY(1.05) translateY(2px);
 }
 
 .Search__formArea {
@@ -733,6 +769,7 @@ dialog {
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  z-index: 999;
 }
 
 dialog .EpisodeCard__titleBar {
@@ -786,6 +823,59 @@ button.swal2-confirm.swal2-styled {
 .Footer__copy {
   padding: 1rem 0;
   text-align: center;
+}
+
+.CommuteSidebar {
+  position: fixed;
+  top: 2rem;
+  right: 0;
+  padding: 2rem 1.5rem;
+  background-color: #c2edd8;
+  color: #001e31;
+  -webkit-box-shadow: -10px 10px 11px -7px rgba(0, 0, 0, 0.87);
+          box-shadow: -10px 10px 11px -7px rgba(0, 0, 0, 0.87);
+  border-radius: 10px;
+  z-index: 100;
+}
+
+.CommuteSidebar__img {
+  width: 2.8rem;
+}
+
+.CommuteSidebar__icon {
+  margin-right: 0.8rem;
+}
+
+.CommuteSidebar__time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.6rem;
+}
+
+.CommuteSidebar__time:not(:last-of-type) {
+  margin-bottom: 1.2rem;
+}
+
+.show-sidebar-enter {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+
+.show-sidebar-enter-done {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 
 .ModalContainer {
@@ -885,10 +975,50 @@ button.swal2-confirm.swal2-styled {
   padding: 2rem;
 }
 
+.ComparisonResults__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.ComparisonResults__map, .ComparisonResults__podcast {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 45%;
+          flex: 0 1 45%;
+}
+
 .ComparisonResults__map {
-  margin: 0 auto;
   width: 100%;
   max-width: 650px;
+}
+
+.ComparisonResults__img {
+  max-width: 150px;
+  margin: 0 auto;
+}
+
+.ComparisonResults__podcastTitle {
+  font-size: 2.4rem;
+  letter-spacing: 0.2px;
+  line-height: 1.2;
+}
+
+.ComparisonResults__link {
+  line-height: 2;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  padding: 5px 20px;
+  border-radius: 15px;
+  font-weight: bold;
+  color: #001e31;
+  background-color: #24b62c;
 }
 
 .ComparisonResults__button--close {

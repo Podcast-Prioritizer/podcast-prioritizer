@@ -3,9 +3,10 @@
   top: 2rem;
   right: 0;
   padding: 2rem 1.5rem;
-  background-color: $color-3;
+  background-color: $color-2;
   color: $color-1;
-  border: 2px solid rgba($color-1, .2);
+  box-shadow: -10px 10px 11px -7px rgba(0, 0, 0, 0.87);
+  border-radius: 10px;
   z-index: 100;
 
   &__img {
@@ -13,7 +14,7 @@
   }
 
   &__icon {
-    margin-right: .8rem;
+    margin-right: 0.8rem;
   }
 
   &__time {
@@ -30,12 +31,12 @@
 
 .show-sidebar {
   &-enter {
-    transition: .4s;
+    transition: 0.4s;
     transform: translateX(100%);
   }
 
   &-enter-done {
-    transition: .4s;
+    transition: 0.4s;
     transform: translateX(0);
   }
 }
