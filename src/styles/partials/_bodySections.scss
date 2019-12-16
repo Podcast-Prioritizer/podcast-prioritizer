@@ -1,448 +1,456 @@
 // ==================================
-// 
+//
 // STANDARD BODY SECTION STYLES
-// 
+//
 // ===================================
 
 .Search__formArea {
-    min-height: 95vh;
+  min-height: 95vh;
 }
 
 .MapQuest__searchArea,
 .PodcastSearch {
-    padding: 6rem 0 3rem 0;
-     
-    &__introContent {
-        color: $color-4;
+  padding: 6rem 0 3rem 0;
 
-        h2 {
-            color: $color-4;
-        }
+  &__introContent {
+    color: $color-4;
+
+    h2 {
+      color: $color-4;
     }
+  }
 }
 
 input {
-    padding: 1rem;
-    margin: 3rem 2rem 3rem 0;
-    border-radius: 5px;
-    width: 40%;
+  padding: 1rem;
+  margin: 3rem 2rem 3rem 0;
+  border-radius: 5px;
+  width: 40%;
 }
 
-.MapQuest__submitBtn{
-padding: 1.4rem 2rem;
+.MapQuest__submitBtn {
+  padding: 1.4rem 2rem;
 }
 
-.PodcastSearch__submitButton{
-    padding: 1rem 2rem;
+.PodcastSearch__submitButton {
+  padding: 1rem 2rem;
 }
 
 .MapQuest__submitBtn,
-.PodcastSearch__submitButton{
-    margin: 3rem 0;
-    display: inline-block;
-    border-radius: 5px;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: $color-1;
-    background-color: $color-2;
-    border: none;
-    transition: 0.3s; 
+.PodcastSearch__submitButton {
+  margin: 3rem 0;
+  display: inline-block;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: $color-1;
+  background-color: $color-2;
+  border: none;
+  transition: 0.3s;
 
-    &:hover {
-        background-color: $color-3;
-    }
+  &:hover {
+    background-color: $color-3;
+  }
 }
 
 // ==================================
-// 
+//
 // MAPQUEST SEARCH & RESULTS
-// 
+//
 // ===================================
 
 .MapQuest {
+  &__introContent {
+    color: $color-4;
 
-    &__introContent {
-        color: $color-4;
+    h2 {
+      color: $color-4;
+    }
+  }
 
-        h2 {
-            color: $color-4;
-        }
+  &__form {
+    display: flex;
+    align-items: center;
+
+    input {
+      width: 100%;
+      padding: 1rem;
+      height: 25px;
     }
 
-    &__form {
-        display: flex;
-        align-items: center;
-
-        input {
-            width: 100%;
-            padding: 1rem;
-            height: 25px;
-        }
-
-        span {
-            padding-right: 2rem;
-            margin: 3rem 2rem 3rem 0;
-            border-radius: 5px;
-        }
+    span {
+      padding-right: 2rem;
+      margin: 3rem 2rem 3rem 0;
+      border-radius: 5px;
     }
+  }
 
-    &__submitBtn {
-        display: inline-block;
-    }
-    
+  &__submitBtn {
+    display: inline-block;
+  }
 }
 
 // ==================================
-// 
-// PODCAST 
-// 
+//
+// PODCAST
+//
 // ===================================
 
 .PodcastSearch {
-    &__form {
-        display: flex;
-    }
+  &__form {
+    display: flex;
+  }
 }
 
 .PodcastResults {
-    padding-top: 10vh;
+  padding-top: 10vh;
 
-    ul{
-        display: flex;
-        flex-wrap: wrap;
-        list-style: none;
-    }
-    
-    li {
-        padding: 10px;
-    }
-    
-    &__button--back{
-        font-weight: bolder;
-        background:white;
-        cursor: pointer;
-        color: #282c34a4;
-        border: none;
-        border-radius: 35px;
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.603);
-        transition: 0.3s;
-        font-size: 2rem;
-        padding: 7px 10px;
-        margin: 10px;
-    }
-    
-    &__button--back:hover,
-    &__button--back:focus{
-        color: $color-4;
-    }
-}
- 
-.PodcastCard {
-
-    &__title {
-        color: $color-4;
-
-    }
-
-    &__description{
-        height: initial;
-        color: $color-4;
-        
-    }
-    
-    &__description--snippet{
-        height: 10rem;
-        overflow: hidden;
-        margin-bottom: 2rem;
-        color: $color-4;
-    }
-
-    &__button--showMore,
-    &__button {
-        margin-top: 1rem;
-    }
-    
-}
-
-//Podcast and episode results
-
-.PodcastResults{
-    padding: 0;
-    margin: 0;
-}
-
-//Flex podcast and episode results, remove list styles and add padding
-ul{
+  ul {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    padding: 10px 0;
-}
+  }
 
-//Podcast results 
-.PodcastResults__item{
-    width: 100%;
-    background:white;
-    display: flex;
-    margin: 10px 0;
-    border-radius: 5px;
-    //Image div container
-    &>div{
-        position: relative;
-        height: 250px;
-    }
-    //Podcast Title and description
-    p, h2{
-        color: black;
-        margin: 0;
-    }
-    //Format thumbnail image for each podcast
-    img{
-        height: 250px;
-        width: 250px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    //Format podcast description
-    .PodcastCard__text{
-        padding: 10px 20px;
-        height: 100%;
-    }
-}
-
-.PodcastCard__button {
-    padding: 1rem 2rem;
-    margin: 0;
-    display: inline-block;
-    border-radius: 5px;
-    text-transform: uppercase;
-    font-weight: 600;
-    color: $color-1;
-    background-color: $color-2;
-    border: none;
-    transition: 0.3s;
-    position: absolute;
-    width: 250px;
-    bottom: 0;
-    left: 0;
-
-    &:hover, 
-    &:focus{
-        background-color: $color-3;
-    }
-}
-
-//Format Episode Results
-.EpisodeResults__item{
-    width: 100%;
-    display: flex;
+  li {
     padding: 10px;
-    background: white;
-    margin: 10px 0;
-    border-radius: 5px;
-//Episode Title
-    h2{
-        font-size: 2.5rem;
-        margin: 0;
-        margin-left: 10px;
-        color: black;
-    }
+  }
 
-    img{
-        width: 150px;
-        height: 150px;
-        border-radius: 5px;
-    }
-
-    &>div{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        padding: 0 10px;
-        width: 100%;
-    }
-}
-
-//Podcast description - hide if text overflows
-.PodcastCard__description{
-    height: initial;
-}
-
-.PodcastCard__description--snippet{
-    max-height: 18rem;
-    overflow: hidden;
-}
-
-//Show mpre button shows overflowing text on click
-.PodcastCard__button--showMore{
-    border: none;
-    background: none;
-    color: $color-3;
-    padding: 0;
-    margin: 0;
-    text-transform: initial;
-    display: none;
-
-    &:hover,
-    &:focus{
-        text-decoration: underline;
-    }
-}
-
-//Episode card - buttons
-.EpisodeCard__options{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    
-    p{
-        margin: 0 10px;
-    }
-
-    .EpisodeCard__options--container{
-        display: flex;
-    }
-//Format all buttons
-    button{
-        padding: 0 10px;
-        margin: 0;
-        border: none;
-    }
-//Styling details and listen button
-    .EpisodeCard__options--details,
-    .EpisodeCard__options--listen{
-        transition: 0.4s;
-        padding: 5px 20px;
-        border-radius: 15px;
-        font-weight: bold;
-        color: $color-3;
-    }
-
-    .EpisodeCard__options--details:hover,
-    .EpisodeCard__options--details:focus,
-    .EpisodeCard__options--listen:hover,
-    .EpisodeCard__options--listen:focus{
-        background: $color-3;
-        color: white;
-    }
-//Format audio length of each episode
-    .EpisodeCard__options--audioLength{
-        color: rgb(102, 102, 102);
-        align-self: center;
-    }
-}
-
-//Title bar of dialog pop up - more details
-.EpisodeCard__titleBar{
-    background: blue;
-    display: flex;
-    justify-content: space-between;
-    padding: 5px;
-}
-
-.EpisodeCard__description {
-    padding: 20px;
-    max-height: 70vh;
-    overflow-y: scroll;
-}
-
-//Format back button when episode list renders
-.PodcastResults__button--back{
+  &__button--back {
     font-weight: bolder;
-    background:white;
+    background: white;
     cursor: pointer;
     color: #282c34a4;
     border: none;
     border-radius: 35px;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.603);
     transition: 0.3s;
-    font-size: 2.75rem;
-    padding: 7px 12px;
+    font-size: 2rem;
+    padding: 7px 10px;
+    margin: 10px;
+  }
+
+  &__button--back:hover,
+  &__button--back:focus {
+    color: $color-4;
+  }
+}
+
+.PodcastCard {
+  &__title {
+    color: $color-4;
+  }
+
+  &__description {
+    height: initial;
+    color: $color-4;
+  }
+
+  &__description--snippet {
+    height: 10rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    color: $color-4;
+  }
+
+  &__button--showMore,
+  &__button {
+    margin-top: 1rem;
+  }
+}
+
+//Podcast and episode results
+
+.PodcastResults {
+  padding: 0;
+  margin: 0;
+}
+
+//Flex podcast and episode results, remove list styles and add padding
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 10px 0;
+}
+
+//Podcast results
+.PodcastResults__item {
+  width: 100%;
+  background: white;
+  display: flex;
+  margin: 10px 0;
+  border-radius: 5px;
+  //Image div container
+  & > div {
+    position: relative;
+    height: 250px;
+  }
+  //Podcast Title and description
+  p,
+  h2 {
+    color: black;
+    margin: 0;
+  }
+  //Format thumbnail image for each podcast
+  img {
+    height: 250px;
+    width: 250px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  //Format podcast description
+  .PodcastCard__text {
+    padding: 10px 20px;
+    height: 100%;
+  }
+}
+
+.PodcastCard__button {
+  padding: 1rem 2rem;
+  margin: 0;
+  display: inline-block;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: $color-1;
+  background-color: $color-2;
+  border: none;
+  transition: 0.3s;
+  position: absolute;
+  width: 250px;
+  bottom: 0;
+  left: 0;
+
+  &:hover,
+  &:focus {
+    background-color: $color-3;
+  }
+}
+
+//Format Episode Results
+.EpisodeResults__item {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  background: white;
+  margin: 10px 0;
+  border-radius: 5px;
+  //Episode Title
+  h2 {
+    font-size: 2.5rem;
+    margin: 0;
+    margin-left: 10px;
+    color: black;
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+  }
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 10px;
+    width: 100%;
+  }
+}
+
+//Podcast description - hide if text overflows
+.PodcastCard__description {
+  height: initial;
+}
+
+.PodcastCard__description--snippet {
+  max-height: 18rem;
+  overflow: hidden;
+}
+
+//Show mpre button shows overflowing text on click
+.PodcastCard__button--showMore {
+  border: none;
+  background: none;
+  color: $color-3;
+  padding: 0;
+  margin: 0;
+  text-transform: initial;
+  display: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+//Episode card - buttons
+.EpisodeCard__options {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  p {
+    margin: 0 10px;
+  }
+
+  .EpisodeCard__options--container {
+    display: flex;
+  }
+  //Format all buttons
+  button {
+    padding: 0 10px;
+    margin: 0;
+    border: none;
+  }
+  //Styling details and listen button
+  .EpisodeCard__options--details,
+  .EpisodeCard__options--listen {
+    transition: 0.4s;
+    padding: 5px 20px;
+    border-radius: 15px;
+    font-weight: bold;
+    color: $color-3;
+  }
+
+  .EpisodeCard__options--details:hover,
+  .EpisodeCard__options--details:focus,
+  .EpisodeCard__options--listen:hover,
+  .EpisodeCard__options--listen:focus {
+    background: $color-3;
+    color: white;
+  }
+  //Format audio length of each episode
+  .EpisodeCard__options--audioLength {
+    color: rgb(102, 102, 102);
+    align-self: center;
+  }
+}
+
+//Title bar of dialog pop up - more details
+.EpisodeCard__titleBar {
+  //   background: blue;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.EpisodeCard__description {
+  padding: 20px;
+  max-height: 70vh;
+  overflow-y: scroll;
+}
+
+//Format back button when episode list renders
+.PodcastResults__button--back {
+  font-weight: bolder;
+  background: white;
+  cursor: pointer;
+  color: #282c34a4;
+  border: none;
+  border-radius: 35px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.603);
+  transition: 0.3s;
+  font-size: 2.75rem;
+  padding: 7px 12px;
 }
 
 .PodcastResults__button--back:hover,
-.PodcastResults__button--back:focus{
-    color: $color-3;
+.PodcastResults__button--back:focus {
+  color: $color-3;
 }
 
 //More details pop up dialog of each episode
 dialog {
-    padding: 0;
-    width: 80%;
-    border-radius: 10px;
-    border: none;
-    box-shadow: 2px 2px 2px 2px lightslategray;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 999;
+  padding: 0;
+  width: 80%;
+  border-radius: 10px;
+  border: 1px solid #939393;
+  box-shadow: 10px 10px 11px -7px rgba(0, 0, 0, 0.87);
+  color: $color-5;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
 
-    .EpisodeCard {
+  .EpisodeCard {
+    &__description {
+      background-color: $color-2;
+      color: $color-5;
 
-        &__titleBar {
-            background-color: $color-2;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 10px 10px 0 0 ;
-            font-weight: 600;
-            align-items: center;
-        }   
+      a {
+        color: $color-5;
 
-        &__closeDialog {
-            border: none;
-            background-color: $color-2;
-            width: 2rem;
-            color: $color-1;
-            text-align: center;
-            font-size: 2rem;
-            text-transform: uppercase;
-            font-weight: bold;
-
-            &:hover,
-            &:focus{
-                color: #757575;
-            }
+        &:hover {
+          color: $color-3;
         }
-    }   
+      }
+    }
+
+    &__titleBar {
+      background-color: $color-1;
+      color: $color-4;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 10px 10px 0 0;
+      font-weight: 600;
+      align-items: center;
+    }
+
+    &__closeDialog {
+      border: none;
+      background-color: $color-1;
+      width: 2rem;
+      color: $color-4;
+      text-align: center;
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-weight: bold;
+
+      &:hover,
+      &:focus {
+        color: $color-3;
+      }
+    }
+  }
 }
 
 // ==================================
-// 
+//
 // SWEETALERTS
-// 
+//
 // ===================================
 
 .swal2-html-container {
-    font-size: 1.8rem; 
+  font-size: 1.8rem;
 }
 
 .swal2-popup.swal2-modal {
-    border: 15px solid $color-2;     
+  border: 15px solid $color-2;
 }
 
 .swal2.content #text {
-    color: #0000;
+  color: #0000;
 }
 
 button.swal2-confirm.swal2-styled {
-    background-color: $color-1;
-    font-size: 1.6rem;
-    padding: 1rem;
+  background-color: $color-1;
+  font-size: 1.6rem;
+  padding: 1rem;
 }
 
-
 // ==================================
-// 
+//
 // FOOTER
-// 
+//
 // ===================================
 
 .Footer {
-    background-color: $color-2;
+  background-color: $color-2;
 
-    &__copy {
-        padding: 1rem 0;
-        text-align: center;
-    }
+  &__copy {
+    padding: 1rem 0;
+    text-align: center;
+  }
 }
