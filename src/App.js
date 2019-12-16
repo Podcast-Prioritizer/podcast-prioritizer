@@ -6,7 +6,6 @@ import Podcast from "./Podcast";
 import ComparisonResults from './ComparisonResults';
 import Footer from "./Footer";
 
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './styles/App.scss';
 
 class App extends Component {
@@ -66,12 +65,17 @@ class App extends Component {
     });
   }
 
+  // Scrolls to the search form area from the [Get Started] button
+  scrollDown = () => {
+    window.scrollTo(0, document.querySelector("#formArea").scrollHeight);
+  }
+
   render(){
     return (
-      <Router>
-        <Route path="/" component={Header} />
+    <>
+        <Header scrollClickHandler={this.scrollDown}/>
 
-        <div className="Search__formArea">
+        <div className="Search__formArea" id="formArea">
           <MapQuestSearch
             setLocationsProp={this.setLocations}
             setBikeTimeProp={this.setBikeTime}
@@ -106,8 +110,8 @@ class App extends Component {
           : null }
         </div>
 
-        <Route path="/" component={Footer}/>
-      </Router>
+        <Footer />
+      </>
     );
   };
 };
