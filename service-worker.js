@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/podcast-prioritizer/precache-manifest.c9cd69d47dd041d40b900f90df486bcb.js"
+  "/podcast-prioritizer/precache-manifest.33388b9d33f985a284504abf88f4bc7e.js"
 );
 
 self.addEventListener('message', (event) => {
