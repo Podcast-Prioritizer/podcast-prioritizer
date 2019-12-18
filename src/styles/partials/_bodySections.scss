@@ -207,7 +207,7 @@ ul {
 
 //Podcast results
 .PodcastResults__item {
-  width: 100%;
+  width: calc(50% - 10px);
   background: white;
   display: flex;
   margin: 10px 0;
@@ -235,6 +235,10 @@ ul {
     padding: 10px 20px;
     height: 100%;
   }
+}
+
+.PodcastResults__item:nth-of-type(2n+0){
+  margin-left: 20px;
 }
 
 .PodcastCard__button {
@@ -296,7 +300,7 @@ ul {
 }
 
 .PodcastCard__description--snippet {
-  max-height: 18rem;
+  max-height: 12rem;
   overflow: hidden;
 }
 
@@ -308,7 +312,6 @@ ul {
   padding: 0;
   margin: 0;
   text-transform: initial;
-  display: none;
 
   &:hover,
   &:focus {

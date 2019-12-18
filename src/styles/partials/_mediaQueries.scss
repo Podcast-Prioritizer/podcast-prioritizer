@@ -8,9 +8,14 @@
 }
 
 @media(max-width: 1000px){
-    .PodcastCard__button--showMore{
-        display: block;
+
+    .PodcastResults__item{
+        width: 100%;
     }
+
+    .PodcastResults__item:nth-of-type(2n+0){
+        margin-left: 0;
+      }
 
     //Change max height of podcast description to match smaller screen
     .PodcastCard__description--snippet{
