@@ -22,6 +22,15 @@ class Header extends Component {
                 Who said your commute has to be boring?
               </h2>
 
+              <div className="Header__textContainer">
+                <p className="Header__text">
+                  A quirky app dedicated to helping the environmentally
+                  conscious commuter decide if they should walk or grab their
+                  bike in order to get the most out of their favourite podcast
+                  episode.
+                </p>
+              </div>
+
               <div className="Header__getStarted">
                 <button
                   className="Header__scrollButton"

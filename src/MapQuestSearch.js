@@ -147,20 +147,19 @@ class MapQuestSearch extends Component {
     }).then(data => {
       let slicedSuggestionArray = data.data.results.slice(0, 5);
 
-      slicedSuggestionArray.map(suggestion => {
-      });
+      slicedSuggestionArray.map(suggestion => {});
     });
   };
 
   componentDidMount = () => {
     window.placeSearch({
       key: this.props.apiKey,
-      container: document.querySelector("#userStart"),
+      container: document.querySelector("#userStart")
     });
 
     window.placeSearch({
       key: this.props.apiKey,
-      container: document.querySelector("#userDestination"),
+      container: document.querySelector("#userDestination")
     });
   };
 
@@ -170,6 +169,7 @@ class MapQuestSearch extends Component {
         <div className="wrapper">
           <div className="MapQuest__introContent">
             <h2>Hit the road</h2>
+
             <p>
               Find the best way to reach your destination. Enter your start
               location and your desired destination.
@@ -177,28 +177,52 @@ class MapQuestSearch extends Component {
           </div>
 
           <form className="MapQuest__form" onSubmit={this.getMapInfo}>
-            <label htmlFor="userStart" className="visuallyHidden">
-              Enter Your Location
-            </label>
-            <input
-              type="search"
-              id="userStart"
-              placeholder="Enter Your Location"
-              ref="userStart"
-            />
-            <label htmlFor="userDestination" className="visuallyHidden">
-              Enter Your Destination
-            </label>
-            <input
-              type="search"
-              id="userDestination"
-              placeholder="Enter Your Location"
-              ref="userDestination"
-            />
+            <div className="MapQuest__inputContainer">
+              <label htmlFor="userStart" className="MapQuest__label">
+                Starting Location
+              </label>
+              <input
+                type="search"
+                id="userStart"
+                placeholder="CN Tower, Toronto"
+                ref="userStart"
+              />
+            </div>
+
+            <div className="MapQuest__inputContainer">
+              <label htmlFor="userDestination" className="MapQuest__label">
+                Destination
+              </label>
+              <input
+                type="search"
+                id="userDestination"
+                placeholder="483 Queen St W, Toronto"
+                ref="userDestination"
+              />
+            </div>
             <button className="MapQuest__submitBtn" type="submit">
               Search
             </button>
           </form>
+
+          <ol className="MapQuest__list">
+            <li className="MapQuest__item">
+              First, enter in your starting and destination address and we will
+              calculate the length of your commute.
+            </li>
+            <li className="MapQuest__item">
+              Next, search for a podcast either by name or keyword.
+            </li>
+            <li className="MapQuest__item">
+              When you find a podcast that interests you, select an episode to
+              listen to on your commute.
+            </li>
+            <li className="MapQuest__item">
+              Based on your episode selection, you will get a recommendation on
+              whether walking or taking your bike will be the best option for
+              you. It’s that easy!
+            </li>
+          </ol>
         </div>
       </div>
     );

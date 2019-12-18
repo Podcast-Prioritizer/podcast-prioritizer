@@ -40,6 +40,14 @@
                   width: 80%;
               }
         }
+
+        &__form {
+            order: 1;
+        }
+
+        &__label {
+            top: 5%;
+        }
     }
 
     .PodcastSearch {

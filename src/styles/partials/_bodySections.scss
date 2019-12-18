@@ -60,6 +60,19 @@ input {
 // ===================================
 
 .MapQuest {
+
+  &__list {
+    font-size: 1.8rem;
+    max-width: 775px;
+    color: #fff;
+  }
+
+  &__item {
+    &:not(:last-of-type) {
+      margin-bottom: 1rem;
+    }
+  }
+
   &__introContent {
     color: $color-4;
 
@@ -70,18 +83,37 @@ input {
 
   &__form {
     display: flex;
-    align-items: center;
+    align-items: center;  
 
     input {
-      width: 100%;
       padding: 1rem;
       height: 25px;
     }
 
     span {
       padding-right: 2rem;
-      margin: 3rem 2rem 3rem 0;
+      margin: 2rem 2rem 2rem 0;
       border-radius: 5px;
+    }
+  }
+
+  &__inputContainer {
+    width: 100%;
+    padding: 0 1rem;
+    position: relative;
+  }
+
+  &__label {
+    color: #FFF;
+    font-weight: bold;
+    position: absolute;
+    top: 15%;
+  }
+
+  &__searchArea {
+    .wrapper {
+      display: flex;
+      flex-direction: column;
     }
   }
 
